@@ -1,0 +1,28 @@
+# Data files (contain PHI — never commit)
+*.xlsx
+*.xls
+*.csv
+*.rds
+
+# Rendered outputs
+*.html
+*_files/
+*_cache/
+
+# R / RStudio
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# Quarto
+/.quarto/
+_site/
+_freeze/
+
+# macOS
+.DS_Store
+
+# rsconnect deployment records
+rsconnect/
