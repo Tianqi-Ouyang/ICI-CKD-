@@ -11,11 +11,48 @@ execute:
 
 ::: {.callout-note}
 ## About this page
-This document shows the data management pipeline as **code reference**.
-Chunks are not executed at render time — they load RPDR extracts and patient-level
-data which stay local. The cleaned output (`final_master_0114_raw.xlsx` +
-`aki_0120.xlsx`) is produced locally and feeds [`analysis.qmd`](analysis.qmd).
+This page is a **summary of the data management pipeline**. Code is hidden
+across the site and chunks are not executed at render time — they would load
+RPDR extracts and patient-level data which stay local. The cleaned output
+(`final_master_0114_raw.xlsx` + `aki_0120.xlsx`) is produced locally and feeds
+[`analysis.qmd`](analysis.qmd).
 :::
+
+## Pipeline overview
+
+| Stage | Inputs | Output |
+|---|---|---|
+| 1. Demographics & cohort | ICI starts registry + RPDR Dem | Race, Ethnic_Group, sex, last-known-alive date |
+| 2. Pre-baseline labs (within 180 days of ICI) | RPDR Lab | `pre_CRE_180days`, `pre_HGB_180days`, `pre_ALB_180days` |
+| 3. Baseline eGFR | Pre-baseline CRE + age + sex | `eGFR_cre` via CKD-EPI 2021 race-free formula |
+| 4. Comorbidities & medications on/before ICI | RPDR Dia + Med | `dm`, `htn`, `cad`, `cirrhosis`, `esrd_kt`, `ppi`, `ace_arb`, `diu`, `steroids`, `smoking` |
+| 5. Post-ICI CKD outcomes | Serial CRE after baseline + CKD-EPI | `ckd_incidence`, `ckd_progression`, `eskd_defination_1` (each with 90-day persistence rule) |
+| 6. ESRD / KT after ICI | RPDR Dia (post-ICI date) | `esrd_kt_after_ici`, `esrd_kt_after_ici_date` |
+| 7. Cohort exclusions | | ICI date < 2024-03-31; baseline CRE exists; no pre-existing ESRD/KT; baseline eGFR ≥ 10; no RPDR death-date errors |
+| 8. ICI class & companion chemo (±30 days of ICI) | RPDR Med | `ICI_Class` (PD1/PDL1/CTLA4/Combination), `Bevacizumab`, `Cisplatin`, `Carboplatin`, `Pemetrexed`, `Gemcitabine`, `Cetuximab`, `Trastuzumab`, `VEGF_TKI`, `nephrotoxic_chemo` |
+| 9. AKI from serial CRE | RPDR Lab (post-ICI CRE) | `aki`, `aki_date`, `aki_days` using KDIGO-style rules (CRE > 1.5× median-90d OR +0.3 over lowest-2d) |
+| 10. Composite outcomes & competing-risk status | All outcomes + death | `eskd_composite`, `ckd_composite`, `status_ckd_cmp` (Censored / CKD / Death), `time_to_ckd_cmp` |
+| 11. Yearly eGFR & CKD stage (1–10 years) | Yearly median CRE per patient | `eGFR_CRE_1year…10year`, `ckd_stage_1year…10year` |
+
+## Cohort flow
+
+| Step | N |
+|---|---|
+| Raw ICI starts | 25,397 |
+| After demographics merge | 20,383 |
+| Remove no baseline creatinine | 18,319 |
+| Remove pre-existing ESRD/KT & eGFR < 10 | 18,157 |
+| Remove labs only available after ICI | 17,937 |
+| Remove 216 placebo | 17,721 |
+| Remove 3 pre-ICI death RPDR errors | **17,718** |
+
+## Key method decisions
+
+- **eGFR formula** — CKD-EPI 2021 race-free creatinine-based equation for all eGFR calculations (baseline, yearly, pre/post-event).
+- **Outcome definitions** — CKD events require the defining condition to hold for ≥ 90 days (persistence rule) before being counted, to exclude transient dips.
+- **AKI** — post-ICI creatinine compared to both a 90-day pre-window median (KDIGO 1.5× criterion) and a 2-day pre-window minimum (+0.3 mg/dL criterion).
+- **Competing risk** — death is modeled as a competing event to CKD composite. Patients who die before any CKD event contribute to the `Death` stratum of `status_ckd_cmp`.
+- **Pre-index windows** — all baseline covariates (medications, diagnoses, labs) are restricted to dates on or before `ICI_Dose_Date` to prevent temporal leakage.
 
 # 1 Variable Name Dictionary
 
