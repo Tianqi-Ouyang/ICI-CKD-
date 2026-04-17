@@ -1,0 +1,40 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - data_management.qmd
+    - analysis.qmd
+
+website:
+  title: "ICI → CKD Cohort Study"
+  description: "Data management & analysis pipeline (code reference)"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Overview
+      - href: data_management.qmd
+        text: Data Management
+      - href: analysis.qmd
+        text: Analysis
+  page-footer:
+    left: "© 2026 · Code reference only — no patient data rendered"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    code-fold: false
+    code-tools: true
+    code-copy: true
+    smooth-scroll: true
+    anchor-sections: true
+
+execute:
+  eval: true
+  echo: true
+  warning: false
+  message: false
+  freeze: auto   # Cache chunk results; re-render only when source changes

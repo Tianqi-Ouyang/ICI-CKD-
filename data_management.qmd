@@ -1,12 +1,21 @@
 ---
 title: "Kavita ICI CKD — Data Management"
+subtitle: "Code reference — not executed at render"
 author: "Tianqi Ouyang"
 date: "`r Sys.Date()`"
 execute:
-  eval: true
+  eval: false
   warning: false
   message: false
 ---
+
+::: {.callout-note}
+## About this page
+This document shows the data management pipeline as **code reference**.
+Chunks are not executed at render time — they load RPDR extracts and patient-level
+data which stay local. The cleaned output (`final_master_0114_raw.xlsx` +
+`aki_0120.xlsx`) is produced locally and feeds [`analysis.qmd`](analysis.qmd).
+:::
 
 # 1 Variable Name Dictionary
 
@@ -248,19 +257,31 @@ pre_lab <- function(data, month, time, index_date, Group_Id) {
 }
 ```
 
-## 3.5 med_list — patients on a medication (optionally near index)
+## 3.5 med_list — patients on a medication on/before index date
+
+> **FIXED 2026-04-17 — Temporal leakage bug (flagged by Codex adversarial review).**
+> Previous version only applied `Medication_Date <= index_date` when
+> `excluded_names` was supplied; the `else` branch dropped the date guard, so
+> exposures like `ppi`, `ace_arb`, and `diu` could include medications started
+> AFTER ICI. This contaminated "baseline" covariates with post-ICI treatment
+> history and biased downstream models. Date filter is now applied in **both**
+> branches. Any `final_master_*.xlsx` built from the old version must be
+> regenerated before use.
 
 ```{r}
 #| label: fn-med-list
 med_list <- function(names, index_date, excluded_names = NULL, data) {
+  # Always enforce the pre-index date guard — do not remove.
+  filtered <- data %>%
+    filter(Medication_Date <= {{index_date}})
+
   if (!is.null(excluded_names)) {
-    data %>%
-      filter(Medication_Date <= {{index_date}}) %>%
+    filtered %>%
       filter(grepl(paste(names, collapse = "|"), Medication, ignore.case = TRUE) &
             !grepl(paste(excluded_names, collapse = "|"), Medication, ignore.case = TRUE)) %>%
       distinct(EMPI)
   } else {
-    data %>%
+    filtered %>%
       filter(grepl(paste(names, collapse = "|"), Medication, ignore.case = TRUE)) %>%
       distinct(EMPI)
   }
@@ -950,13 +971,10 @@ final_master <- final_master %>%
   mutate(aki_before_ckd = if_else(aki_days <= time_to_ckd_composite, 1, 0))
 ```
 
-## 5.16 Yearly follow-up & yearly eGFR / CKD-stage variables
-
-`pre_mdeian_CRE_Nyear` columns come from the upstream yearly median-CRE pull.
-This block expects them to already be present in `final_master`.
+## 5.16 Yearly follow-up flags
 
 ```{r}
-#| label: clean-yearly-egfr
+#| label: clean-followed-flags
 final_master <- final_master %>%
   mutate(
     followed_1year  = ifelse(last_cre_days > 365 * 1, 1, 0),
@@ -970,21 +988,55 @@ final_master <- final_master %>%
     followed_9year  = ifelse(last_cre_days > 365 * 9, 1, 0),
     followed_10year = ifelse(last_cre_days > 365 * 10, 1, 0)
   )
+```
 
+## 5.17 Yearly median creatinine → yearly eGFR → yearly CKD stage
+
+Compute the per-patient median CRE within each 365-day window after ICI,
+then derive eGFR and CKD stage at each year.
+
+```{r}
+#| label: clean-yearly-median-cre
+yearly_cre <- master_lab %>%
+  filter(Group_Id == "CRE", grepl("^\\d+\\.\\d+$", Result)) %>%
+  filter(!is.na(Result)) %>%
+  mutate(
+    Result         = as.numeric(Result),
+    days_since_ici = as.numeric(Seq_Date_Time - ICI_Dose_Date),
+    year_bucket    = ceiling(days_since_ici / 365)
+  ) %>%
+  filter(year_bucket >= 1, year_bucket <= 10) %>%
+  group_by(EMPI, year_bucket) %>%
+  summarise(median_cre = median(Result, na.rm = TRUE), .groups = "drop") %>%
+  tidyr::pivot_wider(
+    names_from  = year_bucket,
+    values_from = median_cre,
+    names_glue  = "pre_mdeian_CRE_{year_bucket}year"
+  )
+
+# Guarantee all 10 columns exist even if no patient has labs in that year
+needed_yearly_cols <- paste0("pre_mdeian_CRE_", 1:10, "year")
+for (col in setdiff(needed_yearly_cols, names(yearly_cre))) {
+  yearly_cre[[col]] <- NA_real_
+}
+
+final_master <- final_master %>% merge(yearly_cre, by = "EMPI", all.x = TRUE)
+```
+
+```{r}
+#| label: clean-yearly-egfr
 for (y in 1:10) {
   col_cre  <- paste0("pre_mdeian_CRE_", y, "year")
   col_egfr <- paste0("eGFR_CRE_",       y, "year")
-  if (col_cre %in% names(final_master)) {
-    final_master[[col_egfr]] <- mapply(gfr_calc,
-                                       final_master[[col_cre]],
-                                       final_master$male,
-                                       final_master$age_ici)
-  }
+  final_master[[col_egfr]] <- mapply(gfr_calc,
+                                     final_master[[col_cre]],
+                                     final_master$male,
+                                     final_master$age_ici)
 }
 
 # Fill eGFR at each year with baseline if missing
 final_master <- final_master %>%
-  mutate(across(all_of(paste0("eGFR_CRE_", 1:10, "year")),
+  mutate(across(any_of(paste0("eGFR_CRE_", 1:10, "year")),
                 ~ coalesce(., eGFR_CRE_baseline)))
 
 # Numeric CKD stage from eGFR
@@ -1072,10 +1124,7 @@ final_master_5year <- final_master %>% filter(followed_5year == 1)
 
 ```{r}
 #| label: save-final-master
-#| eval: false
 saveRDS(final_master, "final_master.rds")
-write_xlsx(final_master,
-  path = '/Users/to909/Desktop/Meg/Kavita ICI CKD/Final cohort/final_master_qmd_output.xlsx')
 ```
 
 ---

@@ -1,0 +1,52 @@
+---
+title: "ICI → CKD Cohort Study"
+subtitle: "Data Management & Analysis Pipeline"
+---
+
+## Project overview
+
+This site publishes the Quarto pipeline for a retrospective cohort study
+examining **chronic kidney disease (CKD) outcomes following immune checkpoint
+inhibitor (ICI) therapy**.
+
+The pipeline has two stages:
+
+| Stage | File | Role |
+|---|---|---|
+| **Data management** | [`data_management.qmd`](data_management.qmd) | Load raw ICI starts + RPDR files, derive demographics, comorbidities, labs, eGFR trajectories, CKD / ESKD / AKI outcomes, competing-risk status |
+| **Analysis** | [`analysis.qmd`](analysis.qmd) | Baseline characteristics, yearly tables, CIF curves, logistic regression, Fine-Gray competing-risk models, cause-specific Cox models, overall survival by cancer type |
+
+## Cohort
+
+| Step | N |
+|---|---|
+| Raw ICI starts | 25,397 |
+| After merging demographics | 20,383 |
+| Remove no baseline creatinine | 18,319 |
+| Remove pre-existing ESRD/KT and eGFR < 10 | 18,157 |
+| Remove labs after ICI-only | 17,937 |
+| Remove 216 placebo | 17,721 |
+| Remove 3 pre-ICI death RPDR errors | **17,718** |
+
+## Data privacy
+
+Patient-level identifiers (`EMPI`, `MRN`, names, dates of birth) never appear
+in any rendered output. Rendered tables and plots contain only aggregate
+summaries well above the small-cell threshold; all cell counts shown are
+institutional-level cohort statistics.
+
+Raw RPDR extracts and clinical Excel files remain local — only the rendered
+code and aggregate results are published here.
+
+## Data sources (local only, not in this repo)
+
+- `ICI_starts_downloaded_1127.xlsx` — Hospital ICI starts registry
+- RPDR extracts (Lab / Dem / Med / Dia) — Mass General Brigham Research Patient
+  Data Registry, pulled 2025-09-30
+- `cancer_type_clean.xlsx` — Curated tumor-category mapping
+
+## Dependencies
+
+Core R packages used across the pipeline: `tidyverse`, `dplyr`, `readxl`,
+`writexl`, `gtsummary`, `table1`, `survival`, `tidycmprsk`, `ggsurvfit`,
+`ggplot2`, `sqldf`.

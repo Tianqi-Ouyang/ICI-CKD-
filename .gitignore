@@ -18,11 +18,14 @@
 
 # Quarto
 /.quarto/
-_site/
 _freeze/
+# _site/ is NOT ignored when publishing via manual push; keep it out of main branch
+# if using `quarto publish gh-pages`, which handles the branch split automatically
 
 # macOS
 .DS_Store
 
 # rsconnect deployment records
 rsconnect/
+
+**/*.quarto_ipynb

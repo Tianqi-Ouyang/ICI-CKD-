@@ -1,0 +1,963 @@
+---
+title: "Kavita ICI CKD — Analysis"
+author: "Tianqi Ouyang"
+date: "`r Sys.Date()`"
+execute:
+  eval: true
+  warning: false
+  message: false
+---
+
+# 1 Setup
+
+```{r}
+#| label: setup-analysis
+library(tidyverse)
+library(readxl)
+library(scales)
+library(ggplot2)
+library(gtsummary)
+library(table1)
+library(survival)
+library(tidycmprsk)
+library(ggsurvfit)
+
+# Cleaned master produced by the data management pipeline (see data_management.qmd)
+master_updated <- read_excel(
+  "Final cohort/final_master_0114_raw.xlsx") %>%
+  mutate(across(contains("date"), as.Date))
+
+aki <- read_excel("Final cohort/aki_0120.xlsx") %>%
+  mutate(across(contains("date"), as.Date))
+
+# ICI class reference
+ici_class <- read_excel("ICI CKD/final_master_1229.xlsx") %>%
+  select(EMPI, ICI_Class)
+```
+
+# 1b Analytical derivations
+
+Everything below duplicates the derivation block at the top of the original
+`Kavita cohort 2026 0130.Rmd`. It takes the cleaned master + AKI table and
+builds the composite outcomes, competing-risk status, yearly eGFR / CKD stage,
+and scaled regression covariates used in every downstream section.
+
+```{r}
+#| label: fn-ckd-epi-gfr
+ckd_epi_gfr <- function(creat, male, age) {
+  k <- ifelse(male == 1, 0.9, 0.7)
+  a <- ifelse(male == 1, -0.302, -0.241)
+  m <- ifelse(male == 1, 1, 1.012)
+  gfr <- 142 * min(c(creat/k, 1))^a *
+               max(c(creat/k, 1))^-1.2 *
+               0.9938^age * m
+  return(gfr)
+}
+gfr_calc <- Vectorize(ckd_epi_gfr)
+
+get_ckd_stage <- function(egfr) {
+  if (is.na(egfr))     return(NA)
+  else if (egfr >= 90) return(1)
+  else if (egfr >= 60) return(2)
+  else if (egfr >= 30) return(3)
+  else if (egfr >= 15) return(4)
+  else                 return(5)
+}
+```
+
+```{r}
+#| label: merge-aki-ici
+final_master <- master_updated %>%
+  merge(aki, by = "EMPI", all.x = TRUE) %>%
+  mutate(aki_days = as.numeric(aki_date - ICI_Dose_Date),
+         aki      = if_else(is.na(aki), 0, aki)) %>%
+  merge(ici_class, by = "EMPI", all.x = TRUE) %>%
+  filter(is.na(Date_Of_Death) | Date_Of_Death >= ICI_Dose_Date)
+```
+
+```{r}
+#| label: cancer-groups-race
+final_master <- final_master %>%
+  mutate(cancer_group = case_when(
+    cancer_type == "gi"                   ~ "gi",
+    cancer_type == "cutaneous / melanoma" ~ "cutaneous / melanoma",
+    cancer_type == "gu"                   ~ "gu",
+    cancer_type == "gyn"                  ~ "gyn",
+    cancer_type == "thoracic"             ~ "thoracic",
+    TRUE                                   ~ "other"
+  )) %>%
+  mutate(
+    Race1 = ifelse(is.na(Race1), "Other/Unknown", Race1),
+    Race  = case_when(
+      Race1 == "White" ~ "White",
+      Race1 == "Black" ~ "Black",
+      Race1 == "Asian" ~ "Asian",
+      TRUE             ~ "Other/Unknown"
+    ),
+    Ethnic_Group = case_when(
+      Ethnic_Group == "HISPANIC"     ~ "Hispanic",
+      Ethnic_Group == "Non Hispanic" ~ "Non_hispanic",
+      TRUE                           ~ "Other"
+    ),
+    Ethnic_Group = case_when(
+      Race != "Black" & Language == "Spanish" ~ "Hispanic",
+      TRUE                                     ~ Ethnic_Group
+    )
+  )
+```
+
+```{r}
+#| label: composite-outcomes
+final_master <- final_master %>%
+  mutate(
+    eskd_composite      = ifelse(esrd_kt_after_ici == 1 | eskd_defination_1 == 1, 1, 0),
+    eskd_composite      = ifelse(is.na(eskd_composite), 0, eskd_composite),
+    eskd_composite_date = pmin(esrd_kt_after_ici_date, eskd_defination_1_date, na.rm = TRUE),
+    time_to_eskd_composite  = as.numeric(eskd_composite_date  - ICI_Dose_Date),
+    time_to_ckd_incidence   = as.numeric(ckd_incidence_date   - ICI_Dose_Date),
+    time_to_ckd_progression = as.numeric(ckd_progression_date - ICI_Dose_Date),
+
+    ckd_composite = ifelse(eskd_composite == 1 | ckd_incidence == 1 |
+                           ckd_progression == 1, 1, 0),
+    ckd_composite = ifelse(is.na(ckd_composite), 0, ckd_composite),
+    time_to_ckd_composite = pmin(time_to_eskd_composite,
+                                 time_to_ckd_incidence,
+                                 time_to_ckd_progression, na.rm = TRUE),
+
+    last_cre_days        = as.numeric(last_cre_date - ICI_Dose_Date),
+    death_days           = as.numeric(Date_Of_Death - ICI_Dose_Date),
+    time_to_death        = death_days,
+    time_to_death_status = ifelse(!is.na(death_days), 2, 0),
+
+    status_ckd_cmp = case_when(
+      (ckd_composite == 1) & (time_to_death_status == 2) ~
+        ifelse(time_to_ckd_composite < time_to_death, 1, 2),
+      (ckd_composite == 1 & time_to_death_status == 0) ~ 1,
+      (ckd_composite == 0 & time_to_death_status == 2) ~ 2,
+      TRUE                                              ~ 0
+    ),
+    time_to_ckd_cmp = case_when(
+      status_ckd_cmp == 1 ~ time_to_ckd_composite,
+      status_ckd_cmp == 2 ~ time_to_death,
+      status_ckd_cmp == 0 ~ last_cre_days
+    ),
+    status_ckd_cmp = factor(status_ckd_cmp, levels = c(0, 1, 2),
+                            labels = c("Censored", "CKD Composite", "Death")),
+    time_to_ckd_cmp_year = time_to_ckd_cmp / 365,
+    status_ckd_csh       = ifelse(status_ckd_cmp == "CKD Composite", 1, 0),
+    aki_before_ckd       = if_else(aki_days <= time_to_ckd_composite, 1, 0)
+  )
+```
+
+```{r}
+#| label: ici-class
+final_master <- final_master %>%
+  mutate(ICI_Class = case_when(
+    !is.na(ICI_Class) ~ ICI_Class,
+    ICI_Name %in% c("pembrolizumab","nivolumab","cemiplimab",
+                    "Nivolumab","Dostarlimab","Cemiplimab") ~ "PD1",
+    ICI_Name %in% c("atezolizumab","avelumab","durvalumab")  ~ "PDL1",
+    ICI_Name == "ipilimumab"                                  ~ "CTLA4",
+    ICI_Name == "ipilimumab AND nivolumab"                    ~ "Combination",
+    TRUE                                                       ~ NA_character_
+  ))
+```
+
+```{r}
+#| label: yearly-egfr
+followed_cols <- setNames(
+  lapply(1:10, function(y) ifelse(final_master$last_cre_days > 365 * y, 1, 0)),
+  paste0("followed_", 1:10, "year"))
+final_master <- bind_cols(final_master, as.data.frame(followed_cols))
+
+for (y in 1:10) {
+  col_cre  <- paste0("pre_mdeian_CRE_", y, "year")
+  col_egfr <- paste0("eGFR_CRE_",       y, "year")
+  if (col_cre %in% names(final_master)) {
+    final_master[[col_egfr]] <- mapply(gfr_calc,
+                                       final_master[[col_cre]],
+                                       final_master$male,
+                                       final_master$age_ici)
+  }
+}
+
+final_master <- final_master %>%
+  mutate(across(any_of(paste0("eGFR_CRE_", 1:10, "year")),
+                ~ coalesce(., eGFR_CRE_baseline)))
+
+final_master$ckd_stage_baseline <- sapply(final_master$eGFR_CRE_baseline, get_ckd_stage)
+for (y in 1:10) {
+  col_egfr  <- paste0("eGFR_CRE_",  y, "year")
+  col_stage <- paste0("ckd_stage_", y, "year")
+  if (col_egfr %in% names(final_master)) {
+    final_master[[col_stage]] <- sapply(final_master[[col_egfr]], get_ckd_stage)
+  }
+}
+```
+
+```{r}
+#| label: scaling-and-year-flags
+final_master <- final_master %>%
+  mutate(
+    year_10                       = age_ici / 10,
+    eGFR_CRE_baseline_decrease_10 = (eGFR_CRE_baseline * -1) / 10,
+    nephrotoxic_chemo = if_else(
+      if_any(c(Bevacizumab, Cisplatin, Carboplatin, Pemetrexed,
+               Gemcitabine, Cetuximab, Trastuzumab), ~ . == 1),
+      1L, 0L)
+  )
+
+for (y in 1:10) {
+  col_egfr <- paste0("eGFR_CRE_", y, "year")
+  col_dec  <- paste0("eGFR_CRE_", y, "year_decrease_10")
+  if (col_egfr %in% names(final_master)) {
+    final_master[[col_dec]] <- (final_master[[col_egfr]] * -1) / 10
+  }
+}
+
+for (y in 1:10) {
+  d <- 365 * y
+  final_master[[paste0("eskd_composite_",  y, "year")]] <- ifelse(final_master$time_to_eskd_composite   < d, 1, 0)
+  final_master[[paste0("ckd_incidence_",   y, "year")]] <- ifelse(final_master$time_to_ckd_incidence    < d, 1, 0)
+  final_master[[paste0("ckd_progression_", y, "year")]] <- ifelse(final_master$time_to_ckd_progression  < d, 1, 0)
+  final_master[[paste0("ckd_composite_",   y, "year")]] <- ifelse(final_master$time_to_ckd_composite    < d, 1, 0)
+}
+
+final_master <- final_master %>%
+  mutate(across(matches("(ckd_incidence|ckd_progression|eskd_composite|ckd_composite).*year$"),
+                ~ replace_na(., 0))) %>%
+  mutate(across(matches("(ckd_incidence|ckd_progression|eskd_composite).*year$"),
+                ~ factor(replace_na(., 0))))
+```
+
+```{r}
+#| label: factor-conversion
+num_var <- c("age_ici","pre_CRE_180days","year_10",
+             "pre_HGB_180days","pre_ALB_180days","eGFR_CRE_baseline")
+
+cat_var_candidates <- c("Gender_Legal_Sex","male","Race","Ethnic_Group",
+  "ckd_incidence","ckd_progression","eskd_composite","ckd_composite",
+  paste0("ckd_stage_", 1:10, "year"),
+  "dm","htn","cad","cirrhosis","esrd_kt",
+  "ace_arb","diu","ppi","steroids","smoking","statins",
+  "ICI_Class","nephrotoxic_chemo","ckd_stage_baseline",
+  paste0("ckd_composite_", 1:5, "year"),
+  "Bevacizumab","Cisplatin","Carboplatin","Pemetrexed",
+  "Gemcitabine","Cetuximab","Trastuzumab","VEGF_TKI",
+  "cancer_type","cancer_group","aki")
+
+final_master <- final_master %>%
+  mutate_at(intersect(cat_var_candidates, names(.)), factor)
+
+if ("ICI_Class" %in% names(final_master) && is.factor(final_master$ICI_Class)) {
+  final_master$ICI_Class <- relevel(final_master$ICI_Class, ref = "PD1")
+}
+```
+
+# 2 Variable Lists & Helpers
+
+```{r}
+#| label: variable-lists
+all_var <- c(
+  # Demographics
+  "age_ici", "year_10", "Gender_Legal_Sex", "male", "Race", "Ethnic_Group",
+
+  # Outcomes
+  "ckd_incidence", "ckd_progression", "eskd_composite", "ckd_composite",
+
+  # Longitudinal CKD stage
+  paste0("ckd_stage_", 1:10, "year"),
+
+  # Comorbidities
+  "dm", "htn", "cad", "cirrhosis", "esrd_kt",
+
+  # Medications
+  "ace_arb", "diu", "ppi", "steroids", "smoking", "statins",
+  "ICI_Class", "nephrotoxic_chemo",
+
+  # Labs / kidney function
+  "pre_CRE_180days", "pre_HGB_180days", "pre_ALB_180days",
+  "eGFR_CRE_baseline", "ckd_stage_baseline",
+
+  # Composite outcome flags
+  paste0("ckd_composite_", 1:5, "year"),
+
+  # Individual chemo agents
+  "Bevacizumab", "Cisplatin", "Carboplatin", "Pemetrexed",
+  "Gemcitabine", "Cetuximab", "Trastuzumab", "VEGF_TKI",
+
+  # Cancer
+  "cancer_type", "cancer_group",
+
+  # AKI
+  "aki"
+)
+
+num_var <- c("age_ici", "year_10",
+             "pre_CRE_180days", "pre_HGB_180days", "pre_ALB_180days",
+             "eGFR_CRE_baseline")
+
+cat_var <- setdiff(all_var, num_var)
+```
+
+```{r}
+#| label: fn-create-outcome-table
+# Build a year-specific tbl_summary with cumulative CKD stage history
+create_outcome_table <- function(data, time_suffix) {
+  year_num           <- as.numeric(gsub("[^0-9]", "", time_suffix))
+  stage_history_cols <- paste0("ckd_stage_", 1:year_num, "year")
+
+  followed_col  <- paste0("followed_",       time_suffix)
+  ckd_inc_col   <- paste0("ckd_incidence_",  time_suffix)
+  ckd_prog_col  <- paste0("ckd_progression_", time_suffix)
+  eskd_comp_col <- paste0("eskd_composite_", time_suffix)
+  ckd_comp_col  <- paste0("ckd_composite_",  time_suffix)
+
+  data %>%
+    filter(.data[[followed_col]] == 1) %>%
+    select(
+      # Demographics
+      age_ici, male, Race, Ethnic_Group,
+
+      # Outcomes (dynamic)
+      all_of(ckd_inc_col), all_of(ckd_prog_col),
+      all_of(eskd_comp_col), all_of(ckd_comp_col),
+
+      # Longitudinal CKD stage (cumulative up to the year of interest)
+      all_of(stage_history_cols), ckd_stage_baseline,
+      aki,
+
+      # Comorbidities
+      dm, htn, cad, cirrhosis,
+
+      # Medications
+      ace_arb, diu, ppi, steroids, smoking, statins,
+      ICI_Class, nephrotoxic_chemo,
+      cancer_type, cancer_group,
+
+      # Labs
+      pre_CRE_180days, pre_HGB_180days, pre_ALB_180days,
+      eGFR_CRE_baseline
+    ) %>%
+    tbl_summary(missing_text = "Missing")
+}
+```
+
+```{r}
+#| label: year-cohorts
+final_master_1year <- final_master %>% filter(followed_1year == 1)
+final_master_2year <- final_master %>% filter(followed_2year == 1)
+final_master_3year <- final_master %>% filter(followed_3year == 1)
+final_master_4year <- final_master %>% filter(followed_4year == 1)
+final_master_5year <- final_master %>% filter(followed_5year == 1)
+```
+
+---
+
+# 3 Table 1: Baseline Characteristics
+
+## 3.1 Overall Cohort
+
+```{r}
+#| label: table1-overall
+final_master %>%
+  select(
+    age_ici, male, Race, Ethnic_Group,
+    ckd_progression, ckd_incidence, eskd_composite, ckd_composite,
+    ckd_stage_baseline, aki,
+    dm, htn, cad, cirrhosis, cancer_type, cancer_group,
+    ace_arb, diu, ppi, steroids, smoking,
+    Bevacizumab, Cisplatin, Carboplatin, Pemetrexed,
+    Gemcitabine, Cetuximab, Trastuzumab, VEGF_TKI,
+    statins, ICI_Class, nephrotoxic_chemo,
+    pre_CRE_180days, pre_HGB_180days, pre_ALB_180days, eGFR_CRE_baseline
+  ) %>%
+  tbl_summary(missing_text = "Missing")
+```
+
+## 3.2 By Year of Follow-up
+
+```{r}
+#| label: table1-1year
+create_outcome_table(final_master, "1year")
+```
+
+```{r}
+#| label: table1-2year
+create_outcome_table(final_master, "2year")
+```
+
+```{r}
+#| label: table1-3year
+create_outcome_table(final_master, "3year")
+```
+
+```{r}
+#| label: table1-4year
+create_outcome_table(final_master, "4year")
+```
+
+```{r}
+#| label: table1-5year
+create_outcome_table(final_master, "5year")
+```
+
+```{r}
+#| label: table1-6year
+create_outcome_table(final_master, "6year")
+```
+
+```{r}
+#| label: table1-7year
+create_outcome_table(final_master, "7year")
+```
+
+```{r}
+#| label: table1-8year
+create_outcome_table(final_master, "8year")
+```
+
+```{r}
+#| label: table1-9year
+create_outcome_table(final_master, "9year")
+```
+
+```{r}
+#| label: table1-10year
+create_outcome_table(final_master, "10year")
+```
+
+---
+
+# 4 Cumulative Incidence (CIF) — Overall
+
+CKD Composite and Death treated as competing events.
+
+```{r}
+#| label: cif-overall
+cuminc(Surv(time_to_ckd_cmp, status_ckd_cmp) ~ 1, data = final_master) %>%
+  ggcuminc(outcome = c("CKD Composite", "Death")) +
+  add_confidence_interval() +
+  add_risktable() +
+  labs(x = "Years", y = "Cumulative Incidence") +
+  scale_ggsurvfit() +
+  scale_x_continuous(
+    breaks = seq(0, 365 * 5, by = 365),
+    labels = 0:5,
+    limits = c(0, 365 * 5)
+  )
+```
+
+---
+
+# 5 CKD Stage vs Yearly CKD Composite
+
+## 5.1 Year 1
+
+```{r}
+#| label: stage-vs-outcome-1year
+table1(~ ckd_stage_baseline + factor(ckd_stage_1year) | ckd_composite_1year,
+       final_master_1year)
+```
+
+## 5.2 Year 2
+
+```{r}
+#| label: stage-vs-outcome-2year
+table1(~ ckd_stage_baseline + factor(ckd_stage_2year) | ckd_composite_2year,
+       final_master_2year)
+```
+
+## 5.3 Year 3
+
+```{r}
+#| label: stage-vs-outcome-3year
+table1(~ ckd_stage_baseline + factor(ckd_stage_3year) | ckd_composite_3year,
+       final_master_3year)
+```
+
+## 5.4 Year 4
+
+```{r}
+#| label: stage-vs-outcome-4year
+table1(~ ckd_stage_baseline + factor(ckd_stage_4year) | ckd_composite_4year,
+       final_master_4year)
+```
+
+## 5.5 Year 5
+
+```{r}
+#| label: stage-vs-outcome-5year
+table1(~ ckd_stage_baseline + factor(ckd_stage_5year) | ckd_composite_5year,
+       final_master_5year)
+```
+
+---
+
+# 6 AKI Analyses
+
+## 6.1 AKI in 5-year CKD Composite cases
+
+```{r}
+#| label: aki-5year-ckd-cases
+table1(~ aki + as.factor(aki_before_ckd),
+       final_master_5year %>% filter(ckd_composite_5year == 1))
+```
+
+## 6.2 AKI overall
+
+```{r}
+#| label: aki-overall
+table1(~ aki + as.factor(aki_before_ckd) + ckd_composite, final_master)
+```
+
+## 6.3 CKD Composite cases — stratified by AKI timing
+
+```{r}
+#| label: aki-before-ckd-table
+final_master_ckd <- final_master %>% filter(ckd_composite == 1) %>%
+  mutate(aki_before_ckd = if_else(is.na(aki_before_ckd), 0, aki_before_ckd))
+
+create_outcome_table(final_master_ckd, "1year")
+
+final_master_ckd %>%
+  select(
+    aki_before_ckd,
+    age_ici, male, Race, Ethnic_Group,
+    ckd_composite, ckd_incidence, ckd_progression,
+    ckd_stage_baseline, aki,
+    dm, htn, cad, cirrhosis, cancer_type, cancer_group,
+    ace_arb, diu, ppi, steroids, smoking, statins,
+    ICI_Class, nephrotoxic_chemo,
+    pre_CRE_180days, pre_HGB_180days, pre_ALB_180days, eGFR_CRE_baseline
+  ) %>%
+  tbl_summary(missing_text = "Missing", by = aki_before_ckd)
+```
+
+---
+
+# 7 Logistic Regression — Outcome: `ckd_composite_5year`
+
+## 7.1 Univariate
+
+```{r}
+#| label: lr-univariate
+final_master_5year %>%
+  select(
+    year_10, male, Race,
+    dm, htn, cad, cirrhosis,
+    ace_arb, diu, ppi, steroids, smoking, statins,
+    nephrotoxic_chemo,
+    Bevacizumab, Cisplatin, Carboplatin, Pemetrexed,
+    Gemcitabine, Cetuximab, Trastuzumab,
+    eGFR_CRE_baseline_decrease_10,
+    ICI_Class, cancer_group,
+    ckd_composite_5year
+  ) %>%
+  tbl_uvregression(
+    method        = glm,
+    method.args   = list(family = binomial),
+    y             = ckd_composite_5year,
+    pvalue_fun    = ~ style_pvalue(.x, digits = 3),
+    exponentiate  = TRUE
+  ) %>%
+  bold_p(0.05) %>%
+  bold_labels() %>%
+  add_n()
+```
+
+## 7.2 Multivariate — Model 1 (nephrotoxic_chemo composite)
+
+```{r}
+#| label: lr-multivariate-1
+glm(
+  ckd_composite_5year ~ year_10 + male + dm + htn + cad + ppi + smoking +
+    eGFR_CRE_baseline_decrease_10 + nephrotoxic_chemo + ICI_Class + cancer_group,
+  data = final_master_5year, family = binomial()
+) %>%
+  tbl_regression(exponentiate = TRUE,
+                 pvalue_fun   = ~ style_pvalue(.x, digits = 3)) %>%
+  bold_p() %>%
+  bold_labels() %>%
+  add_n()
+```
+
+## 7.3 Multivariate — Model 2 (individual chemo agents)
+
+```{r}
+#| label: lr-multivariate-2
+glm(
+  ckd_composite_5year ~ year_10 + male + dm + htn + cad + ppi + smoking +
+    eGFR_CRE_baseline_decrease_10 +
+    Bevacizumab + Cisplatin + Carboplatin + Pemetrexed +
+    Gemcitabine + Cetuximab + Trastuzumab +
+    ICI_Class + cancer_group,
+  data = final_master_5year, family = binomial()
+) %>%
+  tbl_regression(exponentiate = TRUE,
+                 pvalue_fun   = ~ style_pvalue(.x, digits = 3)) %>%
+  bold_p() %>%
+  bold_labels() %>%
+  add_n()
+```
+
+## 7.4 Multivariate — Model 3 (with statins)
+
+```{r}
+#| label: lr-multivariate-3
+glm(
+  ckd_composite_5year ~ year_10 + male + dm + htn + cad + ppi + smoking +
+    eGFR_CRE_baseline_decrease_10 + nephrotoxic_chemo + statins +
+    ICI_Class + cancer_group,
+  data = final_master_5year, family = binomial()
+) %>%
+  tbl_regression(exponentiate = TRUE,
+                 pvalue_fun   = ~ style_pvalue(.x, digits = 3)) %>%
+  bold_p() %>%
+  bold_labels() %>%
+  add_n()
+```
+
+---
+
+# 8 Fine-Gray Competing Risk Model (CKD Composite vs Death)
+
+## 8.1 Univariate
+
+```{r}
+#| label: fg-univariate
+final_master %>%
+  select(
+    year_10, male, Race,
+    dm, htn, cad, cirrhosis,
+    ace_arb, diu, ppi, steroids, smoking, statins,
+    nephrotoxic_chemo,
+    Bevacizumab, Cisplatin, Carboplatin, Pemetrexed,
+    Gemcitabine, Cetuximab, Trastuzumab,
+    eGFR_CRE_baseline_decrease_10,
+    ICI_Class, cancer_group,
+    time_to_ckd_cmp, status_ckd_cmp
+  ) %>%
+  tbl_uvregression(
+    method       = tidycmprsk::crr,
+    method.args  = list(failcode = "CKD Composite", cencode = "Censored"),
+    y            = Surv(time_to_ckd_cmp, status_ckd_cmp),
+    pvalue_fun   = ~ style_pvalue(.x, digits = 3),
+    exponentiate = TRUE
+  ) %>%
+  bold_p(0.05) %>%
+  bold_labels() %>%
+  add_n()
+```
+
+## 8.2 Multivariate — Model 1 (individual chemo agents)
+
+```{r}
+#| label: fg-multivariate-1
+tidycmprsk::crr(
+  Surv(time_to_ckd_cmp, status_ckd_cmp) ~
+    year_10 + male + dm + htn + cad + ppi + smoking +
+    eGFR_CRE_baseline_decrease_10 +
+    Bevacizumab + Cisplatin + Carboplatin + Pemetrexed +
+    Gemcitabine + Cetuximab + Trastuzumab +
+    ICI_Class + cancer_group + cirrhosis,
+  failcode = "CKD Composite", cencode = "Censored",
+  data = final_master
+) %>%
+  tbl_regression(exp = TRUE) %>%
+  add_n() %>%
+  bold_p(0.05) %>%
+  bold_labels()
+```
+
+## 8.3 Multivariate — Model 2 (nephrotoxic_chemo composite)
+
+```{r}
+#| label: fg-multivariate-2
+tidycmprsk::crr(
+  Surv(time_to_ckd_cmp, status_ckd_cmp) ~
+    year_10 + male + dm + htn + cad + ppi + smoking +
+    eGFR_CRE_baseline_decrease_10 + nephrotoxic_chemo +
+    ICI_Class + cancer_group + cirrhosis,
+  failcode = "CKD Composite", cencode = "Censored",
+  data = final_master
+) %>%
+  tbl_regression(exp = TRUE) %>%
+  add_n() %>%
+  bold_p(0.05) %>%
+  bold_labels()
+```
+
+## 8.4 Multivariate — Model 3 (with statins)
+
+```{r}
+#| label: fg-multivariate-3
+tidycmprsk::crr(
+  Surv(time_to_ckd_cmp, status_ckd_cmp) ~
+    year_10 + male + dm + htn + cad + ppi + smoking +
+    eGFR_CRE_baseline_decrease_10 + nephrotoxic_chemo + statins +
+    ICI_Class + cancer_group + cirrhosis,
+  failcode = "CKD Composite", cencode = "Censored",
+  data = final_master
+) %>%
+  tbl_regression(exp = TRUE) %>%
+  add_n() %>%
+  bold_p(0.05) %>%
+  bold_labels()
+```
+
+---
+
+# 9 Cause-Specific Cox Model (CKD Composite as the event of interest)
+
+## 9.1 Univariate
+
+```{r}
+#| label: csh-univariate
+final_master %>%
+  select(
+    year_10, male, Race,
+    dm, htn, cad, cirrhosis,
+    ace_arb, diu, ppi, steroids, smoking, statins,
+    nephrotoxic_chemo,
+    eGFR_CRE_baseline_decrease_10,
+    ICI_Class, cancer_group,
+    time_to_ckd_cmp, status_ckd_csh
+  ) %>%
+  tbl_uvregression(
+    method       = survival::coxph,
+    y            = Surv(time_to_ckd_cmp, status_ckd_csh),
+    exponentiate = TRUE
+  ) %>%
+  bold_p(0.05) %>%
+  bold_labels() %>%
+  add_n()
+```
+
+## 9.2 Multivariate — Model 1 (individual chemo agents)
+
+```{r}
+#| label: csh-multivariate-1
+survival::coxph(
+  Surv(time_to_ckd_cmp, status_ckd_csh) ~
+    year_10 + male + dm + htn + cad + ppi + smoking +
+    eGFR_CRE_baseline_decrease_10 +
+    Bevacizumab + Cisplatin + Carboplatin + Pemetrexed +
+    Gemcitabine + Cetuximab + Trastuzumab +
+    ICI_Class + cancer_group + cirrhosis,
+  data = final_master
+) %>%
+  tbl_regression(exponentiate = TRUE) %>%
+  add_n() %>%
+  bold_p(0.05) %>%
+  bold_labels()
+```
+
+## 9.3 Multivariate — Model 2 (nephrotoxic_chemo composite)
+
+```{r}
+#| label: csh-multivariate-2
+survival::coxph(
+  Surv(time_to_ckd_cmp, status_ckd_csh) ~
+    year_10 + male + dm + htn + cad + ppi + smoking +
+    eGFR_CRE_baseline_decrease_10 + nephrotoxic_chemo +
+    ICI_Class + cancer_group + cirrhosis,
+  data = final_master
+) %>%
+  tbl_regression(exponentiate = TRUE) %>%
+  add_n() %>%
+  bold_p(0.05) %>%
+  bold_labels()
+```
+
+## 9.4 Multivariate — Model 3 (with statins)
+
+```{r}
+#| label: csh-multivariate-3
+survival::coxph(
+  Surv(time_to_ckd_cmp, status_ckd_csh) ~
+    year_10 + male + dm + htn + cad + ppi + smoking +
+    eGFR_CRE_baseline_decrease_10 + nephrotoxic_chemo + statins +
+    ICI_Class + cancer_group + cirrhosis,
+  data = final_master
+) %>%
+  tbl_regression(exponentiate = TRUE) %>%
+  add_n() %>%
+  bold_p(0.05) %>%
+  bold_labels()
+```
+
+---
+
+# 10 CIF Plots — Stratified
+
+## 10.1 By Diabetes Status
+
+```{r}
+#| label: cif-dm
+final_master_dm <- final_master %>%
+  mutate(dm_label = factor(dm, levels = c(0, 1),
+                           labels = c("No Diabetes", "Diabetes")))
+
+cuminc(Surv(time_to_ckd_cmp_year, status_ckd_cmp) ~ dm_label,
+       data = final_master_dm) %>%
+  ggcuminc(outcome = "CKD Composite") +
+  add_confidence_interval() +
+  add_risktable(
+    times           = seq(0, 5, by = 1),
+    risktable_stats = c("n.risk", "cum.event"),
+    stats_label     = list(n.risk = "At Risk", cum.event = "Events")
+  ) +
+  scale_color_manual(values = c("Diabetes" = "#619CFF", "No Diabetes" = "#F8766D")) +
+  scale_fill_manual(values  = c("Diabetes" = "#619CFF", "No Diabetes" = "#F8766D")) +
+  coord_cartesian(xlim = c(0, 5)) +
+  scale_x_continuous(
+    breaks = seq(0, 5, by = 1),
+    limits = c(0, 5),
+    expand = c(0.02, 0)
+  ) +
+  labs(x = "Years since Baseline",
+       y = "Cumulative Incidence",
+       title = "CIF of CKD Composite by DM Status (5-year view)") +
+  theme_classic() +
+  theme(
+    legend.position   = "bottom",
+    axis.text.x       = element_text(size = 8),
+    panel.grid.major  = element_blank(),
+    panel.grid.minor  = element_blank()
+  )
+```
+
+## 10.2 By Cancer Type
+
+```{r}
+#| label: cif-cancer
+cuminc(Surv(time_to_ckd_cmp_year, status_ckd_cmp) ~ cancer_group,
+       data = final_master) %>%
+  ggcuminc(outcome = "CKD Composite") +
+  add_confidence_interval() +
+  add_risktable(
+    times           = seq(0, 5, by = 1),
+    risktable_stats = c("n.risk", "cum.event"),
+    stats_label     = list(n.risk = "At Risk", cum.event = "Events")
+  ) +
+  coord_cartesian(xlim = c(0, 5)) +
+  scale_x_continuous(
+    breaks = seq(0, 5, by = 1),
+    limits = c(0, 5),
+    expand = c(0.02, 0)
+  ) +
+  labs(x = "Years since Baseline",
+       y = "Cumulative Incidence",
+       title = "CIF of CKD Composite by Cancer Type (5-year view)") +
+  theme_classic() +
+  theme(
+    legend.position   = "bottom",
+    axis.text.x       = element_text(size = 8),
+    panel.grid.major  = element_blank(),
+    panel.grid.minor  = element_blank()
+  )
+```
+
+---
+
+# 11 Overall Survival by Cancer Type (5-year Kaplan-Meier)
+
+Constructs a standard KM survival curve for all-cause mortality, stratified by
+`cancer_group`. Patients without a `Date_Of_Death` are censored at
+`last_cre_date` (last known alive). Log-rank test assesses whether the survival
+distributions differ across cancer groups.
+
+```{r}
+#| label: os-prep
+final_master_os <- final_master %>%
+  mutate(
+    death_event      = if_else(time_to_death_status == 2, 1, 0),
+    death_time_days  = if_else(death_event == 1, time_to_death, last_cre_days),
+    death_time_year  = death_time_days / 365
+  ) %>%
+  filter(!is.na(death_time_days), death_time_days >= 0, !is.na(cancer_group))
+```
+
+## 11.1 KM survival curves by cancer type
+
+```{r}
+#| label: os-km-plot
+survfit2(Surv(death_time_year, death_event) ~ cancer_group,
+         data = final_master_os) %>%
+  ggsurvfit() +
+  add_confidence_interval() +
+  add_risktable(
+    times           = seq(0, 5, by = 1),
+    risktable_stats = c("n.risk", "cum.event"),
+    stats_label     = list(n.risk = "At Risk", cum.event = "Deaths")
+  ) +
+  add_pvalue(location = "annotation", x = 0.2, y = 0.10) +
+  coord_cartesian(xlim = c(0, 5)) +
+  scale_x_continuous(
+    breaks = seq(0, 5, by = 1),
+    limits = c(0, 5),
+    expand = c(0.02, 0)
+  ) +
+  scale_y_continuous(
+    labels = scales::percent_format(accuracy = 1),
+    limits = c(0, 1)
+  ) +
+  labs(
+    x     = "Years since ICI Start",
+    y     = "Overall Survival",
+    title = "Overall Survival by Cancer Type (5-year view)"
+  ) +
+  theme_classic() +
+  theme(
+    legend.position  = "bottom",
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+```
+
+## 11.2 Log-rank test
+
+```{r}
+#| label: os-logrank
+survdiff(Surv(death_time_year, death_event) ~ cancer_group,
+         data = final_master_os)
+```
+
+## 11.3 Median survival by cancer type
+
+```{r}
+#| label: os-median
+survfit(Surv(death_time_year, death_event) ~ cancer_group,
+        data = final_master_os)
+```
+
+## 11.4 Cox model: cancer type effect on mortality (unadjusted)
+
+```{r}
+#| label: os-cox-unadjusted
+coxph(Surv(death_time_year, death_event) ~ cancer_group,
+      data = final_master_os) %>%
+  tbl_regression(exponentiate = TRUE,
+                 pvalue_fun   = ~ style_pvalue(.x, digits = 3)) %>%
+  bold_p(0.05) %>%
+  bold_labels() %>%
+  add_n()
+```
+
+## 11.5 Cox model: cancer type effect adjusted for core covariates
+
+```{r}
+#| label: os-cox-adjusted
+coxph(
+  Surv(death_time_year, death_event) ~
+    cancer_group + year_10 + male + dm + htn + cad + cirrhosis +
+    eGFR_CRE_baseline_decrease_10 + ICI_Class + nephrotoxic_chemo,
+  data = final_master_os
+) %>%
+  tbl_regression(exponentiate = TRUE,
+                 pvalue_fun   = ~ style_pvalue(.x, digits = 3)) %>%
+  bold_p(0.05) %>%
+  bold_labels() %>%
+  add_n()
+```
