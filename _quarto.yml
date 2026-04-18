@@ -5,6 +5,8 @@ project:
     - index.qmd
     - data_management.qmd
     - analysis.qmd
+  resources:
+    - figures-ppt/
 
 website:
   title: "ICI → CKD Cohort Study"
