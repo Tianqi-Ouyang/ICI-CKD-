@@ -4,7 +4,7 @@
     "href": "analysis.html#distribution-check-for-continuous-variables",
     "title": "Kavita ICI CKD — Analysis",
     "section": "3.0 Distribution check for continuous variables",
-    "text": "3.0 Distribution check for continuous variables\nBefore choosing summary statistics for Table 1, assess whether age_ici, pre_CRE_180days (baseline creatinine), and eGFR_CRE_baseline are approximately normal. With N ≈ 17,700 the Shapiro-Wilk test is not applicable (N &gt; 5000), so we rely on visual distribution + skewness / kurtosis.\n\n\n\nDistribution statistics. |Skewness| &lt; 0.5 &lt;U+2192&gt; approximately normal; 0.5&lt;U+2013&gt;1 &lt;U+2192&gt; mild skew; &gt; 1 &lt;U+2192&gt; strongly skewed.\n\n\n\n\n\n\n\n\n\n\n\n\nVariable\nN\nMean\nSD\nMedian\nQ1 - Q3\nSkewness\nKurtosis (excess)\n\n\n\n\nage_ici\n17718\n64.74\n13.32\n66.00\n57 &lt;U+2013&gt; 74\n-0.64\n0.51\n\n\npre_CRE_180days\n17718\n0.91\n0.34\n0.85\n0.7 &lt;U+2013&gt; 1.04\n2.36\n11.92\n\n\neGFR_CRE_baseline\n17718\n84.82\n21.53\n88.87\n71.06 &lt;U+2013&gt; 100.02\n-0.53\n0.00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDecision:\n\nReported as mean (SD) in Table 1: none\nReported as median (Q1, Q3): age_ici, pre_CRE_180days, eGFR_CRE_baseline"
+    "text": "3.0 Distribution check for continuous variables\nBefore choosing summary statistics for Table 1, assess whether age_ici, pre_CRE_180days (baseline creatinine), and eGFR_CRE_baseline are approximately normal. With N ≈ 17,700 the Shapiro-Wilk test is not applicable (N &gt; 5000), so we rely on visual distribution + skewness / kurtosis.\n\n\n\nDistribution statistics. |Skewness| &lt; 0.5 = approximately normal; 0.5 to 1 = mild skew; &gt; 1 = strongly skewed.\n\n\n\n\n\n\n\n\n\n\n\n\nVariable\nN\nMean\nSD\nMedian\nQ1 - Q3\nSkewness\nKurtosis (excess)\n\n\n\n\nage_ici\n17718\n64.74\n13.32\n66.00\n57 - 74\n-0.64\n0.51\n\n\npre_CRE_180days\n17718\n0.91\n0.34\n0.85\n0.7 - 1.04\n2.36\n11.92\n\n\neGFR_CRE_baseline\n17718\n84.82\n21.53\n88.87\n71.06 - 100.02\n-0.53\n0.00\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDecision:\n\nReported as mean (SD) in Table 1: none\nReported as median (Q1, Q3): age_ici, pre_CRE_180days, eGFR_CRE_baseline"
   },
   {
     "objectID": "analysis.html#overall-cohort",
@@ -25,7 +25,7 @@
     "href": "analysis.html#time-from-ici-to-the-primary-composite-outcome",
     "title": "Kavita ICI CKD — Analysis",
     "section": "4.1 Time from ICI to the primary composite outcome",
-    "text": "4.1 Time from ICI to the primary composite outcome\nAmong patients who experienced the CKD composite outcome, the distribution of time from first ICI dose to event:\n\n\n\nDays from first ICI dose to primary composite outcome (among patients with an event).\n\n\nN\nMedian\nQ1\nQ3\nMin\nMax\n\n\n\n\n1110\n442\n203\n840\n3\n3103\n\n\n\n\n\n\nThe primary composite outcome occurred a median of 442 days after the first dose of ICI (IQR, 203&lt;U+2013&gt;840 days; N = 1,110 events)."
+    "text": "4.1 Time from ICI to the primary composite outcome\nAmong patients who experienced the CKD composite outcome, the distribution of time from first ICI dose to event:\n\n\n\nDays from first ICI dose to primary composite outcome (among patients with an event).\n\n\nN\nMedian\nQ1\nQ3\nMin\nMax\n\n\n\n\n1110\n442\n203\n840\n3\n3103\n\n\n\n\n\n\nThe primary composite outcome occurred a median of 442 days after the first dose of ICI (IQR, 203-840 days; N = 1,110 events)."
   },
   {
     "objectID": "analysis.html#cif-curve-ckd-composite-vs-death",
