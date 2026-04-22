@@ -28,8 +28,7 @@ format:
     toc: true
     toc-depth: 3
     toc-location: left
-    code-fold: true         # code hidden by default; click "Code" to expand
-    code-summary: "Show code"
+    code-fold: false        # code shown inline in every section
     code-tools: true
     code-copy: true
     smooth-scroll: true
