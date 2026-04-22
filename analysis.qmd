@@ -553,6 +553,49 @@ create_outcome_table(final_master, "10year")
 
 CKD Composite and Death treated as competing events.
 
+## 4.1 Time from ICI to the primary composite outcome
+
+Among patients who experienced the CKD composite outcome, the distribution of
+time from first ICI dose to event:
+
+```{r}
+#| label: time-to-primary-outcome
+events_df <- final_master %>%
+  filter(ckd_composite == 1,
+         !is.na(time_to_ckd_composite),
+         time_to_ckd_composite >= 0)
+
+tto_stats <- events_df %>%
+  summarise(
+    N      = dplyr::n(),
+    Median = round(median(time_to_ckd_composite)),
+    Q1     = round(quantile(time_to_ckd_composite, 0.25)),
+    Q3     = round(quantile(time_to_ckd_composite, 0.75)),
+    Min    = round(min(time_to_ckd_composite)),
+    Max    = round(max(time_to_ckd_composite))
+  )
+
+knitr::kable(
+  tto_stats,
+  caption = "Days from first ICI dose to primary composite outcome (among patients with an event)."
+)
+```
+
+```{r}
+#| label: time-to-primary-outcome-sentence
+#| echo: false
+#| results: asis
+cat(sprintf(
+  "> The primary composite outcome occurred a median of **%s days** after the first dose of ICI (IQR, **%s–%s days**; N = %s events).\n",
+  format(tto_stats$Median, big.mark = ","),
+  format(tto_stats$Q1,     big.mark = ","),
+  format(tto_stats$Q3,     big.mark = ","),
+  format(tto_stats$N,      big.mark = ",")
+))
+```
+
+## 4.2 CIF curve (CKD composite vs death)
+
 ```{r}
 #| label: cif-overall
 #| fig-width: 10
