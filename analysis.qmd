@@ -453,23 +453,11 @@ make_plots <- function(x, lab) {
 ```
 
 ```{r}
-#| label: normality-decision
-# Rule: |skewness| ≤ 0.5 → treat as approximately normal → mean (SD) in Table 1
-normal_flag    <- setNames(abs(dist_stats$Skewness) <= 0.5, dist_stats$Variable)
-normal_vars    <- names(normal_flag)[ normal_flag]
-nonnormal_vars <- names(normal_flag)[!normal_flag]
-```
-
-```{r}
 #| label: normality-decision-show
-#| echo: false
 #| results: asis
-cat("**Decision:**\n\n",
-    "- Reported as **mean (SD)** in Table 1: ",
-    if (length(normal_vars))    paste0("`", normal_vars,    "`", collapse = ", ") else "_none_",
-    "\n- Reported as **median (Q1, Q3)**: ",
-    if (length(nonnormal_vars)) paste0("`", nonnormal_vars, "`", collapse = ", ") else "_none_",
-    "\n", sep = "")
+cat("**Decision:** Per investigator preference, all continuous variables in ",
+    "Table 1 are reported as **mean (SD)** regardless of the distribution check above.\n",
+    sep = "")
 ```
 
 ## 3.1 Overall Cohort
