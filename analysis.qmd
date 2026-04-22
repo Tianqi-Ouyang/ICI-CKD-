@@ -416,7 +416,7 @@ dist_stats <- purrr::map_dfr(check_vars, function(v) {
     Mean             = round(mean(x), 2),
     SD               = round(sd(x), 2),
     Median           = round(median(x), 2),
-    `Q1 - Q3`        = paste0(round(quantile(x, 0.25), 2), " – ",
+    `Q1 - Q3`        = paste0(round(quantile(x, 0.25), 2), " - ",
                               round(quantile(x, 0.75), 2)),
     Skewness         = round(moments::skewness(x), 2),
     `Kurtosis (excess)` = round(moments::kurtosis(x) - 3, 2),
@@ -424,7 +424,7 @@ dist_stats <- purrr::map_dfr(check_vars, function(v) {
   )
 })
 knitr::kable(dist_stats,
-             caption = "Distribution statistics. |Skewness| < 0.5 → approximately normal; 0.5–1 → mild skew; > 1 → strongly skewed.")
+             caption = "Distribution statistics. |Skewness| < 0.5 = approximately normal; 0.5 to 1 = mild skew; > 1 = strongly skewed.")
 ```
 
 ```{r}
@@ -586,7 +586,7 @@ knitr::kable(
 #| echo: false
 #| results: asis
 cat(sprintf(
-  "> The primary composite outcome occurred a median of **%s days** after the first dose of ICI (IQR, **%s–%s days**; N = %s events).\n",
+  "> The primary composite outcome occurred a median of **%s days** after the first dose of ICI (IQR, **%s-%s days**; N = %s events).\n",
   format(tto_stats$Median, big.mark = ","),
   format(tto_stats$Q1,     big.mark = ","),
   format(tto_stats$Q3,     big.mark = ","),
