@@ -485,50 +485,73 @@ final_master %>%
 
 ## 3.2 By Year of Follow-up
 
+Each sub-table is restricted to patients with at least that many years of
+follow-up (`followed_Nyear == 1`).
+
+### 3.2.1 — 1 year
+
 ```{r}
 #| label: table1-1year
 create_outcome_table(final_master, "1year")
 ```
+
+### 3.2.2 — 2 years
 
 ```{r}
 #| label: table1-2year
 create_outcome_table(final_master, "2year")
 ```
 
+### 3.2.3 — 3 years
+
 ```{r}
 #| label: table1-3year
 create_outcome_table(final_master, "3year")
 ```
+
+### 3.2.4 — 4 years
 
 ```{r}
 #| label: table1-4year
 create_outcome_table(final_master, "4year")
 ```
 
+### 3.2.5 — 5 years
+
 ```{r}
 #| label: table1-5year
 create_outcome_table(final_master, "5year")
 ```
+
+### 3.2.6 — 6 years
 
 ```{r}
 #| label: table1-6year
 create_outcome_table(final_master, "6year")
 ```
 
+### 3.2.7 — 7 years
+
 ```{r}
 #| label: table1-7year
 create_outcome_table(final_master, "7year")
 ```
+
+### 3.2.8 — 8 years
 
 ```{r}
 #| label: table1-8year
 create_outcome_table(final_master, "8year")
 ```
 
+### 3.2.9 — 9 years
+
 ```{r}
 #| label: table1-9year
 create_outcome_table(final_master, "9year")
 ```
+
+### 3.2.10 — 10 years
 
 ```{r}
 #| label: table1-10year
