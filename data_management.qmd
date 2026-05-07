@@ -1177,3 +1177,101 @@ saveRDS(final_master, "final_master.rds")
 | After `last_cre_date >= ICI_Dose_Date` (labs after ICI) | 17,937 |
 | After removing 216 placebo | 17,721 |
 | After removing 3 death-before-ICI RPDR errors | 17,718 |
+
+---
+
+# 8 Supplemental — ICD Codes Used to Define Comorbidities
+
+All comorbidities listed below were ascertained from RPDR diagnoses with
+`Date <= ICI_Dose_Date` (i.e., on or before the index date), unless otherwise
+noted. Where a medication ascertainment was added, it is shown in the second
+column.
+
+## 8.1 End-stage renal disease / kidney transplant (`esrd_kt`)
+
+Used as a baseline exclusion criterion. ICD-9 / ICD-10 codes:
+
+| Code | System | Description |
+|---|---|---|
+| 585.6  | ICD-9  | End-stage renal disease |
+| 996.81 | ICD-9  | Complications of kidney transplant |
+| V45.1  | ICD-9  | Kidney transplant status |
+| V56.1  | ICD-9  | Extracorporeal dialysis care |
+| N18.0  | ICD-10 | Acute kidney failure with ESRD |
+| N18.6  | ICD-10 | End-stage renal disease |
+| T86.1, T86.10–T86.13, T86.19 | ICD-10 | Complications / rejection / failure / infection of kidney transplant |
+| Z49.0, Z49.1, Z49.2 | ICD-10 | Encounter for dialysis (general / hemodialysis / peritoneal) |
+| Z94.0  | ICD-10 | Kidney transplant status |
+| Z99.2  | ICD-10 | Dependence on renal dialysis |
+
+## 8.2 Diabetes mellitus (`dm`)
+
+| Code | System | Description |
+|---|---|---|
+| 250.00–250.03 | ICD-9 | DM without complication (T1, T2, controlled / uncontrolled) |
+| 250.10–250.13 | ICD-9 | DM with ketoacidosis |
+| 250.40–250.43 | ICD-9 | DM with renal manifestations |
+| E10.9, E11.9 | ICD-10 | T1 / T2 DM without complications |
+| E10.21, E11.21 | ICD-10 | DM with diabetic nephropathy |
+| E10.22, E11.22 | ICD-10 | DM with chronic kidney disease |
+| E10.29, E11.29 | ICD-10 | DM with other kidney complications |
+| E10.40, E11.40, E10.49, E11.49 | ICD-10 | DM with diabetic neuropathy |
+| E10.65, E11.65 | ICD-10 | DM with hyperglycemia |
+| E13.9 | ICD-10 | Other specified DM without complications |
+
+## 8.3 Hypertension (`htn`)
+
+ICD codes (with concurrent medication ascertainment):
+
+| Code | System | Description |
+|---|---|---|
+| 401.0, 401.1, 401.9 | ICD-9 | Essential hypertension (malignant / benign / unspecified) |
+| 405.01, 405.09, 405.91, 405.99 | ICD-9 | Secondary hypertension |
+| 997.91 | ICD-9 | Hypertension complicating procedures |
+| I10 | ICD-10 | Essential (primary) hypertension |
+| I15.0, I15.1, I15.2, I15.8, I15.9 | ICD-10 | Secondary hypertension |
+
+Excluded (false positives via diagnosis-name string): pulmonary embolism,
+borderline / labile hypertension flags, chronic venous hypertension entries.
+
+Concurrent antihypertensive medications used to supplement diagnosis
+ascertainment: thiazides, loop diuretics, K-sparing diuretics, beta-blockers,
+calcium-channel blockers, central α-agonists, ACE inhibitors, ARBs.
+
+## 8.4 Coronary artery disease (`cad`)
+
+Defined by **diagnosis-name string match** (not pure ICD-code) against a
+curated list including: *coronary artery disease*, *coronary atherosclerosis*,
+*atherosclerotic heart disease* (with/without angina), *angina pectoris*,
+*acute / chronic ischemic heart disease*, *unstable angina*, *coronary
+occlusion without MI*, *ischemic cardiomyopathy*, *current or past history of
+CAD (PheNorm_ICD ≥ 0.5)*. Patients matching any string on or before
+`ICI_Dose_Date` were classified as CAD.
+
+## 8.5 Cirrhosis (`cirrhosis`)
+
+Diagnosis-name match: any RPDR diagnosis row containing the case-insensitive
+substring *"cirrhosis"* on or before `ICI_Dose_Date`.
+
+## 8.6 Smoking (`smoking`)
+
+Diagnosis-name match: any RPDR diagnosis containing one of:
+*smoking*, *tobacco*, *cigarette*, *cigarettes*, *nicotine*, *smoke*
+(at any time, including post-baseline — see note in §8.7 below).
+
+## 8.7 Outcome — ESRD / kidney transplant after ICI (`esrd_kt_after_ici`)
+
+Same code set as §8.1, but with `Date > ICI_Dose_Date`. Date of first qualifying
+diagnosis becomes `esrd_kt_after_ici_date`.
+
+## 8.8 Note on temporal pre-index restriction
+
+The medication ascertainment helper (`med_list()`) was patched on
+**2026-04-17** after the Codex adversarial review identified that
+the function had been ignoring the `Medication_Date <= index_date`
+filter when no `excluded_names` argument was supplied. All medication
+exposures (`ppi`, `ace_arb`, `diu`, `steroids`, `allopurinol`, `sglt2i`,
+`glp1`) are now strictly limited to medications on or before
+`ICI_Dose_Date`. Smoking covariate (§8.6) is currently still derived
+without a date restriction and may include post-ICI smoking diagnoses;
+this is documented as a known limitation.

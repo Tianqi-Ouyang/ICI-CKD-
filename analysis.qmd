@@ -1199,3 +1199,153 @@ coxph(
   bold_labels() %>%
   add_n()
 ```
+
+---
+
+# 12 Supplemental — Included vs Excluded Patients
+
+Compares baseline characteristics between the **17,718 patients in the
+analytic cohort** and patients excluded from the original ICI starts
+registry (≈7,679 excluded). Demographics for excluded patients come from
+RPDR Dem; baseline labs and most comorbidities are not reliably available
+for excluded patients (often the reason they were excluded), so this
+Table 1 reports the variables that are present for both groups.
+
+```{r}
+#| label: load-raw-and-dem-for-exclusion-table
+#| message: false
+raw_starts <- readxl::read_excel("ICI_starts_downloaded_1127.xlsx") %>%
+  rename_with(~ gsub("[^[:alnum:]_]+", "_", .x)) %>%
+  rename_with(~ gsub("_+", "_", .x)) %>%
+  rename_with(~ gsub("_$", "", .x)) %>%
+  distinct(EMPI_MRN, .keep_all = TRUE) %>%
+  rename(EMPI = EMPI_MRN) %>%
+  mutate(ICI_Dose_Date = as.Date(ICI_Dose_Date))
+
+dem_supp <- read.table(
+  "/Users/to909/Partners HealthCare Dropbox/Tianqi Ouyang/CKD after ICI/RPDR/mes98_093025104659807332_Dem.txt",
+  sep = "|", fill = TRUE, quote = "", header = TRUE) %>%
+  distinct(EMPI, .keep_all = TRUE) %>%
+  mutate(
+    Date_of_Birth = as.Date(Date_of_Birth, "%m/%d/%Y"),
+    Race_supp = case_when(
+      Race1 == "White" ~ "White",
+      Race1 == "Black" ~ "Black",
+      Race1 == "Asian" ~ "Asian",
+      TRUE             ~ "Other/Unknown"
+    ),
+    Ethnic_Group_supp = case_when(
+      Ethnic_Group == "HISPANIC"     ~ "Hispanic",
+      Ethnic_Group == "Non Hispanic" ~ "Non_hispanic",
+      TRUE                           ~ "Other"
+    ),
+    Ethnic_Group_supp = case_when(
+      Race_supp != "Black" & Language == "Spanish" ~ "Hispanic",
+      TRUE                                          ~ Ethnic_Group_supp
+    ),
+    male_supp = if_else(Gender_Legal_Sex == "Male", 1L, 0L)
+  ) %>%
+  select(EMPI, Date_of_Birth, Gender_Legal_Sex,
+         male_supp, Race_supp, Ethnic_Group_supp)
+```
+
+```{r}
+#| label: build-included-vs-excluded
+included_empis <- final_master$EMPI
+
+compare_df <- raw_starts %>%
+  merge(dem_supp, by = "EMPI", all.x = TRUE) %>%
+  mutate(
+    age_at_ici = round(as.numeric(difftime(ICI_Dose_Date, Date_of_Birth,
+                                           units = "days")) / 365),
+    cancer_group_supp = case_when(
+      tolower(Tumor_Category) == "gi"                   ~ "gi",
+      tolower(Tumor_Category) == "cutaneous / melanoma" ~ "cutaneous / melanoma",
+      tolower(Tumor_Category) == "gu"                   ~ "gu",
+      tolower(Tumor_Category) == "gyn"                  ~ "gyn",
+      tolower(Tumor_Category) == "thoracic"             ~ "thoracic",
+      TRUE                                               ~ "other"
+    ),
+    ICI_Class_supp = case_when(
+      tolower(ICI_Name) %in% c("pembrolizumab","nivolumab",
+                                "cemiplimab","dostarlimab")    ~ "PD1",
+      tolower(ICI_Name) %in% c("atezolizumab","avelumab",
+                                "durvalumab")                   ~ "PDL1",
+      tolower(ICI_Name) == "ipilimumab"                          ~ "CTLA4",
+      tolower(ICI_Name) == "ipilimumab and nivolumab"            ~ "Combination",
+      TRUE                                                        ~ NA_character_
+    ),
+    Year_ICI = format(ICI_Dose_Date, "%Y"),
+    cohort_status = factor(
+      ifelse(EMPI %in% included_empis, "Included", "Excluded"),
+      levels = c("Included", "Excluded"))
+  )
+
+cat(sprintf(
+  "Total patients in raw starts: %s\nIncluded (analytic cohort): %s\nExcluded: %s\n",
+  format(nrow(compare_df),                                big.mark = ","),
+  format(sum(compare_df$cohort_status == "Included"),     big.mark = ","),
+  format(sum(compare_df$cohort_status == "Excluded"),     big.mark = ",")))
+```
+
+## 12.1 Table 1 — included vs excluded
+
+```{r}
+#| label: table1-included-vs-excluded
+compare_df %>%
+  select(cohort_status,
+         age_at_ici, male_supp, Race_supp, Ethnic_Group_supp,
+         cancer_group_supp, ICI_Class_supp, Year_ICI) %>%
+  tbl_summary(
+    by           = cohort_status,
+    missing_text = "Missing",
+    statistic    = list(all_continuous() ~ "{mean} ({sd})"),
+    label        = list(
+      age_at_ici        ~ "Age at ICI start (years)",
+      male_supp         ~ "Male (0 = female, 1 = male)",
+      Race_supp         ~ "Race",
+      Ethnic_Group_supp ~ "Ethnic group",
+      cancer_group_supp ~ "Cancer group",
+      ICI_Class_supp    ~ "ICI class",
+      Year_ICI          ~ "Year of ICI start"
+    )
+  ) %>%
+  add_overall() %>%
+  add_p(test.args = list(all_categorical() ~ list(simulate.p.value = TRUE))) %>%
+  bold_labels()
+```
+
+## 12.2 Cohort exclusion ledger
+
+```{r}
+#| label: exclusion-ledger
+knitr::kable(
+  data.frame(
+    Step = c(
+      "Raw ICI starts",
+      "After demographics merge",
+      "Remove no baseline creatinine",
+      "Remove pre-existing ESRD/KT or eGFR < 10",
+      "Remove last_cre_date < ICI date",
+      "Remove placebo arms",
+      "Remove pre-ICI death (RPDR error)"),
+    `N remaining` = c(25397, 20383, 18319, 18157, 17937, 17721, 17718),
+    `N excluded at this step` = c(NA, 25397 - 20383, 20383 - 18319,
+                                  18319 - 18157, 18157 - 17937,
+                                  17937 - 17721, 17721 - 17718),
+    check.names = FALSE
+  ),
+  caption = "Cohort exclusion ledger."
+)
+```
+
+---
+
+# 12 Supplemental — Included vs Excluded Patients
+
+Compares baseline characteristics between the **17,718 patients in the analytic cohort** and the **patients excluded** from the original ICI starts registry (25,397 minus the analytic cohort = 7,679 excluded). Demographics for excluded patients come from RPDR Dem; baseline labs and comorbidities are not available for most excluded patients (which is often the reason they were excluded), so this Table 1 reports the variables that are reliably present for both groups.
+
+```{r}
+#| label: load-raw-and-dem-for-exclusion-table
+#| message: false
+raw_starts <- readxl::read_excel("ICI_starts_downloaded_1127.xlsx") 
