@@ -1311,7 +1311,6 @@ compare_df %>%
     )
   ) %>%
   add_overall() %>%
-  add_p(test.args = list(all_categorical() ~ list(simulate.p.value = TRUE))) %>%
   bold_labels()
 ```
 
