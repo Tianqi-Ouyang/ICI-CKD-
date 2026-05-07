@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tianqi Ouyang">
-<meta name="dcterms.date" content="2026-04-22">
+<meta name="dcterms.date" content="2026-05-07">
 
 <title>Kavita ICI CKD — Data Management – ICI → CKD Cohort Study</title>
 <style>
@@ -218,6 +218,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#save-cleaned-master" id="toc-save-cleaned-master" class="nav-link" data-scroll-target="#save-cleaned-master">6 Save cleaned master</a></li>
   <li><a href="#cohort-exclusion-ledger-documentation" id="toc-cohort-exclusion-ledger-documentation" class="nav-link" data-scroll-target="#cohort-exclusion-ledger-documentation">7 Cohort Exclusion Ledger (documentation)</a></li>
+  <li><a href="#supplemental-icd-codes-used-to-define-comorbidities" id="toc-supplemental-icd-codes-used-to-define-comorbidities" class="nav-link" data-scroll-target="#supplemental-icd-codes-used-to-define-comorbidities">8 Supplemental — ICD Codes Used to Define Comorbidities</a>
+  <ul class="collapse">
+  <li><a href="#end-stage-renal-disease-kidney-transplant-esrd_kt" id="toc-end-stage-renal-disease-kidney-transplant-esrd_kt" class="nav-link" data-scroll-target="#end-stage-renal-disease-kidney-transplant-esrd_kt">8.1 End-stage renal disease / kidney transplant (<code>esrd_kt</code>)</a></li>
+  <li><a href="#diabetes-mellitus-dm" id="toc-diabetes-mellitus-dm" class="nav-link" data-scroll-target="#diabetes-mellitus-dm">8.2 Diabetes mellitus (<code>dm</code>)</a></li>
+  <li><a href="#hypertension-htn" id="toc-hypertension-htn" class="nav-link" data-scroll-target="#hypertension-htn">8.3 Hypertension (<code>htn</code>)</a></li>
+  <li><a href="#coronary-artery-disease-cad" id="toc-coronary-artery-disease-cad" class="nav-link" data-scroll-target="#coronary-artery-disease-cad">8.4 Coronary artery disease (<code>cad</code>)</a></li>
+  <li><a href="#cirrhosis-cirrhosis" id="toc-cirrhosis-cirrhosis" class="nav-link" data-scroll-target="#cirrhosis-cirrhosis">8.5 Cirrhosis (<code>cirrhosis</code>)</a></li>
+  <li><a href="#smoking-smoking" id="toc-smoking-smoking" class="nav-link" data-scroll-target="#smoking-smoking">8.6 Smoking (<code>smoking</code>)</a></li>
+  <li><a href="#outcome-esrd-kidney-transplant-after-ici-esrd_kt_after_ici" id="toc-outcome-esrd-kidney-transplant-after-ici-esrd_kt_after_ici" class="nav-link" data-scroll-target="#outcome-esrd-kidney-transplant-after-ici-esrd_kt_after_ici">8.7 Outcome — ESRD / kidney transplant after ICI (<code>esrd_kt_after_ici</code>)</a></li>
+  <li><a href="#note-on-temporal-pre-index-restriction" id="toc-note-on-temporal-pre-index-restriction" class="nav-link" data-scroll-target="#note-on-temporal-pre-index-restriction">8.8 Note on temporal pre-index restriction</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -248,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 22, 2026</p>
+      <p class="date">May 7, 2026</p>
     </div>
   </div>
   
@@ -1950,8 +1961,219 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+<hr>
+</section>
+<section id="supplemental-icd-codes-used-to-define-comorbidities" class="level1">
+<h1>8 Supplemental — ICD Codes Used to Define Comorbidities</h1>
+<p>All comorbidities listed below were ascertained from RPDR diagnoses with <code>Date &lt;= ICI_Dose_Date</code> (i.e., on or before the index date), unless otherwise noted. Where a medication ascertainment was added, it is shown in the second column.</p>
+<section id="end-stage-renal-disease-kidney-transplant-esrd_kt" class="level2">
+<h2 class="anchored" data-anchor-id="end-stage-renal-disease-kidney-transplant-esrd_kt">8.1 End-stage renal disease / kidney transplant (<code>esrd_kt</code>)</h2>
+<p>Used as a baseline exclusion criterion. ICD-9 / ICD-10 codes:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>System</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>585.6</td>
+<td>ICD-9</td>
+<td>End-stage renal disease</td>
+</tr>
+<tr class="even">
+<td>996.81</td>
+<td>ICD-9</td>
+<td>Complications of kidney transplant</td>
+</tr>
+<tr class="odd">
+<td>V45.1</td>
+<td>ICD-9</td>
+<td>Kidney transplant status</td>
+</tr>
+<tr class="even">
+<td>V56.1</td>
+<td>ICD-9</td>
+<td>Extracorporeal dialysis care</td>
+</tr>
+<tr class="odd">
+<td>N18.0</td>
+<td>ICD-10</td>
+<td>Acute kidney failure with ESRD</td>
+</tr>
+<tr class="even">
+<td>N18.6</td>
+<td>ICD-10</td>
+<td>End-stage renal disease</td>
+</tr>
+<tr class="odd">
+<td>T86.1, T86.10–T86.13, T86.19</td>
+<td>ICD-10</td>
+<td>Complications / rejection / failure / infection of kidney transplant</td>
+</tr>
+<tr class="even">
+<td>Z49.0, Z49.1, Z49.2</td>
+<td>ICD-10</td>
+<td>Encounter for dialysis (general / hemodialysis / peritoneal)</td>
+</tr>
+<tr class="odd">
+<td>Z94.0</td>
+<td>ICD-10</td>
+<td>Kidney transplant status</td>
+</tr>
+<tr class="even">
+<td>Z99.2</td>
+<td>ICD-10</td>
+<td>Dependence on renal dialysis</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="diabetes-mellitus-dm" class="level2">
+<h2 class="anchored" data-anchor-id="diabetes-mellitus-dm">8.2 Diabetes mellitus (<code>dm</code>)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>System</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>250.00–250.03</td>
+<td>ICD-9</td>
+<td>DM without complication (T1, T2, controlled / uncontrolled)</td>
+</tr>
+<tr class="even">
+<td>250.10–250.13</td>
+<td>ICD-9</td>
+<td>DM with ketoacidosis</td>
+</tr>
+<tr class="odd">
+<td>250.40–250.43</td>
+<td>ICD-9</td>
+<td>DM with renal manifestations</td>
+</tr>
+<tr class="even">
+<td>E10.9, E11.9</td>
+<td>ICD-10</td>
+<td>T1 / T2 DM without complications</td>
+</tr>
+<tr class="odd">
+<td>E10.21, E11.21</td>
+<td>ICD-10</td>
+<td>DM with diabetic nephropathy</td>
+</tr>
+<tr class="even">
+<td>E10.22, E11.22</td>
+<td>ICD-10</td>
+<td>DM with chronic kidney disease</td>
+</tr>
+<tr class="odd">
+<td>E10.29, E11.29</td>
+<td>ICD-10</td>
+<td>DM with other kidney complications</td>
+</tr>
+<tr class="even">
+<td>E10.40, E11.40, E10.49, E11.49</td>
+<td>ICD-10</td>
+<td>DM with diabetic neuropathy</td>
+</tr>
+<tr class="odd">
+<td>E10.65, E11.65</td>
+<td>ICD-10</td>
+<td>DM with hyperglycemia</td>
+</tr>
+<tr class="even">
+<td>E13.9</td>
+<td>ICD-10</td>
+<td>Other specified DM without complications</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hypertension-htn" class="level2">
+<h2 class="anchored" data-anchor-id="hypertension-htn">8.3 Hypertension (<code>htn</code>)</h2>
+<p>ICD codes (with concurrent medication ascertainment):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>System</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>401.0, 401.1, 401.9</td>
+<td>ICD-9</td>
+<td>Essential hypertension (malignant / benign / unspecified)</td>
+</tr>
+<tr class="even">
+<td>405.01, 405.09, 405.91, 405.99</td>
+<td>ICD-9</td>
+<td>Secondary hypertension</td>
+</tr>
+<tr class="odd">
+<td>997.91</td>
+<td>ICD-9</td>
+<td>Hypertension complicating procedures</td>
+</tr>
+<tr class="even">
+<td>I10</td>
+<td>ICD-10</td>
+<td>Essential (primary) hypertension</td>
+</tr>
+<tr class="odd">
+<td>I15.0, I15.1, I15.2, I15.8, I15.9</td>
+<td>ICD-10</td>
+<td>Secondary hypertension</td>
+</tr>
+</tbody>
+</table>
+<p>Excluded (false positives via diagnosis-name string): pulmonary embolism, borderline / labile hypertension flags, chronic venous hypertension entries.</p>
+<p>Concurrent antihypertensive medications used to supplement diagnosis ascertainment: thiazides, loop diuretics, K-sparing diuretics, beta-blockers, calcium-channel blockers, central α-agonists, ACE inhibitors, ARBs.</p>
+</section>
+<section id="coronary-artery-disease-cad" class="level2">
+<h2 class="anchored" data-anchor-id="coronary-artery-disease-cad">8.4 Coronary artery disease (<code>cad</code>)</h2>
+<p>Defined by <strong>diagnosis-name string match</strong> (not pure ICD-code) against a curated list including: <em>coronary artery disease</em>, <em>coronary atherosclerosis</em>, <em>atherosclerotic heart disease</em> (with/without angina), <em>angina pectoris</em>, <em>acute / chronic ischemic heart disease</em>, <em>unstable angina</em>, <em>coronary occlusion without MI</em>, <em>ischemic cardiomyopathy</em>, <em>current or past history of CAD (PheNorm_ICD ≥ 0.5)</em>. Patients matching any string on or before <code>ICI_Dose_Date</code> were classified as CAD.</p>
+</section>
+<section id="cirrhosis-cirrhosis" class="level2">
+<h2 class="anchored" data-anchor-id="cirrhosis-cirrhosis">8.5 Cirrhosis (<code>cirrhosis</code>)</h2>
+<p>Diagnosis-name match: any RPDR diagnosis row containing the case-insensitive substring <em>“cirrhosis”</em> on or before <code>ICI_Dose_Date</code>.</p>
+</section>
+<section id="smoking-smoking" class="level2">
+<h2 class="anchored" data-anchor-id="smoking-smoking">8.6 Smoking (<code>smoking</code>)</h2>
+<p>Diagnosis-name match: any RPDR diagnosis containing one of: <em>smoking</em>, <em>tobacco</em>, <em>cigarette</em>, <em>cigarettes</em>, <em>nicotine</em>, <em>smoke</em> (at any time, including post-baseline — see note in §8.7 below).</p>
+</section>
+<section id="outcome-esrd-kidney-transplant-after-ici-esrd_kt_after_ici" class="level2">
+<h2 class="anchored" data-anchor-id="outcome-esrd-kidney-transplant-after-ici-esrd_kt_after_ici">8.7 Outcome — ESRD / kidney transplant after ICI (<code>esrd_kt_after_ici</code>)</h2>
+<p>Same code set as §8.1, but with <code>Date &gt; ICI_Dose_Date</code>. Date of first qualifying diagnosis becomes <code>esrd_kt_after_ici_date</code>.</p>
+</section>
+<section id="note-on-temporal-pre-index-restriction" class="level2">
+<h2 class="anchored" data-anchor-id="note-on-temporal-pre-index-restriction">8.8 Note on temporal pre-index restriction</h2>
+<p>The medication ascertainment helper (<code>med_list()</code>) was patched on <strong>2026-04-17</strong> after the Codex adversarial review identified that the function had been ignoring the <code>Medication_Date &lt;= index_date</code> filter when no <code>excluded_names</code> argument was supplied. All medication exposures (<code>ppi</code>, <code>ace_arb</code>, <code>diu</code>, <code>steroids</code>, <code>allopurinol</code>, <code>sglt2i</code>, <code>glp1</code>) are now strictly limited to medications on or before <code>ICI_Dose_Date</code>. Smoking covariate (§8.6) is currently still derived without a date restriction and may include post-ICI smoking diagnoses; this is documented as a known limitation.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
