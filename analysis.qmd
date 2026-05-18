@@ -1253,12 +1253,23 @@ dem_supp <- read.table(
 #| label: build-included-vs-excluded
 included_empis <- final_master$EMPI
 
+# Curated labels from the analytic cohort (used for Included patients)
+curated_labels <- final_master %>%
+  transmute(
+    EMPI,
+    cancer_group_curated = as.character(cancer_group),
+    ICI_Class_curated    = as.character(ICI_Class)
+  )
+
 compare_df <- raw_starts %>%
-  merge(dem_supp, by = "EMPI", all.x = TRUE) %>%
+  merge(dem_supp,        by = "EMPI", all.x = TRUE) %>%
+  merge(curated_labels,  by = "EMPI", all.x = TRUE) %>%
   mutate(
     age_at_ici = round(as.numeric(difftime(ICI_Dose_Date, Date_of_Birth,
                                            units = "days")) / 365),
-    cancer_group_supp = case_when(
+
+    # Raw mapping (fallback for Excluded patients)
+    cancer_group_raw = case_when(
       tolower(Tumor_Category) == "gi"                   ~ "gi",
       tolower(Tumor_Category) == "cutaneous / melanoma" ~ "cutaneous / melanoma",
       tolower(Tumor_Category) == "gu"                   ~ "gu",
@@ -1266,7 +1277,7 @@ compare_df <- raw_starts %>%
       tolower(Tumor_Category) == "thoracic"             ~ "thoracic",
       TRUE                                               ~ "other"
     ),
-    ICI_Class_supp = case_when(
+    ICI_Class_raw = case_when(
       tolower(ICI_Name) %in% c("pembrolizumab","nivolumab",
                                 "cemiplimab","dostarlimab")    ~ "PD1",
       tolower(ICI_Name) %in% c("atezolizumab","avelumab",
@@ -1275,6 +1286,12 @@ compare_df <- raw_starts %>%
       tolower(ICI_Name) == "ipilimumab and nivolumab"            ~ "Combination",
       TRUE                                                        ~ NA_character_
     ),
+
+    # Final labels: curated for Included, raw mapping for Excluded
+    #   → ensures §12.1 Included column matches §3.1 exactly
+    cancer_group_supp = coalesce(cancer_group_curated, cancer_group_raw),
+    ICI_Class_supp    = coalesce(ICI_Class_curated,    ICI_Class_raw),
+
     Year_ICI = format(ICI_Dose_Date, "%Y"),
     cohort_status = factor(
       ifelse(EMPI %in% included_empis, "Included", "Excluded"),
@@ -1287,6 +1304,20 @@ cat(sprintf(
   format(sum(compare_df$cohort_status == "Included"),     big.mark = ","),
   format(sum(compare_df$cohort_status == "Excluded"),     big.mark = ",")))
 ```
+
+::: {.callout-note}
+## Why labels differ between §3.1 and §12.1
+Section 3.1 uses curated cancer type (`final_master_1202.xlsx`) and curated
+ICI class (`final_master_1229.xlsx`). Section 12.1 originally pulled from the
+**raw** `Tumor_Category` and `ICI_Name` in `ICI_starts_downloaded_1127.xlsx`,
+which produced different category counts because curation re-classified
+several hundred "other" / mis-coded patients into specific cancer groups
+and resolved ICI naming variants.
+
+This chunk now uses the curated labels for Included patients (so §12.1
+matches §3.1 exactly) and falls back to the raw mapping only for Excluded
+patients, who don't have curated labels.
+:::
 
 ## 12.1 Table 1 — included vs excluded
 
