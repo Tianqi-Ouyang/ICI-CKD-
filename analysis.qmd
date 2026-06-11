@@ -1097,12 +1097,12 @@ final_master_os <- final_master %>%
     death_time_year  = death_time_days / 365,
     cancer_group     = fct_recode(
       factor(cancer_group),
-      "Melanoma" = "cutaneous / melanoma",
-      "GI"       = "gi",
-      "GU"       = "gu",
-      "GYN"      = "gyn",
-      "Thoracic" = "thoracic",
-      "Other"    = "other"
+      "Cutaneous" = "cutaneous / melanoma",
+      "GI"        = "gi",
+      "GU"        = "gu",
+      "GYN"       = "gyn",
+      "Thoracic"  = "thoracic",
+      "Other"     = "other"
     )
   ) %>%
   filter(!is.na(death_time_days), death_time_days >= 0, !is.na(cancer_group))
@@ -1253,17 +1253,40 @@ dem_supp <- read.table(
 #| label: build-included-vs-excluded
 included_empis <- final_master$EMPI
 
-# Curated labels from the analytic cohort (used for Included patients)
-curated_labels <- final_master %>%
+# Cleaned labels + comorbidities from the analytic cohort (used for Included rows)
+included_labels <- final_master %>%
   transmute(
     EMPI,
-    cancer_group_curated = as.character(cancer_group),
-    ICI_Class_curated    = as.character(ICI_Class)
+    cancer_group_inc = as.character(cancer_group),
+    ICI_Class_inc    = as.character(ICI_Class),
+    dm_inc           = as.integer(as.character(dm)),
+    htn_inc          = as.integer(as.character(htn)),
+    cad_inc          = as.integer(as.character(cad)),
+    cirrhosis_inc    = as.integer(as.character(cirrhosis)),
+    ckd_inc          = as.integer(eGFR_CRE_baseline < 60),
+    smoking_inc      = as.integer(as.character(smoking)),
+    nephrotoxic_chemo_inc = as.integer(as.character(nephrotoxic_chemo))
   )
 
+# RPDR-derived comorbidities for the excluded cohort (built by
+# /tmp/build_excluded_comorbidities.R from the new RPDR pull).
+# Patients without RPDR records have NA across all comorbidities.
+excluded_comorbid <- read_excel("Final cohort/exclusion_comorbidities.xlsx") %>%
+  rename(
+    dm_exc        = dm,
+    htn_exc       = htn,
+    cad_exc       = cad,
+    cirrhosis_exc = cirrhosis,
+    ckd_exc       = ckd,
+    smoking_exc   = smoking,
+    nephrotoxic_chemo_exc = nephrotoxic_chemo
+  ) %>%
+  select(-has_rpdr)
+
 compare_df <- raw_starts %>%
-  merge(dem_supp,        by = "EMPI", all.x = TRUE) %>%
-  merge(curated_labels,  by = "EMPI", all.x = TRUE) %>%
+  merge(dem_supp,           by = "EMPI", all.x = TRUE) %>%
+  merge(included_labels,    by = "EMPI", all.x = TRUE) %>%
+  merge(excluded_comorbid,  by = "EMPI", all.x = TRUE) %>%
   mutate(
     age_at_ici = round(as.numeric(difftime(ICI_Dose_Date, Date_of_Birth,
                                            units = "days")) / 365),
@@ -1287,10 +1310,19 @@ compare_df <- raw_starts %>%
       TRUE                                                        ~ NA_character_
     ),
 
-    # Final labels: curated for Included, raw mapping for Excluded
+    # Final labels: cleaned values for Included, raw mapping for Excluded
     #   → ensures §12.1 Included column matches §3.1 exactly
-    cancer_group_supp = coalesce(cancer_group_curated, cancer_group_raw),
-    ICI_Class_supp    = coalesce(ICI_Class_curated,    ICI_Class_raw),
+    cancer_group_supp = coalesce(cancer_group_inc, cancer_group_raw),
+    ICI_Class_supp    = coalesce(ICI_Class_inc,    ICI_Class_raw),
+
+    # Comorbidities — Included from final_master, Excluded from RPDR-derived xlsx
+    dm_supp        = coalesce(dm_inc,        dm_exc),
+    htn_supp       = coalesce(htn_inc,       htn_exc),
+    cad_supp       = coalesce(cad_inc,       cad_exc),
+    cirrhosis_supp = coalesce(cirrhosis_inc, cirrhosis_exc),
+    ckd_supp       = coalesce(ckd_inc,       ckd_exc),
+    smoking_supp   = coalesce(smoking_inc,   smoking_exc),
+    nephrotoxic_chemo_supp = coalesce(nephrotoxic_chemo_inc, nephrotoxic_chemo_exc),
 
     Year_ICI = format(ICI_Dose_Date, "%Y"),
     cohort_status = factor(
@@ -1321,24 +1353,42 @@ patients, who don't have curated labels.
 
 ## 12.1 Table 1 — included vs excluded
 
+::: {.callout-note}
+**Comorbidity coverage:** The Included column uses the cleaned `final_master`
+covariates. The Excluded column uses RPDR-derived covariates from the new pull
+(`mes98_093025104659807332_*`). Of the 7,676 excluded patients, only **2,662
+(35%) have RPDR records**; the other **5,014 (65%) have no RPDR data** and
+appear as **"Missing"** in every comorbidity row. They were either never
+included in the original RPDR pull or had care entirely outside MGB.
+:::
+
 ```{r}
 #| label: table1-included-vs-excluded
 compare_df %>%
   select(cohort_status,
          age_at_ici, male_supp, Race_supp, Ethnic_Group_supp,
+         dm_supp, htn_supp, cad_supp, ckd_supp, cirrhosis_supp,
+         smoking_supp, nephrotoxic_chemo_supp,
          cancer_group_supp, ICI_Class_supp, Year_ICI) %>%
   tbl_summary(
     by           = cohort_status,
     missing_text = "Missing",
     statistic    = list(all_continuous() ~ "{mean} ({sd})"),
     label        = list(
-      age_at_ici        ~ "Age at ICI start (years)",
-      male_supp         ~ "Male (0 = female, 1 = male)",
-      Race_supp         ~ "Race",
-      Ethnic_Group_supp ~ "Ethnic group",
-      cancer_group_supp ~ "Cancer group",
-      ICI_Class_supp    ~ "ICI class",
-      Year_ICI          ~ "Year of ICI start"
+      age_at_ici            ~ "Age at ICI start (years)",
+      male_supp             ~ "Male (0 = female, 1 = male)",
+      Race_supp             ~ "Race",
+      Ethnic_Group_supp     ~ "Ethnic group",
+      dm_supp               ~ "Diabetes mellitus",
+      htn_supp              ~ "Hypertension",
+      cad_supp              ~ "Coronary artery disease",
+      ckd_supp              ~ "Chronic kidney disease (baseline eGFR < 60)",
+      cirrhosis_supp        ~ "Cirrhosis",
+      smoking_supp          ~ "Smoking history",
+      nephrotoxic_chemo_supp ~ "Nephrotoxic chemotherapy (±30 d of ICI)",
+      cancer_group_supp     ~ "Cancer group",
+      ICI_Class_supp        ~ "ICI class",
+      Year_ICI              ~ "Year of ICI start"
     )
   ) %>%
   add_overall() %>%
