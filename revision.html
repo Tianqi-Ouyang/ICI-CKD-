@@ -170,9 +170,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#bug-register" id="toc-bug-register" class="nav-link" data-scroll-target="#bug-register">2 Bug register</a>
   <ul class="collapse">
-  <li><a href="#tier-1-defects-that-changed-published-results" id="toc-tier-1-defects-that-changed-published-results" class="nav-link" data-scroll-target="#tier-1-defects-that-changed-published-results">2.1 Tier 1 — defects that changed published results</a></li>
-  <li><a href="#tier-2-latent-fragilities-that-are-not-currently-biting" id="toc-tier-2-latent-fragilities-that-are-not-currently-biting" class="nav-link" data-scroll-target="#tier-2-latent-fragilities-that-are-not-currently-biting">2.2 Tier 2 — latent fragilities that are <em>not</em> currently biting</a></li>
-  <li><a href="#what-actually-moved" id="toc-what-actually-moved" class="nav-link" data-scroll-target="#what-actually-moved">2.3 What actually moved</a></li>
+  <li><a href="#defects-that-changed-published-results" id="toc-defects-that-changed-published-results" class="nav-link" data-scroll-target="#defects-that-changed-published-results">2.1 Defects that changed published results</a></li>
+  <li><a href="#what-actually-moved" id="toc-what-actually-moved" class="nav-link" data-scroll-target="#what-actually-moved">2.2 What actually moved</a></li>
   </ul></li>
   <li><a href="#reviewer-request-1-a-less-strict-ckd-incidence-definition" id="toc-reviewer-request-1-a-less-strict-ckd-incidence-definition" class="nav-link" data-scroll-target="#reviewer-request-1-a-less-strict-ckd-incidence-definition">3 Reviewer request 1 — a less strict CKD incidence definition</a></li>
   <li><a href="#reviewer-request-2-the-aki-ckd-group" id="toc-reviewer-request-2-the-aki-ckd-group" class="nav-link" data-scroll-target="#reviewer-request-2-the-aki-ckd-group">4 Reviewer request 2 — the AKI → CKD group</a>
@@ -384,9 +383,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="bug-register" class="level1">
 <h1>2 Bug register</h1>
-<p>Two tiers. The tiering is the point: it separates <em>this changed the paper</em> from <em>this looks alarming but changed nothing</em>. Five suspected bugs were checked against the data and found <strong>not</strong> to affect any published number — they sit in Tier 2, and saying so is as important as flagging the three that did.</p>
-<section id="tier-1-defects-that-changed-published-results" class="level2">
-<h2 class="anchored" data-anchor-id="tier-1-defects-that-changed-published-results">2.1 Tier 1 — defects that changed published results</h2>
+<p>Three defects in the pipeline changed numbers that appear in the manuscript. Each is listed with its location and the size of the effect it had. Every figure below was verified by first reproducing the published logic exactly, so each difference is the effect of a fix and not a porting artefact.</p>
+<section id="defects-that-changed-published-results" class="level2">
+<h2 class="anchored" data-anchor-id="defects-that-changed-published-results">2.1 Defects that changed published results</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 9%">
@@ -407,7 +406,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>1</td>
 <td><code>med_list()</code> applies its pre-index date guard <strong>only</strong> when <code>excluded_names</code> is supplied. Every call without it silently becomes “ever in the record”.</td>
 <td><code>Final cohort/Kavita final cohort 2026.Rmd:133</code>, calls <code>:706–734</code></td>
-<td>Large. <code>ppi</code> 12,638 → 8,637; <code>diu</code> 9,375 → 6,420; <code>statins</code> 8,208 → 6,865; <code>ace_arb</code> 7,430 → 6,179; every chemo agent falls, so <code>nephrotoxic_chemo</code> (a covariate in <strong>every</strong> adjusted model) goes 8,580 (48.4%) → 6,940 (39.2%). See §2.3.</td>
+<td>Large. <code>ppi</code> 12,638 → 8,637; <code>diu</code> 9,375 → 6,420; <code>statins</code> 8,208 → 6,865; <code>ace_arb</code> 7,430 → 6,179; every chemo agent falls, so <code>nephrotoxic_chemo</code> (a covariate in <strong>every</strong> adjusted model) goes 8,580 (48.4%) → 6,940 (39.2%). See §2.2.</td>
 </tr>
 <tr class="even">
 <td>2</td>
@@ -424,53 +423,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="tier-2-latent-fragilities-that-are-not-currently-biting" class="level2">
-<h2 class="anchored" data-anchor-id="tier-2-latent-fragilities-that-are-not-currently-biting">2.2 Tier 2 — latent fragilities that are <em>not</em> currently biting</h2>
-<p>Checked against the data and confirmed harmless <strong>today</strong>. They are worth hardening because each would fail silently if an upstream file changed.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 41%">
-<col style="width: 43%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Issue</th>
-<th>Why it looks wrong</th>
-<th>What the data shows</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>distinct(EMPI_MRN, .keep_all = TRUE)</code> with no <code>arrange()</code>, and <code>as.Date()</code> applied <em>after</em> the dedup — so <code>ICI_Dose_Date</code> (study time zero) is whichever dose row the Excel export happened to put first.</td>
-<td>3,534 patients have &gt;1 dose row, spread up to 4,258 days.</td>
-<td><strong>0 of 25,397 patients get the wrong date</strong> — the export is already date-sorted. Harden with <code>arrange()</code> before <code>distinct()</code>; no published number changes.</td>
-</tr>
-<tr class="even">
-<td><code>data_management.qmd:772</code> anchors post-baseline follow-up to the <em>baseline lab date</em>, not <code>ICI_Dose_Date</code>, which would let CKD events predate ICI.</td>
-<td>Baseline can sit up to 180 days pre-ICI.</td>
-<td>The <strong>live</strong> pipeline anchors to <code>ICI_Dose_Date</code> correctly (<code>:968</code>). Verified: <strong>0 of 1,151 outcome events predate ICI start.</strong></td>
-</tr>
-<tr class="odd">
-<td>Ledger row “25,397 ICI starts” sits above patient-level rows.</td>
-<td>Looks like dose rows leaking into a patient ledger.</td>
-<td>The file holds 29,664 dose rows and 25,397 patients — 25,397 <em>is</em> the patient count. The <strong>label</strong> is wrong, not the number.</td>
-</tr>
-<tr class="even">
-<td><code>dia_list_icd()</code> has its <code>if</code>/<code>else</code> branches <strong>inverted</strong> — when <code>excluded_names</code> <em>is</em> supplied it takes the branch that never uses it, so <code>no_htn_list</code> was silently discarded.</td>
-<td><code>htn</code> is a covariate in every adjusted model, and the exclusion list exists to drop things like “chronic venous hypertension with ulcer”.</td>
-<td><strong>0 patients affected.</strong> Only <strong>19 of 160,927</strong> qualifying pre-ICI rows match <code>no_htn_list</code>, and no patient’s <em>only</em> qualifying row is an excluded one — <code>htn</code> is 10,706 either way. A real defect that never bit.</td>
-</tr>
-<tr class="odd">
-<td><code>esrd_kt_codes</code> contains <code>Z49.0/.1/.2</code> — non-billable ICD-10 parents matching <strong>zero</strong> rows — and omits the billable <code>Z49.31</code>/<code>Z49.32</code>, which do have data.</td>
-<td>Affects both the baseline exclusion and the <code>esrd_kt_after_ici</code> outcome.</td>
-<td><strong>1 patient</strong> in the analytic cohort would newly qualify. Worth fixing; changes nothing material.</td>
-</tr>
-</tbody>
-</table>
-</section>
 <section id="what-actually-moved" class="level2">
-<h2 class="anchored" data-anchor-id="what-actually-moved">2.3 What actually moved</h2>
+<h2 class="anchored" data-anchor-id="what-actually-moved">2.2 What actually moved</h2>
 <p>Before any fix was applied, each variable was first recomputed using the <em>published</em> logic and checked against the published column. All 15 reproduced exactly, so every difference below is the effect of a fix and not a porting error.</p>
 <div class="cell">
 <div id="tbl-what-moved" class="cell quarto-float quarto-figure quarto-figure-center anchored">
