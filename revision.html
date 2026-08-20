@@ -173,13 +173,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#defects-that-changed-published-results" id="toc-defects-that-changed-published-results" class="nav-link" data-scroll-target="#defects-that-changed-published-results">2.1 Defects that changed published results</a></li>
   <li><a href="#what-actually-moved" id="toc-what-actually-moved" class="nav-link" data-scroll-target="#what-actually-moved">2.2 What actually moved</a></li>
   </ul></li>
-  <li><a href="#reviewer-request-1-a-less-strict-ckd-incidence-definition" id="toc-reviewer-request-1-a-less-strict-ckd-incidence-definition" class="nav-link" data-scroll-target="#reviewer-request-1-a-less-strict-ckd-incidence-definition">3 Reviewer request 1 — a less strict CKD incidence definition</a></li>
-  <li><a href="#reviewer-request-2-the-aki-ckd-group" id="toc-reviewer-request-2-the-aki-ckd-group" class="nav-link" data-scroll-target="#reviewer-request-2-the-aki-ckd-group">4 Reviewer request 2 — the AKI → CKD group</a>
+  <li><a href="#baseline-characteristics-on-corrected-data" id="toc-baseline-characteristics-on-corrected-data" class="nav-link" data-scroll-target="#baseline-characteristics-on-corrected-data">3 Baseline characteristics on corrected data</a>
   <ul class="collapse">
-  <li><a href="#kdigo-grade" id="toc-kdigo-grade" class="nav-link" data-scroll-target="#kdigo-grade">4.1 KDIGO grade</a></li>
-  <li><a href="#corticosteroids-within-30-days-after-the-aki" id="toc-corticosteroids-within-30-days-after-the-aki" class="nav-link" data-scroll-target="#corticosteroids-within-30-days-after-the-aki">4.2 Corticosteroids within 30 days after the AKI</a></li>
+  <li><a href="#overall-cohort" id="toc-overall-cohort" class="nav-link" data-scroll-target="#overall-cohort">3.1 Overall cohort</a></li>
+  <li><a href="#patients-followed-at-least-5-years" id="toc-patients-followed-at-least-5-years" class="nav-link" data-scroll-target="#patients-followed-at-least-5-years">3.2 Patients followed at least 5 years</a></li>
   </ul></li>
-  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">5 Limitations</a></li>
+  <li><a href="#competing-risk-models-on-corrected-data" id="toc-competing-risk-models-on-corrected-data" class="nav-link" data-scroll-target="#competing-risk-models-on-corrected-data">4 Competing-risk models on corrected data</a>
+  <ul class="collapse">
+  <li><a href="#finegray-subdistribution-model" id="toc-finegray-subdistribution-model" class="nav-link" data-scroll-target="#finegray-subdistribution-model">4.1 Fine–Gray subdistribution model</a></li>
+  <li><a href="#cause-specific-cox-model" id="toc-cause-specific-cox-model" class="nav-link" data-scroll-target="#cause-specific-cox-model">4.2 Cause-specific Cox model</a></li>
+  </ul></li>
+  <li><a href="#reviewer-request-1-a-less-strict-ckd-incidence-definition" id="toc-reviewer-request-1-a-less-strict-ckd-incidence-definition" class="nav-link" data-scroll-target="#reviewer-request-1-a-less-strict-ckd-incidence-definition">5 Reviewer request 1 — a less strict CKD incidence definition</a>
+  <ul class="collapse">
+  <li><a href="#incidence-by-years-followed" id="toc-incidence-by-years-followed" class="nav-link" data-scroll-target="#incidence-by-years-followed">5.1 Incidence by years followed</a></li>
+  </ul></li>
+  <li><a href="#reviewer-request-2-the-aki-ckd-group" id="toc-reviewer-request-2-the-aki-ckd-group" class="nav-link" data-scroll-target="#reviewer-request-2-the-aki-ckd-group">6 Reviewer request 2 — the AKI → CKD group</a>
+  <ul class="collapse">
+  <li><a href="#kdigo-grade" id="toc-kdigo-grade" class="nav-link" data-scroll-target="#kdigo-grade">6.1 KDIGO grade</a></li>
+  <li><a href="#corticosteroids-within-30-days-after-the-aki" id="toc-corticosteroids-within-30-days-after-the-aki" class="nav-link" data-scroll-target="#corticosteroids-within-30-days-after-the-aki">6.2 Corticosteroids within 30 days after the AKI</a></li>
+  </ul></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">7 Limitations</a></li>
   </ul>
 </nav>
 </nav>
@@ -532,53 +545,3077 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 </div>
 </section>
 </section>
+<section id="baseline-characteristics-on-corrected-data" class="level1">
+<h1>3 Baseline characteristics on corrected data</h1>
+<p>Table 1 rebuilt on the corrected covariates — <code>ppi</code>, <code>statins</code>, <code>smoking</code> and <code>nephrotoxic_chemo</code> restricted to pre-ICI ascertainment, AKI from the repaired lookback. Everything else is identical to the published tables.</p>
+<section id="overall-cohort" class="level2">
+<h2 class="anchored" data-anchor-id="overall-cohort">3.1 Overall cohort</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="lrdeuzljpz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lrdeuzljpz table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#lrdeuzljpz thead, #lrdeuzljpz tbody, #lrdeuzljpz tfoot, #lrdeuzljpz tr, #lrdeuzljpz td, #lrdeuzljpz th {
+  border-style: none;
+}
+
+#lrdeuzljpz p {
+  margin: 0;
+  padding: 0;
+}
+
+#lrdeuzljpz .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#lrdeuzljpz .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#lrdeuzljpz .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#lrdeuzljpz .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#lrdeuzljpz .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lrdeuzljpz .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lrdeuzljpz .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lrdeuzljpz .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#lrdeuzljpz .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#lrdeuzljpz .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#lrdeuzljpz .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#lrdeuzljpz .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#lrdeuzljpz .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#lrdeuzljpz .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#lrdeuzljpz .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#lrdeuzljpz .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#lrdeuzljpz .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#lrdeuzljpz .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#lrdeuzljpz .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lrdeuzljpz .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#lrdeuzljpz .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#lrdeuzljpz .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#lrdeuzljpz .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lrdeuzljpz .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#lrdeuzljpz .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#lrdeuzljpz .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lrdeuzljpz .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lrdeuzljpz .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#lrdeuzljpz .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lrdeuzljpz .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#lrdeuzljpz .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lrdeuzljpz .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lrdeuzljpz .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lrdeuzljpz .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lrdeuzljpz .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lrdeuzljpz .gt_left {
+  text-align: left;
+}
+
+#lrdeuzljpz .gt_center {
+  text-align: center;
+}
+
+#lrdeuzljpz .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#lrdeuzljpz .gt_font_normal {
+  font-weight: normal;
+}
+
+#lrdeuzljpz .gt_font_bold {
+  font-weight: bold;
+}
+
+#lrdeuzljpz .gt_font_italic {
+  font-style: italic;
+}
+
+#lrdeuzljpz .gt_super {
+  font-size: 65%;
+}
+
+#lrdeuzljpz .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#lrdeuzljpz .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#lrdeuzljpz .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#lrdeuzljpz .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#lrdeuzljpz .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#lrdeuzljpz .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#lrdeuzljpz .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#lrdeuzljpz .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#lrdeuzljpz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<caption><strong>Table 1. Overall cohort, corrected covariates (N = 17,718).</strong></caption>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings header">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="stat_0" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>N = 17,718</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">age_ici</td>
+<td class="gt_row gt_center" headers="stat_0">65 (13)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">male</td>
+<td class="gt_row gt_center" headers="stat_0">9,415 (53%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">Race</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Asian</td>
+<td class="gt_row gt_center" headers="stat_0">615 (3.5%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Black</td>
+<td class="gt_row gt_center" headers="stat_0">545 (3.1%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Other/Unknown</td>
+<td class="gt_row gt_center" headers="stat_0">817 (4.6%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;White</td>
+<td class="gt_row gt_center" headers="stat_0">15,741 (89%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">Ethnic_Group</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Hispanic</td>
+<td class="gt_row gt_center" headers="stat_0">175 (1.0%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Non_hispanic</td>
+<td class="gt_row gt_center" headers="stat_0">16,454 (93%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Other</td>
+<td class="gt_row gt_center" headers="stat_0">1,089 (6.1%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">ckd_progression</td>
+<td class="gt_row gt_center" headers="stat_0">160 (0.9%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Missing</td>
+<td class="gt_row gt_center" headers="stat_0">343</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">ckd_incidence</td>
+<td class="gt_row gt_center" headers="stat_0">882 (5.1%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Missing</td>
+<td class="gt_row gt_center" headers="stat_0">343</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">eskd_composite</td>
+<td class="gt_row gt_center" headers="stat_0">104 (0.6%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">ckd_composite</td>
+<td class="gt_row gt_center" headers="stat_0">1,110 (6.3%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">ckd_stage_baseline</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_0">8,474 (48%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
+<td class="gt_row gt_center" headers="stat_0">6,676 (38%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
+<td class="gt_row gt_center" headers="stat_0">2,378 (13%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;4</td>
+<td class="gt_row gt_center" headers="stat_0">179 (1.0%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;5</td>
+<td class="gt_row gt_center" headers="stat_0">11 (&lt;0.1%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">aki</td>
+<td class="gt_row gt_center" headers="stat_0">5,316 (30%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">dm</td>
+<td class="gt_row gt_center" headers="stat_0">2,653 (15%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">htn</td>
+<td class="gt_row gt_center" headers="stat_0">10,706 (60%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">cad</td>
+<td class="gt_row gt_center" headers="stat_0">4,165 (24%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">cirrhosis</td>
+<td class="gt_row gt_center" headers="stat_0">434 (2.4%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">cancer_type</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;breast</td>
+<td class="gt_row gt_center" headers="stat_0">1,162 (6.6%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;cutaneous / melanoma</td>
+<td class="gt_row gt_center" headers="stat_0">2,775 (16%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;endocrine</td>
+<td class="gt_row gt_center" headers="stat_0">4 (&lt;0.1%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gi</td>
+<td class="gt_row gt_center" headers="stat_0">2,660 (15%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gu</td>
+<td class="gt_row gt_center" headers="stat_0">2,104 (12%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gyn</td>
+<td class="gt_row gt_center" headers="stat_0">938 (5.3%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;head and neck</td>
+<td class="gt_row gt_center" headers="stat_0">1,317 (7.4%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;heme</td>
+<td class="gt_row gt_center" headers="stat_0">846 (4.8%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;neuro</td>
+<td class="gt_row gt_center" headers="stat_0">814 (4.6%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;sarcoma</td>
+<td class="gt_row gt_center" headers="stat_0">214 (1.2%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;thoracic</td>
+<td class="gt_row gt_center" headers="stat_0">4,884 (28%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">cancer_group</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;cutaneous / melanoma</td>
+<td class="gt_row gt_center" headers="stat_0">2,775 (16%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gi</td>
+<td class="gt_row gt_center" headers="stat_0">2,660 (15%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gu</td>
+<td class="gt_row gt_center" headers="stat_0">2,104 (12%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gyn</td>
+<td class="gt_row gt_center" headers="stat_0">938 (5.3%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;other</td>
+<td class="gt_row gt_center" headers="stat_0">4,357 (25%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;thoracic</td>
+<td class="gt_row gt_center" headers="stat_0">4,884 (28%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">ace_arb</td>
+<td class="gt_row gt_center" headers="stat_0">7,430 (42%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">diu</td>
+<td class="gt_row gt_center" headers="stat_0">9,375 (53%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">ppi</td>
+<td class="gt_row gt_center" headers="stat_0">8,637 (49%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">steroids</td>
+<td class="gt_row gt_center" headers="stat_0">13,157 (74%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">smoking</td>
+<td class="gt_row gt_center" headers="stat_0">6,815 (38%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">Bevacizumab</td>
+<td class="gt_row gt_center" headers="stat_0">1,273 (7.2%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">Cisplatin</td>
+<td class="gt_row gt_center" headers="stat_0">2,295 (13%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">Carboplatin</td>
+<td class="gt_row gt_center" headers="stat_0">5,481 (31%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">Pemetrexed</td>
+<td class="gt_row gt_center" headers="stat_0">2,327 (13%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">Gemcitabine</td>
+<td class="gt_row gt_center" headers="stat_0">2,044 (12%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">Cetuximab</td>
+<td class="gt_row gt_center" headers="stat_0">421 (2.4%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">Trastuzumab</td>
+<td class="gt_row gt_center" headers="stat_0">454 (2.6%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">VEGF_TKI</td>
+<td class="gt_row gt_center" headers="stat_0">1,246 (7.0%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">statins</td>
+<td class="gt_row gt_center" headers="stat_0">6,865 (39%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">ICI_Class</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;CTLA4</td>
+<td class="gt_row gt_center" headers="stat_0">758 (4.3%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Combination</td>
+<td class="gt_row gt_center" headers="stat_0">2,057 (12%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;PD1</td>
+<td class="gt_row gt_center" headers="stat_0">12,339 (70%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;PDL1</td>
+<td class="gt_row gt_center" headers="stat_0">2,564 (14%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">nephrotoxic_chemo</td>
+<td class="gt_row gt_center" headers="stat_0">6,940 (39%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">pre_CRE_180days</td>
+<td class="gt_row gt_center" headers="stat_0">0.91 (0.34)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">pre_HGB_180days</td>
+<td class="gt_row gt_center" headers="stat_0">12.12 (1.94)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Missing</td>
+<td class="gt_row gt_center" headers="stat_0">12</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">pre_ALB_180days</td>
+<td class="gt_row gt_center" headers="stat_0">4.17 (32.09)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Missing</td>
+<td class="gt_row gt_center" headers="stat_0">45</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">eGFR_CRE_baseline</td>
+<td class="gt_row gt_center" headers="stat_0">85 (22)</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="2" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> Mean (SD); n (%)</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="patients-followed-at-least-5-years" class="level2">
+<h2 class="anchored" data-anchor-id="patients-followed-at-least-5-years">3.2 Patients followed at least 5 years</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="sbbldgrvwr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sbbldgrvwr table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#sbbldgrvwr thead, #sbbldgrvwr tbody, #sbbldgrvwr tfoot, #sbbldgrvwr tr, #sbbldgrvwr td, #sbbldgrvwr th {
+  border-style: none;
+}
+
+#sbbldgrvwr p {
+  margin: 0;
+  padding: 0;
+}
+
+#sbbldgrvwr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#sbbldgrvwr .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#sbbldgrvwr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#sbbldgrvwr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#sbbldgrvwr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#sbbldgrvwr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sbbldgrvwr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#sbbldgrvwr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#sbbldgrvwr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#sbbldgrvwr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#sbbldgrvwr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#sbbldgrvwr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#sbbldgrvwr .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#sbbldgrvwr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#sbbldgrvwr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#sbbldgrvwr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#sbbldgrvwr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#sbbldgrvwr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#sbbldgrvwr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sbbldgrvwr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#sbbldgrvwr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#sbbldgrvwr .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#sbbldgrvwr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sbbldgrvwr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#sbbldgrvwr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#sbbldgrvwr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sbbldgrvwr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sbbldgrvwr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#sbbldgrvwr .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sbbldgrvwr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#sbbldgrvwr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sbbldgrvwr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#sbbldgrvwr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sbbldgrvwr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#sbbldgrvwr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sbbldgrvwr .gt_left {
+  text-align: left;
+}
+
+#sbbldgrvwr .gt_center {
+  text-align: center;
+}
+
+#sbbldgrvwr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#sbbldgrvwr .gt_font_normal {
+  font-weight: normal;
+}
+
+#sbbldgrvwr .gt_font_bold {
+  font-weight: bold;
+}
+
+#sbbldgrvwr .gt_font_italic {
+  font-style: italic;
+}
+
+#sbbldgrvwr .gt_super {
+  font-size: 65%;
+}
+
+#sbbldgrvwr .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#sbbldgrvwr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#sbbldgrvwr .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#sbbldgrvwr .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#sbbldgrvwr .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#sbbldgrvwr .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#sbbldgrvwr .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#sbbldgrvwr .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#sbbldgrvwr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<caption><strong>Table 1, 5-year follow-up subset, corrected covariates.</strong></caption>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings header">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="stat_0" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>N = 1,661</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">age_ici</td>
+<td class="gt_row gt_center" headers="stat_0">61 (13)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">male</td>
+<td class="gt_row gt_center" headers="stat_0">904 (54%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">Race</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Asian</td>
+<td class="gt_row gt_center" headers="stat_0">37 (2.2%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Black</td>
+<td class="gt_row gt_center" headers="stat_0">25 (1.5%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Other/Unknown</td>
+<td class="gt_row gt_center" headers="stat_0">58 (3.5%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;White</td>
+<td class="gt_row gt_center" headers="stat_0">1,541 (93%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">Ethnic_Group</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Hispanic</td>
+<td class="gt_row gt_center" headers="stat_0">9 (0.5%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Non_hispanic</td>
+<td class="gt_row gt_center" headers="stat_0">1,535 (92%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Other</td>
+<td class="gt_row gt_center" headers="stat_0">117 (7.0%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">ckd_incidence_5year</td>
+<td class="gt_row gt_center" headers="stat_0">209 (13%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">ckd_progression_5year</td>
+<td class="gt_row gt_center" headers="stat_0">39 (2.3%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">eskd_composite_5year</td>
+<td class="gt_row gt_center" headers="stat_0">12 (0.7%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">ckd_composite_5year</td>
+<td class="gt_row gt_center" headers="stat_0">256 (15%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">ckd_stage_1year</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_0">662 (40%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
+<td class="gt_row gt_center" headers="stat_0">753 (45%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
+<td class="gt_row gt_center" headers="stat_0">235 (14%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;4</td>
+<td class="gt_row gt_center" headers="stat_0">10 (0.6%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;5</td>
+<td class="gt_row gt_center" headers="stat_0">1 (&lt;0.1%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">ckd_stage_2year</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_0">620 (37%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
+<td class="gt_row gt_center" headers="stat_0">793 (48%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
+<td class="gt_row gt_center" headers="stat_0">238 (14%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;4</td>
+<td class="gt_row gt_center" headers="stat_0">9 (0.5%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;5</td>
+<td class="gt_row gt_center" headers="stat_0">1 (&lt;0.1%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">ckd_stage_3year</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_0">574 (35%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
+<td class="gt_row gt_center" headers="stat_0">824 (50%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
+<td class="gt_row gt_center" headers="stat_0">255 (15%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;4</td>
+<td class="gt_row gt_center" headers="stat_0">5 (0.3%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;5</td>
+<td class="gt_row gt_center" headers="stat_0">3 (0.2%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">ckd_stage_4year</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_0">600 (36%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
+<td class="gt_row gt_center" headers="stat_0">778 (47%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
+<td class="gt_row gt_center" headers="stat_0">270 (16%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;4</td>
+<td class="gt_row gt_center" headers="stat_0">11 (0.7%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;5</td>
+<td class="gt_row gt_center" headers="stat_0">2 (0.1%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">ckd_stage_5year</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_0">611 (37%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
+<td class="gt_row gt_center" headers="stat_0">767 (46%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
+<td class="gt_row gt_center" headers="stat_0">263 (16%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;4</td>
+<td class="gt_row gt_center" headers="stat_0">17 (1.0%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;5</td>
+<td class="gt_row gt_center" headers="stat_0">3 (0.2%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">ckd_stage_baseline</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;1</td>
+<td class="gt_row gt_center" headers="stat_0">801 (48%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;2</td>
+<td class="gt_row gt_center" headers="stat_0">680 (41%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;3</td>
+<td class="gt_row gt_center" headers="stat_0">174 (10%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;4</td>
+<td class="gt_row gt_center" headers="stat_0">6 (0.4%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">aki</td>
+<td class="gt_row gt_center" headers="stat_0">510 (31%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">dm</td>
+<td class="gt_row gt_center" headers="stat_0">177 (11%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">htn</td>
+<td class="gt_row gt_center" headers="stat_0">980 (59%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">cad</td>
+<td class="gt_row gt_center" headers="stat_0">305 (18%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">cirrhosis</td>
+<td class="gt_row gt_center" headers="stat_0">16 (1.0%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">ace_arb</td>
+<td class="gt_row gt_center" headers="stat_0">778 (47%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">diu</td>
+<td class="gt_row gt_center" headers="stat_0">874 (53%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">ppi</td>
+<td class="gt_row gt_center" headers="stat_0">717 (43%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">steroids</td>
+<td class="gt_row gt_center" headers="stat_0">1,184 (71%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">smoking</td>
+<td class="gt_row gt_center" headers="stat_0">578 (35%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">statins</td>
+<td class="gt_row gt_center" headers="stat_0">603 (36%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">ICI_Class</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;CTLA4</td>
+<td class="gt_row gt_center" headers="stat_0">119 (7.2%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Combination</td>
+<td class="gt_row gt_center" headers="stat_0">205 (12%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;PD1</td>
+<td class="gt_row gt_center" headers="stat_0">1,131 (68%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;PDL1</td>
+<td class="gt_row gt_center" headers="stat_0">206 (12%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">nephrotoxic_chemo</td>
+<td class="gt_row gt_center" headers="stat_0">428 (26%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">cancer_type</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;breast</td>
+<td class="gt_row gt_center" headers="stat_0">63 (3.8%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;cutaneous / melanoma</td>
+<td class="gt_row gt_center" headers="stat_0">629 (38%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gi</td>
+<td class="gt_row gt_center" headers="stat_0">75 (4.5%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gu</td>
+<td class="gt_row gt_center" headers="stat_0">214 (13%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gyn</td>
+<td class="gt_row gt_center" headers="stat_0">61 (3.7%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;head and neck</td>
+<td class="gt_row gt_center" headers="stat_0">113 (6.8%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;heme</td>
+<td class="gt_row gt_center" headers="stat_0">114 (6.9%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;neuro</td>
+<td class="gt_row gt_center" headers="stat_0">29 (1.7%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;sarcoma</td>
+<td class="gt_row gt_center" headers="stat_0">10 (0.6%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;thoracic</td>
+<td class="gt_row gt_center" headers="stat_0">353 (21%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">cancer_group</td>
+<td class="gt_row gt_center" headers="stat_0"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;cutaneous / melanoma</td>
+<td class="gt_row gt_center" headers="stat_0">629 (38%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gi</td>
+<td class="gt_row gt_center" headers="stat_0">75 (4.5%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gu</td>
+<td class="gt_row gt_center" headers="stat_0">214 (13%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gyn</td>
+<td class="gt_row gt_center" headers="stat_0">61 (3.7%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;other</td>
+<td class="gt_row gt_center" headers="stat_0">329 (20%)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;thoracic</td>
+<td class="gt_row gt_center" headers="stat_0">353 (21%)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">pre_CRE_180days</td>
+<td class="gt_row gt_center" headers="stat_0">0.91 (0.28)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">pre_HGB_180days</td>
+<td class="gt_row gt_center" headers="stat_0">13.00 (1.74)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Missing</td>
+<td class="gt_row gt_center" headers="stat_0">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">pre_ALB_180days</td>
+<td class="gt_row gt_center" headers="stat_0">4.14 (0.39)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Missing</td>
+<td class="gt_row gt_center" headers="stat_0">6</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">eGFR_CRE_baseline</td>
+<td class="gt_row gt_center" headers="stat_0">86 (20)</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="2" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> Mean (SD); n (%)</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="competing-risk-models-on-corrected-data" class="level1">
+<h1>4 Competing-risk models on corrected data</h1>
+<p>The published §8 (Fine–Gray) and §9 (cause-specific Cox) re-fitted with the corrected covariates. Model specifications are unchanged — only the ascertainment of <code>ppi</code>, <code>smoking</code> and the chemotherapy agents differs.</p>
+<section id="finegray-subdistribution-model" class="level2">
+<h2 class="anchored" data-anchor-id="finegray-subdistribution-model">4.1 Fine–Gray subdistribution model</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="ggnkudwsgw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ggnkudwsgw table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ggnkudwsgw thead, #ggnkudwsgw tbody, #ggnkudwsgw tfoot, #ggnkudwsgw tr, #ggnkudwsgw td, #ggnkudwsgw th {
+  border-style: none;
+}
+
+#ggnkudwsgw p {
+  margin: 0;
+  padding: 0;
+}
+
+#ggnkudwsgw .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ggnkudwsgw .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ggnkudwsgw .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ggnkudwsgw .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ggnkudwsgw .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ggnkudwsgw .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ggnkudwsgw .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ggnkudwsgw .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ggnkudwsgw .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ggnkudwsgw .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ggnkudwsgw .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ggnkudwsgw .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ggnkudwsgw .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ggnkudwsgw .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ggnkudwsgw .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ggnkudwsgw .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ggnkudwsgw .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ggnkudwsgw .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ggnkudwsgw .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ggnkudwsgw .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ggnkudwsgw .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ggnkudwsgw .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ggnkudwsgw .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ggnkudwsgw .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ggnkudwsgw .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ggnkudwsgw .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ggnkudwsgw .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ggnkudwsgw .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ggnkudwsgw .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ggnkudwsgw .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ggnkudwsgw .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ggnkudwsgw .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ggnkudwsgw .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ggnkudwsgw .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ggnkudwsgw .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ggnkudwsgw .gt_left {
+  text-align: left;
+}
+
+#ggnkudwsgw .gt_center {
+  text-align: center;
+}
+
+#ggnkudwsgw .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ggnkudwsgw .gt_font_normal {
+  font-weight: normal;
+}
+
+#ggnkudwsgw .gt_font_bold {
+  font-weight: bold;
+}
+
+#ggnkudwsgw .gt_font_italic {
+  font-style: italic;
+}
+
+#ggnkudwsgw .gt_super {
+  font-size: 65%;
+}
+
+#ggnkudwsgw .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ggnkudwsgw .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ggnkudwsgw .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ggnkudwsgw .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ggnkudwsgw .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ggnkudwsgw .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ggnkudwsgw .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ggnkudwsgw .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ggnkudwsgw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<caption><strong>Fine&lt;U+2013&gt;Gray subdistribution hazards for the CKD composite, corrected covariates.</strong></caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings header">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="stat_n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>N</strong></th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>HR</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>95% CI</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">year_10</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.20</td>
+<td class="gt_row gt_center" headers="conf.low">1.13, 1.27</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">male</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.77</td>
+<td class="gt_row gt_center" headers="conf.low">0.68, 0.87</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">dm</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.31</td>
+<td class="gt_row gt_center" headers="conf.low">1.13, 1.53</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">htn</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.13</td>
+<td class="gt_row gt_center" headers="conf.low">0.98, 1.31</td>
+<td class="gt_row gt_center" headers="p.value">0.10</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">cad</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.97</td>
+<td class="gt_row gt_center" headers="conf.low">0.84, 1.12</td>
+<td class="gt_row gt_center" headers="p.value">0.6</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">ppi</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.89</td>
+<td class="gt_row gt_center" headers="conf.low">0.78, 1.01</td>
+<td class="gt_row gt_center" headers="p.value">0.070</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">smoking</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.94</td>
+<td class="gt_row gt_center" headers="conf.low">0.82, 1.07</td>
+<td class="gt_row gt_center" headers="p.value">0.4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">eGFR_CRE_baseline_decrease_10</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.12</td>
+<td class="gt_row gt_center" headers="conf.low">1.08, 1.15</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Bevacizumab</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.91</td>
+<td class="gt_row gt_center" headers="conf.low">0.70, 1.19</td>
+<td class="gt_row gt_center" headers="p.value">0.5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Cisplatin</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.01</td>
+<td class="gt_row gt_center" headers="conf.low">0.83, 1.23</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Carboplatin</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.93</td>
+<td class="gt_row gt_center" headers="conf.low">0.79, 1.08</td>
+<td class="gt_row gt_center" headers="p.value">0.3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Pemetrexed</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.86</td>
+<td class="gt_row gt_center" headers="conf.low">1.52, 2.27</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Gemcitabine</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.0</td>
+<td class="gt_row gt_center" headers="conf.low">0.82, 1.21</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Cetuximab</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.71</td>
+<td class="gt_row gt_center" headers="conf.low">0.39, 1.27</td>
+<td class="gt_row gt_center" headers="p.value">0.2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Trastuzumab</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.07</td>
+<td class="gt_row gt_center" headers="conf.low">0.70, 1.64</td>
+<td class="gt_row gt_center" headers="p.value">0.8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">ICI_Class</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;CTLA4</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Combination</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.86</td>
+<td class="gt_row gt_center" headers="conf.low">0.64, 1.17</td>
+<td class="gt_row gt_center" headers="p.value">0.3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;PD1</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.78</td>
+<td class="gt_row gt_center" headers="conf.low">0.59, 1.02</td>
+<td class="gt_row gt_center" headers="p.value">0.065</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;PDL1</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.83</td>
+<td class="gt_row gt_center" headers="conf.low">0.61, 1.12</td>
+<td class="gt_row gt_center" headers="p.value">0.2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">cancer_group</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;cutaneous / melanoma</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gi</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.90</td>
+<td class="gt_row gt_center" headers="conf.low">0.71, 1.14</td>
+<td class="gt_row gt_center" headers="p.value">0.4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gu</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.32</td>
+<td class="gt_row gt_center" headers="conf.low">1.06, 1.63</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.013</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gyn</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.77</td>
+<td class="gt_row gt_center" headers="conf.low">0.55, 1.08</td>
+<td class="gt_row gt_center" headers="p.value">0.13</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;other</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.67</td>
+<td class="gt_row gt_center" headers="conf.low">0.54, 0.84</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;thoracic</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.87</td>
+<td class="gt_row gt_center" headers="conf.low">0.70, 1.08</td>
+<td class="gt_row gt_center" headers="p.value">0.2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">cirrhosis</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.83</td>
+<td class="gt_row gt_center" headers="conf.low">0.54, 1.28</td>
+<td class="gt_row gt_center" headers="p.value">0.4</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="5" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> HR = Hazard Ratio, CI = Confidence Interval</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="cause-specific-cox-model" class="level2">
+<h2 class="anchored" data-anchor-id="cause-specific-cox-model">4.2 Cause-specific Cox model</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="pkcrrmexcc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pkcrrmexcc table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#pkcrrmexcc thead, #pkcrrmexcc tbody, #pkcrrmexcc tfoot, #pkcrrmexcc tr, #pkcrrmexcc td, #pkcrrmexcc th {
+  border-style: none;
+}
+
+#pkcrrmexcc p {
+  margin: 0;
+  padding: 0;
+}
+
+#pkcrrmexcc .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#pkcrrmexcc .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#pkcrrmexcc .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#pkcrrmexcc .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#pkcrrmexcc .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pkcrrmexcc .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pkcrrmexcc .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pkcrrmexcc .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#pkcrrmexcc .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#pkcrrmexcc .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#pkcrrmexcc .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#pkcrrmexcc .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#pkcrrmexcc .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#pkcrrmexcc .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#pkcrrmexcc .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pkcrrmexcc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#pkcrrmexcc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#pkcrrmexcc .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#pkcrrmexcc .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pkcrrmexcc .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#pkcrrmexcc .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#pkcrrmexcc .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#pkcrrmexcc .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pkcrrmexcc .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#pkcrrmexcc .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#pkcrrmexcc .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pkcrrmexcc .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pkcrrmexcc .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#pkcrrmexcc .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pkcrrmexcc .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#pkcrrmexcc .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pkcrrmexcc .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pkcrrmexcc .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pkcrrmexcc .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pkcrrmexcc .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pkcrrmexcc .gt_left {
+  text-align: left;
+}
+
+#pkcrrmexcc .gt_center {
+  text-align: center;
+}
+
+#pkcrrmexcc .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#pkcrrmexcc .gt_font_normal {
+  font-weight: normal;
+}
+
+#pkcrrmexcc .gt_font_bold {
+  font-weight: bold;
+}
+
+#pkcrrmexcc .gt_font_italic {
+  font-style: italic;
+}
+
+#pkcrrmexcc .gt_super {
+  font-size: 65%;
+}
+
+#pkcrrmexcc .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#pkcrrmexcc .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#pkcrrmexcc .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#pkcrrmexcc .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#pkcrrmexcc .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#pkcrrmexcc .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#pkcrrmexcc .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#pkcrrmexcc .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#pkcrrmexcc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<caption><strong>Cause-specific Cox model for the CKD composite, corrected covariates.</strong></caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings header">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="stat_n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>N</strong></th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>HR</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>95% CI</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">year_10</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.32</td>
+<td class="gt_row gt_center" headers="conf.low">1.24, 1.41</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">male</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.77</td>
+<td class="gt_row gt_center" headers="conf.low">0.68, 0.88</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">dm</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.40</td>
+<td class="gt_row gt_center" headers="conf.low">1.20, 1.63</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">htn</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.09</td>
+<td class="gt_row gt_center" headers="conf.low">0.95, 1.26</td>
+<td class="gt_row gt_center" headers="p.value">0.2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">cad</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.06</td>
+<td class="gt_row gt_center" headers="conf.low">0.92, 1.23</td>
+<td class="gt_row gt_center" headers="p.value">0.4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">ppi</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.97</td>
+<td class="gt_row gt_center" headers="conf.low">0.85, 1.10</td>
+<td class="gt_row gt_center" headers="p.value">0.6</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">smoking</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.92</td>
+<td class="gt_row gt_center" headers="conf.low">0.81, 1.06</td>
+<td class="gt_row gt_center" headers="p.value">0.2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">eGFR_CRE_baseline_decrease_10</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.11</td>
+<td class="gt_row gt_center" headers="conf.low">1.08, 1.15</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Bevacizumab</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.97</td>
+<td class="gt_row gt_center" headers="conf.low">0.73, 1.28</td>
+<td class="gt_row gt_center" headers="p.value">0.8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Cisplatin</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.98</td>
+<td class="gt_row gt_center" headers="conf.low">0.80, 1.19</td>
+<td class="gt_row gt_center" headers="p.value">0.8</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Carboplatin</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.99</td>
+<td class="gt_row gt_center" headers="conf.low">0.85, 1.17</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Pemetrexed</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.62</td>
+<td class="gt_row gt_center" headers="conf.low">1.32, 1.98</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Gemcitabine</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.02</td>
+<td class="gt_row gt_center" headers="conf.low">0.84, 1.24</td>
+<td class="gt_row gt_center" headers="p.value">0.8</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Cetuximab</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.74</td>
+<td class="gt_row gt_center" headers="conf.low">0.41, 1.33</td>
+<td class="gt_row gt_center" headers="p.value">0.3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Trastuzumab</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.97</td>
+<td class="gt_row gt_center" headers="conf.low">0.64, 1.48</td>
+<td class="gt_row gt_center" headers="p.value">0.9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">ICI_Class</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;CTLA4</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Combination</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.88</td>
+<td class="gt_row gt_center" headers="conf.low">0.65, 1.20</td>
+<td class="gt_row gt_center" headers="p.value">0.4</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;PD1</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.78</td>
+<td class="gt_row gt_center" headers="conf.low">0.59, 1.02</td>
+<td class="gt_row gt_center" headers="p.value">0.072</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;PDL1</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.72</td>
+<td class="gt_row gt_center" headers="conf.low">0.53, 0.98</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.039</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">cancer_group</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;cutaneous / melanoma</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gi</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.73</td>
+<td class="gt_row gt_center" headers="conf.low">1.36, 2.20</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gu</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.75</td>
+<td class="gt_row gt_center" headers="conf.low">1.42, 2.17</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gyn</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.12</td>
+<td class="gt_row gt_center" headers="conf.low">0.79, 1.61</td>
+<td class="gt_row gt_center" headers="p.value">0.5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;other</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.01</td>
+<td class="gt_row gt_center" headers="conf.low">0.81, 1.27</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;thoracic</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.44</td>
+<td class="gt_row gt_center" headers="conf.low">1.15, 1.80</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">cirrhosis</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.99</td>
+<td class="gt_row gt_center" headers="conf.low">0.63, 1.54</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="5" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> HR = Hazard Ratio, CI = Confidence Interval</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
 <section id="reviewer-request-1-a-less-strict-ckd-incidence-definition" class="level1">
-<h1>3 Reviewer request 1 — a less strict CKD incidence definition</h1>
-<p>The reviewers asked for incident CKD defined as <strong>eGFR &lt; 60 sustained ≥ 90 days</strong>, dropping the &gt;25% relative-decline requirement. <code>ckd_progression</code> and kidney failure are unchanged.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>The sustain engine also had to change
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The published engine measures a non-terminal episode as <em>the gap until the next non-qualifying value</em>, so <strong>a single low eGFR followed 90+ days later by a recovered value counts as “sustained 90 days”</strong>. That is not persistence, it is a measurement gap. <code>sustained_below()</code> requires a confirmatory value &lt;60 at least 90 days later with <strong>no intervening value ≥60</strong>, which is what “sustained” is normally taken to mean.</p>
-</div>
-</div>
+<h1>5 Reviewer request 1 — a less strict CKD incidence definition</h1>
+<p>The reviewers asked for incident CKD defined as <strong>eGFR &lt; 60 sustained ≥ 90 days</strong>, dropping the ≥25% relative-decline requirement. <code>ckd_progression</code> and kidney failure are unchanged. The sustain engine is left exactly as published, so the only thing that changes is the definition itself.</p>
 <div class="cell">
 <div id="tbl-ckd-new" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ckd-new-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Incident CKD among patients with baseline eGFR &lt;U+2265&gt; 60.
+Table&nbsp;2: Incident CKD and the primary composite under each definition, whole cohort.
 </figcaption>
 <div aria-describedby="tbl-ckd-new-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="cell caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 72%">
-<col style="width: 9%">
+<col style="width: 56%">
 <col style="width: 18%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Definition</th>
-<th style="text-align: right;">Events</th>
-<th style="text-align: right;">% of eligible</th>
+<th style="text-align: right;">Incident CKD</th>
+<th style="text-align: right;">Primary composite</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">published: &gt;25% decline AND eGFR&lt;60, run-length engine</td>
+<td style="text-align: left;">as published (&gt;=25% decline AND eGFR&lt;60)</td>
 <td style="text-align: right;">882</td>
-<td style="text-align: right;">5.8</td>
+<td style="text-align: right;">1110</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">reviewer: eGFR&lt;60 only, strict-sustain engine</td>
-<td style="text-align: right;">1040</td>
-<td style="text-align: right;">6.9</td>
+<td style="text-align: left;">reviewer (eGFR&lt;60 only, same engine)</td>
+<td style="text-align: right;">1372</td>
+<td style="text-align: right;">1595</td>
 </tr>
 </tbody>
 </table>
@@ -587,14 +3624,161 @@ Table&nbsp;2: Incident CKD among patients with baseline eGFR &lt;U+2265&gt; 60.
 </figure>
 </div>
 </div>
+<section id="incidence-by-years-followed" class="level2">
+<h2 class="anchored" data-anchor-id="incidence-by-years-followed">5.1 Incidence by years followed</h2>
+<p>Same construction as the published figure: the denominator is patients followed beyond year <em>X</em> with baseline eGFR ≥ 60, and the numerator counts incident CKD within year <em>X</em> excluding anyone who reached kidney failure in the same window, so the components stay mutually exclusive. The published bars reproduce exactly.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-yearly" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-yearly-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="revision_files/figure-html/fig-yearly-1.png" class="img-fluid figure-img" width="1100">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-yearly-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: CKD incidence by years of follow-up. Bars are labelled n / N. The published definition (&gt;=25% decline AND eGFR&lt;60) is shown against the reviewer’s less strict definition (eGFR&lt;60 alone), both on the published sustain engine.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div id="tbl-yearly" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-yearly-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Numerators and denominators behind the figure. The ‘as published’ columns reproduce the published figure exactly on all ten years.
+</figcaption>
+<div aria-describedby="tbl-yearly-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 28%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Years followed</th>
+<th style="text-align: right;">N followed (baseline eGFR &gt;= 60)</th>
+<th style="text-align: right;">As published, n</th>
+<th style="text-align: right;">As published, %</th>
+<th style="text-align: right;">Reviewer defn, n</th>
+<th style="text-align: right;">Reviewer defn, %</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7948</td>
+<td style="text-align: right;">325</td>
+<td style="text-align: right;">4.1</td>
+<td style="text-align: right;">628</td>
+<td style="text-align: right;">7.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5101</td>
+<td style="text-align: right;">416</td>
+<td style="text-align: right;">8.2</td>
+<td style="text-align: right;">672</td>
+<td style="text-align: right;">13.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3203</td>
+<td style="text-align: right;">348</td>
+<td style="text-align: right;">10.9</td>
+<td style="text-align: right;">541</td>
+<td style="text-align: right;">16.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2149</td>
+<td style="text-align: right;">271</td>
+<td style="text-align: right;">12.6</td>
+<td style="text-align: right;">398</td>
+<td style="text-align: right;">18.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1481</td>
+<td style="text-align: right;">208</td>
+<td style="text-align: right;">14.0</td>
+<td style="text-align: right;">306</td>
+<td style="text-align: right;">20.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">968</td>
+<td style="text-align: right;">144</td>
+<td style="text-align: right;">14.9</td>
+<td style="text-align: right;">201</td>
+<td style="text-align: right;">20.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">595</td>
+<td style="text-align: right;">101</td>
+<td style="text-align: right;">17.0</td>
+<td style="text-align: right;">136</td>
+<td style="text-align: right;">22.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">350</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">18.3</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">23.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">187</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">17.1</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">22.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">17.2</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">20.3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Two changes were possible here; only one was made
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“Sustained” can be read two ways, and the choice matters more than the definition change does. The published engine ends a qualifying run at the <strong>first lab that fails</strong>, so a measurement gap counts toward the 90 days (a last-observation-carried- forward reading). A stricter reading requires a confirmatory eGFR &lt; 60 at least 90 days later with no intervening recovery.</p>
+<p>The figure above holds the engine fixed at the published behaviour, so the bars show the reviewer’s change alone. Applying the stricter engine as well would give 1,040 incident-CKD events instead of 1,372 — and would push the later years <em>below</em> the published bars, which is why the two changes are kept separate.</p>
+</div>
+</div>
+</section>
 </section>
 <section id="reviewer-request-2-the-aki-ckd-group" class="level1">
-<h1>4 Reviewer request 2 — the AKI → CKD group</h1>
+<h1>6 Reviewer request 2 — the AKI → CKD group</h1>
 <div class="cell">
 <div id="tbl-aki-ckd" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-aki-ckd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3: Patients with an AKI prior to or concurrent with the CKD composite. The published row reproduces 450 / 1,110 = 40.5%, the paper’s ‘41%’.
+Table&nbsp;4: Patients with an AKI prior to or concurrent with the CKD composite. The published row reproduces 450 / 1,110 = 40.5%, the paper’s ‘41%’.
 </figcaption>
 <div aria-describedby="tbl-aki-ckd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -647,13 +3831,13 @@ Table&nbsp;3: Patients with an AKI prior to or concurrent with the CKD composite
 </div>
 </div>
 <section id="kdigo-grade" class="level2">
-<h2 class="anchored" data-anchor-id="kdigo-grade">4.1 KDIGO grade</h2>
+<h2 class="anchored" data-anchor-id="kdigo-grade">6.1 KDIGO grade</h2>
 <p>Graded against the same comparator that flagged the event (rolling 90-day median, 2-day minimum), so no patient can be “AKI but stage 0”. Peak stage within 30 days of the index AKI.</p>
 <div class="cell">
 <div id="tbl-kdigo" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-kdigo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4: KDIGO peak stage among the AKI &lt;U+2192&gt; CKD group. Stage 3 by RRT is a lower bound (see Limitations).
+Table&nbsp;5: KDIGO peak stage among the AKI &lt;U+2192&gt; CKD group. Stage 3 by RRT is a lower bound (see Limitations).
 </figcaption>
 <div aria-describedby="tbl-kdigo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -690,12 +3874,12 @@ Table&nbsp;4: KDIGO peak stage among the AKI &lt;U+2192&gt; CKD group. Stage 3 b
 </div>
 </section>
 <section id="corticosteroids-within-30-days-after-the-aki" class="level2">
-<h2 class="anchored" data-anchor-id="corticosteroids-within-30-days-after-the-aki">4.2 Corticosteroids within 30 days after the AKI</h2>
+<h2 class="anchored" data-anchor-id="corticosteroids-within-30-days-after-the-aki">6.2 Corticosteroids within 30 days after the AKI</h2>
 <div class="cell">
 <div id="tbl-steroid" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-steroid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;5: Steroid treatment by AKI severity.
+Table&nbsp;6: Steroid treatment by AKI severity.
 </figcaption>
 <div aria-describedby="tbl-steroid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -784,7 +3968,7 @@ Table&nbsp;5: Steroid treatment by AKI severity.
 </section>
 </section>
 <section id="limitations" class="level1">
-<h1>5 Limitations</h1>
+<h1>7 Limitations</h1>
 <ul>
 <li><strong>KDIGO stage 3 by RRT is a lower bound.</strong> The current pull contains no procedure file, so RRT is ascertained from diagnosis codes only.</li>
 <li><strong>Steroid route and dose are not available.</strong> <code>Route</code>, <code>Days_Supply</code> and <code>Dose</code> do not exist as columns; only the drug name string and care setting are usable.</li>
