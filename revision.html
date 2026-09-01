@@ -435,12 +435,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>2</td>
-<td><code>create_aki()</code> deletes every pre-ICI creatinine <strong>before</strong> building the 90-day reference, so for early draws the “preceding 90 days” the Methods describes is silently truncated at the ICI date, and a patient’s first post-ICI draw can never be flagged.</td>
-<td><code>Final cohort/aki.Rmd:82</code></td>
-<td>Documented, <strong>not acted on</strong>. The Revision tab retains the published AKI variable so the published 450 is preserved. Quantified: AKI on day 1 is structurally 0, and AKI within 30 days is 663.</td>
-</tr>
-<tr class="odd">
-<td>3</td>
 <td><code>smoking</code> is ascertained with <strong>no date filter at all</strong> (same for <code>chf</code>).</td>
 <td><code>:921, :925</code></td>
 <td>Post-ICI diagnoses leak into baseline: 8,883 → 6,815. <code>smoking</code> is a published model covariate.</td>
@@ -564,23 +558,23 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <h2 class="anchored" data-anchor-id="overall-cohort">3.1 Overall cohort</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="oqzklaowfh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#oqzklaowfh table {
+<div id="jhudhogiuz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jhudhogiuz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#oqzklaowfh thead, #oqzklaowfh tbody, #oqzklaowfh tfoot, #oqzklaowfh tr, #oqzklaowfh td, #oqzklaowfh th {
+#jhudhogiuz thead, #jhudhogiuz tbody, #jhudhogiuz tfoot, #jhudhogiuz tr, #jhudhogiuz td, #jhudhogiuz th {
   border-style: none;
 }
 
-#oqzklaowfh p {
+#jhudhogiuz p {
   margin: 0;
   padding: 0;
 }
 
-#oqzklaowfh .gt_table {
+#jhudhogiuz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -606,12 +600,12 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-left-color: #D3D3D3;
 }
 
-#oqzklaowfh .gt_caption {
+#jhudhogiuz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#oqzklaowfh .gt_title {
+#jhudhogiuz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -623,7 +617,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-width: 0;
 }
 
-#oqzklaowfh .gt_subtitle {
+#jhudhogiuz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -635,7 +629,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-width: 0;
 }
 
-#oqzklaowfh .gt_heading {
+#jhudhogiuz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -647,13 +641,13 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#oqzklaowfh .gt_bottom_border {
+#jhudhogiuz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#oqzklaowfh .gt_col_headings {
+#jhudhogiuz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -668,7 +662,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#oqzklaowfh .gt_col_heading {
+#jhudhogiuz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -688,7 +682,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#oqzklaowfh .gt_column_spanner_outer {
+#jhudhogiuz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -700,15 +694,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 4px;
 }
 
-#oqzklaowfh .gt_column_spanner_outer:first-child {
+#jhudhogiuz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#oqzklaowfh .gt_column_spanner_outer:last-child {
+#jhudhogiuz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#oqzklaowfh .gt_column_spanner {
+#jhudhogiuz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -720,11 +714,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   width: 100%;
 }
 
-#oqzklaowfh .gt_spanner_row {
+#jhudhogiuz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#oqzklaowfh .gt_group_heading {
+#jhudhogiuz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -750,7 +744,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   text-align: left;
 }
 
-#oqzklaowfh .gt_empty_group_heading {
+#jhudhogiuz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -765,15 +759,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: middle;
 }
 
-#oqzklaowfh .gt_from_md > :first-child {
+#jhudhogiuz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#oqzklaowfh .gt_from_md > :last-child {
+#jhudhogiuz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#oqzklaowfh .gt_row {
+#jhudhogiuz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -792,7 +786,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#oqzklaowfh .gt_stub {
+#jhudhogiuz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -805,7 +799,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#oqzklaowfh .gt_stub_row_group {
+#jhudhogiuz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -819,15 +813,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: top;
 }
 
-#oqzklaowfh .gt_row_group_first td {
+#jhudhogiuz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#oqzklaowfh .gt_row_group_first th {
+#jhudhogiuz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#oqzklaowfh .gt_summary_row {
+#jhudhogiuz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -837,16 +831,16 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#oqzklaowfh .gt_first_summary_row {
+#jhudhogiuz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#oqzklaowfh .gt_first_summary_row.thick {
+#jhudhogiuz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#oqzklaowfh .gt_last_summary_row {
+#jhudhogiuz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -856,7 +850,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#oqzklaowfh .gt_grand_summary_row {
+#jhudhogiuz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -866,7 +860,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#oqzklaowfh .gt_first_grand_summary_row {
+#jhudhogiuz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -876,7 +870,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-color: #D3D3D3;
 }
 
-#oqzklaowfh .gt_last_grand_summary_row_top {
+#jhudhogiuz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -886,11 +880,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#oqzklaowfh .gt_striped {
+#jhudhogiuz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#oqzklaowfh .gt_table_body {
+#jhudhogiuz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -899,7 +893,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#oqzklaowfh .gt_footnotes {
+#jhudhogiuz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -913,7 +907,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#oqzklaowfh .gt_footnote {
+#jhudhogiuz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -922,7 +916,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#oqzklaowfh .gt_sourcenotes {
+#jhudhogiuz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -936,7 +930,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#oqzklaowfh .gt_sourcenote {
+#jhudhogiuz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -944,72 +938,72 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#oqzklaowfh .gt_left {
+#jhudhogiuz .gt_left {
   text-align: left;
 }
 
-#oqzklaowfh .gt_center {
+#jhudhogiuz .gt_center {
   text-align: center;
 }
 
-#oqzklaowfh .gt_right {
+#jhudhogiuz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#oqzklaowfh .gt_font_normal {
+#jhudhogiuz .gt_font_normal {
   font-weight: normal;
 }
 
-#oqzklaowfh .gt_font_bold {
+#jhudhogiuz .gt_font_bold {
   font-weight: bold;
 }
 
-#oqzklaowfh .gt_font_italic {
+#jhudhogiuz .gt_font_italic {
   font-style: italic;
 }
 
-#oqzklaowfh .gt_super {
+#jhudhogiuz .gt_super {
   font-size: 65%;
 }
 
-#oqzklaowfh .gt_footnote_marks {
+#jhudhogiuz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#oqzklaowfh .gt_asterisk {
+#jhudhogiuz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#oqzklaowfh .gt_indent_1 {
+#jhudhogiuz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#oqzklaowfh .gt_indent_2 {
+#jhudhogiuz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#oqzklaowfh .gt_indent_3 {
+#jhudhogiuz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#oqzklaowfh .gt_indent_4 {
+#jhudhogiuz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#oqzklaowfh .gt_indent_5 {
+#jhudhogiuz .gt_indent_5 {
   text-indent: 25px;
 }
 
-#oqzklaowfh .katex-display {
+#jhudhogiuz .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#oqzklaowfh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jhudhogiuz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1341,23 +1335,23 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <h2 class="anchored" data-anchor-id="patients-followed-at-least-5-years">3.2 Patients followed at least 5 years</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="cufwvlfzoi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cufwvlfzoi table {
+<div id="wxbipnunhv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wxbipnunhv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cufwvlfzoi thead, #cufwvlfzoi tbody, #cufwvlfzoi tfoot, #cufwvlfzoi tr, #cufwvlfzoi td, #cufwvlfzoi th {
+#wxbipnunhv thead, #wxbipnunhv tbody, #wxbipnunhv tfoot, #wxbipnunhv tr, #wxbipnunhv td, #wxbipnunhv th {
   border-style: none;
 }
 
-#cufwvlfzoi p {
+#wxbipnunhv p {
   margin: 0;
   padding: 0;
 }
 
-#cufwvlfzoi .gt_table {
+#wxbipnunhv .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1383,12 +1377,12 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-left-color: #D3D3D3;
 }
 
-#cufwvlfzoi .gt_caption {
+#wxbipnunhv .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cufwvlfzoi .gt_title {
+#wxbipnunhv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1400,7 +1394,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-width: 0;
 }
 
-#cufwvlfzoi .gt_subtitle {
+#wxbipnunhv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1412,7 +1406,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-width: 0;
 }
 
-#cufwvlfzoi .gt_heading {
+#wxbipnunhv .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1424,13 +1418,13 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#cufwvlfzoi .gt_bottom_border {
+#wxbipnunhv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cufwvlfzoi .gt_col_headings {
+#wxbipnunhv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1445,7 +1439,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#cufwvlfzoi .gt_col_heading {
+#wxbipnunhv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1465,7 +1459,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#cufwvlfzoi .gt_column_spanner_outer {
+#wxbipnunhv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1477,15 +1471,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 4px;
 }
 
-#cufwvlfzoi .gt_column_spanner_outer:first-child {
+#wxbipnunhv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cufwvlfzoi .gt_column_spanner_outer:last-child {
+#wxbipnunhv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cufwvlfzoi .gt_column_spanner {
+#wxbipnunhv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1497,11 +1491,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   width: 100%;
 }
 
-#cufwvlfzoi .gt_spanner_row {
+#wxbipnunhv .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cufwvlfzoi .gt_group_heading {
+#wxbipnunhv .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1527,7 +1521,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   text-align: left;
 }
 
-#cufwvlfzoi .gt_empty_group_heading {
+#wxbipnunhv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1542,15 +1536,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: middle;
 }
 
-#cufwvlfzoi .gt_from_md > :first-child {
+#wxbipnunhv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cufwvlfzoi .gt_from_md > :last-child {
+#wxbipnunhv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cufwvlfzoi .gt_row {
+#wxbipnunhv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1569,7 +1563,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#cufwvlfzoi .gt_stub {
+#wxbipnunhv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1582,7 +1576,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#cufwvlfzoi .gt_stub_row_group {
+#wxbipnunhv .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1596,15 +1590,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: top;
 }
 
-#cufwvlfzoi .gt_row_group_first td {
+#wxbipnunhv .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cufwvlfzoi .gt_row_group_first th {
+#wxbipnunhv .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cufwvlfzoi .gt_summary_row {
+#wxbipnunhv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1614,16 +1608,16 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#cufwvlfzoi .gt_first_summary_row {
+#wxbipnunhv .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cufwvlfzoi .gt_first_summary_row.thick {
+#wxbipnunhv .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cufwvlfzoi .gt_last_summary_row {
+#wxbipnunhv .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1633,7 +1627,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#cufwvlfzoi .gt_grand_summary_row {
+#wxbipnunhv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1643,7 +1637,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#cufwvlfzoi .gt_first_grand_summary_row {
+#wxbipnunhv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1653,7 +1647,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-color: #D3D3D3;
 }
 
-#cufwvlfzoi .gt_last_grand_summary_row_top {
+#wxbipnunhv .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1663,11 +1657,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#cufwvlfzoi .gt_striped {
+#wxbipnunhv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cufwvlfzoi .gt_table_body {
+#wxbipnunhv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1676,7 +1670,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#cufwvlfzoi .gt_footnotes {
+#wxbipnunhv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1690,7 +1684,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#cufwvlfzoi .gt_footnote {
+#wxbipnunhv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1699,7 +1693,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#cufwvlfzoi .gt_sourcenotes {
+#wxbipnunhv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1713,7 +1707,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#cufwvlfzoi .gt_sourcenote {
+#wxbipnunhv .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1721,72 +1715,72 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#cufwvlfzoi .gt_left {
+#wxbipnunhv .gt_left {
   text-align: left;
 }
 
-#cufwvlfzoi .gt_center {
+#wxbipnunhv .gt_center {
   text-align: center;
 }
 
-#cufwvlfzoi .gt_right {
+#wxbipnunhv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cufwvlfzoi .gt_font_normal {
+#wxbipnunhv .gt_font_normal {
   font-weight: normal;
 }
 
-#cufwvlfzoi .gt_font_bold {
+#wxbipnunhv .gt_font_bold {
   font-weight: bold;
 }
 
-#cufwvlfzoi .gt_font_italic {
+#wxbipnunhv .gt_font_italic {
   font-style: italic;
 }
 
-#cufwvlfzoi .gt_super {
+#wxbipnunhv .gt_super {
   font-size: 65%;
 }
 
-#cufwvlfzoi .gt_footnote_marks {
+#wxbipnunhv .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cufwvlfzoi .gt_asterisk {
+#wxbipnunhv .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cufwvlfzoi .gt_indent_1 {
+#wxbipnunhv .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cufwvlfzoi .gt_indent_2 {
+#wxbipnunhv .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cufwvlfzoi .gt_indent_3 {
+#wxbipnunhv .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cufwvlfzoi .gt_indent_4 {
+#wxbipnunhv .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cufwvlfzoi .gt_indent_5 {
+#wxbipnunhv .gt_indent_5 {
   text-indent: 25px;
 }
 
-#cufwvlfzoi .katex-display {
+#wxbipnunhv .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#cufwvlfzoi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#wxbipnunhv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2199,23 +2193,23 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <h2 class="anchored" data-anchor-id="fine-gray-unadjusted-published-section-8.1">4.1 Fine-Gray, unadjusted (published section 8.1)</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="iwynqhhzak" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#iwynqhhzak table {
+<div id="xnlkvreuqb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xnlkvreuqb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#iwynqhhzak thead, #iwynqhhzak tbody, #iwynqhhzak tfoot, #iwynqhhzak tr, #iwynqhhzak td, #iwynqhhzak th {
+#xnlkvreuqb thead, #xnlkvreuqb tbody, #xnlkvreuqb tfoot, #xnlkvreuqb tr, #xnlkvreuqb td, #xnlkvreuqb th {
   border-style: none;
 }
 
-#iwynqhhzak p {
+#xnlkvreuqb p {
   margin: 0;
   padding: 0;
 }
 
-#iwynqhhzak .gt_table {
+#xnlkvreuqb .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2241,12 +2235,12 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-left-color: #D3D3D3;
 }
 
-#iwynqhhzak .gt_caption {
+#xnlkvreuqb .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#iwynqhhzak .gt_title {
+#xnlkvreuqb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2258,7 +2252,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-width: 0;
 }
 
-#iwynqhhzak .gt_subtitle {
+#xnlkvreuqb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2270,7 +2264,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-width: 0;
 }
 
-#iwynqhhzak .gt_heading {
+#xnlkvreuqb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2282,13 +2276,13 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#iwynqhhzak .gt_bottom_border {
+#xnlkvreuqb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#iwynqhhzak .gt_col_headings {
+#xnlkvreuqb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2303,7 +2297,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#iwynqhhzak .gt_col_heading {
+#xnlkvreuqb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2323,7 +2317,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#iwynqhhzak .gt_column_spanner_outer {
+#xnlkvreuqb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2335,15 +2329,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 4px;
 }
 
-#iwynqhhzak .gt_column_spanner_outer:first-child {
+#xnlkvreuqb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#iwynqhhzak .gt_column_spanner_outer:last-child {
+#xnlkvreuqb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#iwynqhhzak .gt_column_spanner {
+#xnlkvreuqb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2355,11 +2349,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   width: 100%;
 }
 
-#iwynqhhzak .gt_spanner_row {
+#xnlkvreuqb .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#iwynqhhzak .gt_group_heading {
+#xnlkvreuqb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2385,7 +2379,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   text-align: left;
 }
 
-#iwynqhhzak .gt_empty_group_heading {
+#xnlkvreuqb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2400,15 +2394,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: middle;
 }
 
-#iwynqhhzak .gt_from_md > :first-child {
+#xnlkvreuqb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#iwynqhhzak .gt_from_md > :last-child {
+#xnlkvreuqb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#iwynqhhzak .gt_row {
+#xnlkvreuqb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2427,7 +2421,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#iwynqhhzak .gt_stub {
+#xnlkvreuqb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2440,7 +2434,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#iwynqhhzak .gt_stub_row_group {
+#xnlkvreuqb .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2454,15 +2448,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: top;
 }
 
-#iwynqhhzak .gt_row_group_first td {
+#xnlkvreuqb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#iwynqhhzak .gt_row_group_first th {
+#xnlkvreuqb .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#iwynqhhzak .gt_summary_row {
+#xnlkvreuqb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2472,16 +2466,16 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#iwynqhhzak .gt_first_summary_row {
+#xnlkvreuqb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#iwynqhhzak .gt_first_summary_row.thick {
+#xnlkvreuqb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#iwynqhhzak .gt_last_summary_row {
+#xnlkvreuqb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2491,7 +2485,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#iwynqhhzak .gt_grand_summary_row {
+#xnlkvreuqb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2501,7 +2495,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#iwynqhhzak .gt_first_grand_summary_row {
+#xnlkvreuqb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2511,7 +2505,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-color: #D3D3D3;
 }
 
-#iwynqhhzak .gt_last_grand_summary_row_top {
+#xnlkvreuqb .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2521,11 +2515,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#iwynqhhzak .gt_striped {
+#xnlkvreuqb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#iwynqhhzak .gt_table_body {
+#xnlkvreuqb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2534,7 +2528,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#iwynqhhzak .gt_footnotes {
+#xnlkvreuqb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2548,7 +2542,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#iwynqhhzak .gt_footnote {
+#xnlkvreuqb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2557,7 +2551,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#iwynqhhzak .gt_sourcenotes {
+#xnlkvreuqb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2571,7 +2565,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#iwynqhhzak .gt_sourcenote {
+#xnlkvreuqb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2579,72 +2573,72 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#iwynqhhzak .gt_left {
+#xnlkvreuqb .gt_left {
   text-align: left;
 }
 
-#iwynqhhzak .gt_center {
+#xnlkvreuqb .gt_center {
   text-align: center;
 }
 
-#iwynqhhzak .gt_right {
+#xnlkvreuqb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#iwynqhhzak .gt_font_normal {
+#xnlkvreuqb .gt_font_normal {
   font-weight: normal;
 }
 
-#iwynqhhzak .gt_font_bold {
+#xnlkvreuqb .gt_font_bold {
   font-weight: bold;
 }
 
-#iwynqhhzak .gt_font_italic {
+#xnlkvreuqb .gt_font_italic {
   font-style: italic;
 }
 
-#iwynqhhzak .gt_super {
+#xnlkvreuqb .gt_super {
   font-size: 65%;
 }
 
-#iwynqhhzak .gt_footnote_marks {
+#xnlkvreuqb .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#iwynqhhzak .gt_asterisk {
+#xnlkvreuqb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#iwynqhhzak .gt_indent_1 {
+#xnlkvreuqb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#iwynqhhzak .gt_indent_2 {
+#xnlkvreuqb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#iwynqhhzak .gt_indent_3 {
+#xnlkvreuqb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#iwynqhhzak .gt_indent_4 {
+#xnlkvreuqb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#iwynqhhzak .gt_indent_5 {
+#xnlkvreuqb .gt_indent_5 {
   text-indent: 25px;
 }
 
-#iwynqhhzak .katex-display {
+#xnlkvreuqb .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#iwynqhhzak div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xnlkvreuqb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2976,23 +2970,23 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <h2 class="anchored" data-anchor-id="fine-gray-adjusted-published-section-8.4-with-statins">4.2 Fine-Gray, adjusted (published section 8.4, with statins)</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="vgkjxymoue" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vgkjxymoue table {
+<div id="cfokirjmgj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cfokirjmgj table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vgkjxymoue thead, #vgkjxymoue tbody, #vgkjxymoue tfoot, #vgkjxymoue tr, #vgkjxymoue td, #vgkjxymoue th {
+#cfokirjmgj thead, #cfokirjmgj tbody, #cfokirjmgj tfoot, #cfokirjmgj tr, #cfokirjmgj td, #cfokirjmgj th {
   border-style: none;
 }
 
-#vgkjxymoue p {
+#cfokirjmgj p {
   margin: 0;
   padding: 0;
 }
 
-#vgkjxymoue .gt_table {
+#cfokirjmgj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3018,12 +3012,12 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-left-color: #D3D3D3;
 }
 
-#vgkjxymoue .gt_caption {
+#cfokirjmgj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vgkjxymoue .gt_title {
+#cfokirjmgj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3035,7 +3029,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-width: 0;
 }
 
-#vgkjxymoue .gt_subtitle {
+#cfokirjmgj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3047,7 +3041,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-width: 0;
 }
 
-#vgkjxymoue .gt_heading {
+#cfokirjmgj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3059,13 +3053,13 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#vgkjxymoue .gt_bottom_border {
+#cfokirjmgj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vgkjxymoue .gt_col_headings {
+#cfokirjmgj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3080,7 +3074,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#vgkjxymoue .gt_col_heading {
+#cfokirjmgj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3100,7 +3094,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#vgkjxymoue .gt_column_spanner_outer {
+#cfokirjmgj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3112,15 +3106,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 4px;
 }
 
-#vgkjxymoue .gt_column_spanner_outer:first-child {
+#cfokirjmgj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vgkjxymoue .gt_column_spanner_outer:last-child {
+#cfokirjmgj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vgkjxymoue .gt_column_spanner {
+#cfokirjmgj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3132,11 +3126,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   width: 100%;
 }
 
-#vgkjxymoue .gt_spanner_row {
+#cfokirjmgj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vgkjxymoue .gt_group_heading {
+#cfokirjmgj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3162,7 +3156,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   text-align: left;
 }
 
-#vgkjxymoue .gt_empty_group_heading {
+#cfokirjmgj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3177,15 +3171,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: middle;
 }
 
-#vgkjxymoue .gt_from_md > :first-child {
+#cfokirjmgj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vgkjxymoue .gt_from_md > :last-child {
+#cfokirjmgj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vgkjxymoue .gt_row {
+#cfokirjmgj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3204,7 +3198,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#vgkjxymoue .gt_stub {
+#cfokirjmgj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3217,7 +3211,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#vgkjxymoue .gt_stub_row_group {
+#cfokirjmgj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3231,15 +3225,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: top;
 }
 
-#vgkjxymoue .gt_row_group_first td {
+#cfokirjmgj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vgkjxymoue .gt_row_group_first th {
+#cfokirjmgj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vgkjxymoue .gt_summary_row {
+#cfokirjmgj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3249,16 +3243,16 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#vgkjxymoue .gt_first_summary_row {
+#cfokirjmgj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vgkjxymoue .gt_first_summary_row.thick {
+#cfokirjmgj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vgkjxymoue .gt_last_summary_row {
+#cfokirjmgj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3268,7 +3262,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#vgkjxymoue .gt_grand_summary_row {
+#cfokirjmgj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3278,7 +3272,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#vgkjxymoue .gt_first_grand_summary_row {
+#cfokirjmgj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3288,7 +3282,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-color: #D3D3D3;
 }
 
-#vgkjxymoue .gt_last_grand_summary_row_top {
+#cfokirjmgj .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3298,11 +3292,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#vgkjxymoue .gt_striped {
+#cfokirjmgj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vgkjxymoue .gt_table_body {
+#cfokirjmgj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3311,7 +3305,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#vgkjxymoue .gt_footnotes {
+#cfokirjmgj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3325,7 +3319,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#vgkjxymoue .gt_footnote {
+#cfokirjmgj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3334,7 +3328,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#vgkjxymoue .gt_sourcenotes {
+#cfokirjmgj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3348,7 +3342,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#vgkjxymoue .gt_sourcenote {
+#cfokirjmgj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3356,72 +3350,72 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#vgkjxymoue .gt_left {
+#cfokirjmgj .gt_left {
   text-align: left;
 }
 
-#vgkjxymoue .gt_center {
+#cfokirjmgj .gt_center {
   text-align: center;
 }
 
-#vgkjxymoue .gt_right {
+#cfokirjmgj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vgkjxymoue .gt_font_normal {
+#cfokirjmgj .gt_font_normal {
   font-weight: normal;
 }
 
-#vgkjxymoue .gt_font_bold {
+#cfokirjmgj .gt_font_bold {
   font-weight: bold;
 }
 
-#vgkjxymoue .gt_font_italic {
+#cfokirjmgj .gt_font_italic {
   font-style: italic;
 }
 
-#vgkjxymoue .gt_super {
+#cfokirjmgj .gt_super {
   font-size: 65%;
 }
 
-#vgkjxymoue .gt_footnote_marks {
+#cfokirjmgj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vgkjxymoue .gt_asterisk {
+#cfokirjmgj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vgkjxymoue .gt_indent_1 {
+#cfokirjmgj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vgkjxymoue .gt_indent_2 {
+#cfokirjmgj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vgkjxymoue .gt_indent_3 {
+#cfokirjmgj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vgkjxymoue .gt_indent_4 {
+#cfokirjmgj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vgkjxymoue .gt_indent_5 {
+#cfokirjmgj .gt_indent_5 {
   text-indent: 25px;
 }
 
-#vgkjxymoue .katex-display {
+#cfokirjmgj .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#vgkjxymoue div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#cfokirjmgj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3640,23 +3634,23 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <h2 class="anchored" data-anchor-id="cause-specific-cox-unadjusted-published-section-9.1">4.3 Cause-specific Cox, unadjusted (published section 9.1)</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="lxlhdtudjk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lxlhdtudjk table {
+<div id="jdkntluxir" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jdkntluxir table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lxlhdtudjk thead, #lxlhdtudjk tbody, #lxlhdtudjk tfoot, #lxlhdtudjk tr, #lxlhdtudjk td, #lxlhdtudjk th {
+#jdkntluxir thead, #jdkntluxir tbody, #jdkntluxir tfoot, #jdkntluxir tr, #jdkntluxir td, #jdkntluxir th {
   border-style: none;
 }
 
-#lxlhdtudjk p {
+#jdkntluxir p {
   margin: 0;
   padding: 0;
 }
 
-#lxlhdtudjk .gt_table {
+#jdkntluxir .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3682,12 +3676,12 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-left-color: #D3D3D3;
 }
 
-#lxlhdtudjk .gt_caption {
+#jdkntluxir .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lxlhdtudjk .gt_title {
+#jdkntluxir .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3699,7 +3693,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-width: 0;
 }
 
-#lxlhdtudjk .gt_subtitle {
+#jdkntluxir .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3711,7 +3705,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-width: 0;
 }
 
-#lxlhdtudjk .gt_heading {
+#jdkntluxir .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3723,13 +3717,13 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#lxlhdtudjk .gt_bottom_border {
+#jdkntluxir .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lxlhdtudjk .gt_col_headings {
+#jdkntluxir .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3744,7 +3738,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#lxlhdtudjk .gt_col_heading {
+#jdkntluxir .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3764,7 +3758,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#lxlhdtudjk .gt_column_spanner_outer {
+#jdkntluxir .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3776,15 +3770,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 4px;
 }
 
-#lxlhdtudjk .gt_column_spanner_outer:first-child {
+#jdkntluxir .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lxlhdtudjk .gt_column_spanner_outer:last-child {
+#jdkntluxir .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lxlhdtudjk .gt_column_spanner {
+#jdkntluxir .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3796,11 +3790,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   width: 100%;
 }
 
-#lxlhdtudjk .gt_spanner_row {
+#jdkntluxir .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lxlhdtudjk .gt_group_heading {
+#jdkntluxir .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3826,7 +3820,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   text-align: left;
 }
 
-#lxlhdtudjk .gt_empty_group_heading {
+#jdkntluxir .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3841,15 +3835,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: middle;
 }
 
-#lxlhdtudjk .gt_from_md > :first-child {
+#jdkntluxir .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lxlhdtudjk .gt_from_md > :last-child {
+#jdkntluxir .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lxlhdtudjk .gt_row {
+#jdkntluxir .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3868,7 +3862,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#lxlhdtudjk .gt_stub {
+#jdkntluxir .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3881,7 +3875,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#lxlhdtudjk .gt_stub_row_group {
+#jdkntluxir .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3895,15 +3889,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: top;
 }
 
-#lxlhdtudjk .gt_row_group_first td {
+#jdkntluxir .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lxlhdtudjk .gt_row_group_first th {
+#jdkntluxir .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lxlhdtudjk .gt_summary_row {
+#jdkntluxir .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3913,16 +3907,16 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#lxlhdtudjk .gt_first_summary_row {
+#jdkntluxir .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lxlhdtudjk .gt_first_summary_row.thick {
+#jdkntluxir .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lxlhdtudjk .gt_last_summary_row {
+#jdkntluxir .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3932,7 +3926,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#lxlhdtudjk .gt_grand_summary_row {
+#jdkntluxir .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3942,7 +3936,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#lxlhdtudjk .gt_first_grand_summary_row {
+#jdkntluxir .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3952,7 +3946,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-color: #D3D3D3;
 }
 
-#lxlhdtudjk .gt_last_grand_summary_row_top {
+#jdkntluxir .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3962,11 +3956,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#lxlhdtudjk .gt_striped {
+#jdkntluxir .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lxlhdtudjk .gt_table_body {
+#jdkntluxir .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3975,7 +3969,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#lxlhdtudjk .gt_footnotes {
+#jdkntluxir .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3989,7 +3983,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#lxlhdtudjk .gt_footnote {
+#jdkntluxir .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3998,7 +3992,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#lxlhdtudjk .gt_sourcenotes {
+#jdkntluxir .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4012,7 +4006,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#lxlhdtudjk .gt_sourcenote {
+#jdkntluxir .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4020,72 +4014,72 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#lxlhdtudjk .gt_left {
+#jdkntluxir .gt_left {
   text-align: left;
 }
 
-#lxlhdtudjk .gt_center {
+#jdkntluxir .gt_center {
   text-align: center;
 }
 
-#lxlhdtudjk .gt_right {
+#jdkntluxir .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lxlhdtudjk .gt_font_normal {
+#jdkntluxir .gt_font_normal {
   font-weight: normal;
 }
 
-#lxlhdtudjk .gt_font_bold {
+#jdkntluxir .gt_font_bold {
   font-weight: bold;
 }
 
-#lxlhdtudjk .gt_font_italic {
+#jdkntluxir .gt_font_italic {
   font-style: italic;
 }
 
-#lxlhdtudjk .gt_super {
+#jdkntluxir .gt_super {
   font-size: 65%;
 }
 
-#lxlhdtudjk .gt_footnote_marks {
+#jdkntluxir .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lxlhdtudjk .gt_asterisk {
+#jdkntluxir .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lxlhdtudjk .gt_indent_1 {
+#jdkntluxir .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lxlhdtudjk .gt_indent_2 {
+#jdkntluxir .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lxlhdtudjk .gt_indent_3 {
+#jdkntluxir .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lxlhdtudjk .gt_indent_4 {
+#jdkntluxir .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lxlhdtudjk .gt_indent_5 {
+#jdkntluxir .gt_indent_5 {
   text-indent: 25px;
 }
 
-#lxlhdtudjk .katex-display {
+#jdkntluxir .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#lxlhdtudjk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jdkntluxir div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -4368,23 +4362,23 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <h2 class="anchored" data-anchor-id="cause-specific-cox-adjusted-published-section-9.4-with-statins">4.4 Cause-specific Cox, adjusted (published section 9.4, with statins)</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="suwybstevf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#suwybstevf table {
+<div id="qqzfuranvi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#qqzfuranvi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#suwybstevf thead, #suwybstevf tbody, #suwybstevf tfoot, #suwybstevf tr, #suwybstevf td, #suwybstevf th {
+#qqzfuranvi thead, #qqzfuranvi tbody, #qqzfuranvi tfoot, #qqzfuranvi tr, #qqzfuranvi td, #qqzfuranvi th {
   border-style: none;
 }
 
-#suwybstevf p {
+#qqzfuranvi p {
   margin: 0;
   padding: 0;
 }
 
-#suwybstevf .gt_table {
+#qqzfuranvi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4410,12 +4404,12 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-left-color: #D3D3D3;
 }
 
-#suwybstevf .gt_caption {
+#qqzfuranvi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#suwybstevf .gt_title {
+#qqzfuranvi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4427,7 +4421,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-width: 0;
 }
 
-#suwybstevf .gt_subtitle {
+#qqzfuranvi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4439,7 +4433,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-width: 0;
 }
 
-#suwybstevf .gt_heading {
+#qqzfuranvi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4451,13 +4445,13 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#suwybstevf .gt_bottom_border {
+#qqzfuranvi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#suwybstevf .gt_col_headings {
+#qqzfuranvi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4472,7 +4466,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#suwybstevf .gt_col_heading {
+#qqzfuranvi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4492,7 +4486,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#suwybstevf .gt_column_spanner_outer {
+#qqzfuranvi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4504,15 +4498,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 4px;
 }
 
-#suwybstevf .gt_column_spanner_outer:first-child {
+#qqzfuranvi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#suwybstevf .gt_column_spanner_outer:last-child {
+#qqzfuranvi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#suwybstevf .gt_column_spanner {
+#qqzfuranvi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4524,11 +4518,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   width: 100%;
 }
 
-#suwybstevf .gt_spanner_row {
+#qqzfuranvi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#suwybstevf .gt_group_heading {
+#qqzfuranvi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4554,7 +4548,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   text-align: left;
 }
 
-#suwybstevf .gt_empty_group_heading {
+#qqzfuranvi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4569,15 +4563,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: middle;
 }
 
-#suwybstevf .gt_from_md > :first-child {
+#qqzfuranvi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#suwybstevf .gt_from_md > :last-child {
+#qqzfuranvi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#suwybstevf .gt_row {
+#qqzfuranvi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4596,7 +4590,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#suwybstevf .gt_stub {
+#qqzfuranvi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4609,7 +4603,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#suwybstevf .gt_stub_row_group {
+#qqzfuranvi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4623,15 +4617,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: top;
 }
 
-#suwybstevf .gt_row_group_first td {
+#qqzfuranvi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#suwybstevf .gt_row_group_first th {
+#qqzfuranvi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#suwybstevf .gt_summary_row {
+#qqzfuranvi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4641,16 +4635,16 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#suwybstevf .gt_first_summary_row {
+#qqzfuranvi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#suwybstevf .gt_first_summary_row.thick {
+#qqzfuranvi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#suwybstevf .gt_last_summary_row {
+#qqzfuranvi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4660,7 +4654,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#suwybstevf .gt_grand_summary_row {
+#qqzfuranvi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4670,7 +4664,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#suwybstevf .gt_first_grand_summary_row {
+#qqzfuranvi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4680,7 +4674,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-color: #D3D3D3;
 }
 
-#suwybstevf .gt_last_grand_summary_row_top {
+#qqzfuranvi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4690,11 +4684,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#suwybstevf .gt_striped {
+#qqzfuranvi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#suwybstevf .gt_table_body {
+#qqzfuranvi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4703,7 +4697,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#suwybstevf .gt_footnotes {
+#qqzfuranvi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4717,7 +4711,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#suwybstevf .gt_footnote {
+#qqzfuranvi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4726,7 +4720,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#suwybstevf .gt_sourcenotes {
+#qqzfuranvi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4740,7 +4734,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#suwybstevf .gt_sourcenote {
+#qqzfuranvi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4748,72 +4742,72 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#suwybstevf .gt_left {
+#qqzfuranvi .gt_left {
   text-align: left;
 }
 
-#suwybstevf .gt_center {
+#qqzfuranvi .gt_center {
   text-align: center;
 }
 
-#suwybstevf .gt_right {
+#qqzfuranvi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#suwybstevf .gt_font_normal {
+#qqzfuranvi .gt_font_normal {
   font-weight: normal;
 }
 
-#suwybstevf .gt_font_bold {
+#qqzfuranvi .gt_font_bold {
   font-weight: bold;
 }
 
-#suwybstevf .gt_font_italic {
+#qqzfuranvi .gt_font_italic {
   font-style: italic;
 }
 
-#suwybstevf .gt_super {
+#qqzfuranvi .gt_super {
   font-size: 65%;
 }
 
-#suwybstevf .gt_footnote_marks {
+#qqzfuranvi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#suwybstevf .gt_asterisk {
+#qqzfuranvi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#suwybstevf .gt_indent_1 {
+#qqzfuranvi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#suwybstevf .gt_indent_2 {
+#qqzfuranvi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#suwybstevf .gt_indent_3 {
+#qqzfuranvi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#suwybstevf .gt_indent_4 {
+#qqzfuranvi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#suwybstevf .gt_indent_5 {
+#qqzfuranvi .gt_indent_5 {
   text-indent: 25px;
 }
 
-#suwybstevf .katex-display {
+#qqzfuranvi .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#suwybstevf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#qqzfuranvi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -5258,19 +5252,6 @@ Table&nbsp;4: Patients with an AKI prior to or concurrent with the CKD composite
 </figure>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>On “451”
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The published figure is <strong>450</strong>, not 451 — 450 / 1,110 = 40.5%, which rounds to the 41% reported. No committed dataset reproduces 451.</p>
-</div>
-</div>
 <section id="kdigo-grade" class="level2">
 <h2 class="anchored" data-anchor-id="kdigo-grade">6.1 KDIGO grade</h2>
 <p><strong>AKI is the published definition, unchanged.</strong> A rise to &gt;1.5-fold the median creatinine over the preceding 90 days, or a rise of &gt;0.3 mg/dL over the lowest creatinine in the preceding 48 hours, evaluated across all creatinine values in follow-up. The 450 below is the published figure.</p>
@@ -5279,14 +5260,13 @@ Table&nbsp;4: Patients with an AKI prior to or concurrent with the CKD composite
 <div id="tbl-kdigo" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-kdigo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;5: KDIGO grade, peak across the AKI episode, staged against the pre-ICI baseline creatinine. No patient is unstageable because detection and staging share that reference.
+Table&nbsp;5: KDIGO grade among the 450, peak across the AKI episode, graded against the pre-ICI baseline creatinine.
 </figcaption>
 <div aria-describedby="tbl-kdigo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Population</th>
 <th style="text-align: left;">KDIGO grade</th>
 <th style="text-align: right;">N</th>
 <th style="text-align: right;">%</th>
@@ -5294,52 +5274,24 @@ Table&nbsp;5: KDIGO grade, peak across the AKI episode, staged against the pre-I
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">AKI before/concurrent with CKD</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: right;">223</td>
 <td style="text-align: right;">49.6</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">AKI before/concurrent with CKD</td>
 <td style="text-align: left;">2</td>
 <td style="text-align: right;">104</td>
 <td style="text-align: right;">23.1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">AKI before/concurrent with CKD</td>
 <td style="text-align: left;">3</td>
 <td style="text-align: right;">75</td>
 <td style="text-align: right;">16.7</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">AKI before/concurrent with CKD</td>
-<td style="text-align: left;">unstageable</td>
+<td style="text-align: left;">no grade</td>
 <td style="text-align: right;">48</td>
 <td style="text-align: right;">10.7</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">All patients with AKI</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">2760</td>
-<td style="text-align: right;">54.1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">All patients with AKI</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: right;">861</td>
-<td style="text-align: right;">16.9</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">All patients with AKI</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">514</td>
-<td style="text-align: right;">10.1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">All patients with AKI</td>
-<td style="text-align: left;">unstageable</td>
-<td style="text-align: right;">965</td>
-<td style="text-align: right;">18.9</td>
 </tr>
 </tbody>
 </table>
