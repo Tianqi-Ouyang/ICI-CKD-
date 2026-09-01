@@ -116,7 +116,7 @@
     "href": "revision.html#corticosteroids-within-30-days-after-the-aki",
     "title": "ICI → CKD — Revision",
     "section": "6.2 Corticosteroids within 30 days after the AKI",
-    "text": "6.2 Corticosteroids within 30 days after the AKI\n\n\n\n\nTable 8: Steroid treatment by AKI severity.\n\n\n\n\n\n\nMetric\nN\n%\n\n\n\n\nAKI-&gt;CKD patients\n450\n100.0\n\n\nwith a systemic steroid within 30d after AKI\n217\n48.2\n\n\n\n\n\n\n\n\nSetting\nN\n\n\n\n\nOutpatient\n163\n\n\nInpatient\n119\n\n\nOutpatient-Emergency\nNA\n\n\n\n\n\n\n\n\nKDIGO stage\nN\nOn steroid\n%\n\n\n\n\n1\n223\n103\n46.2\n\n\n2\n104\n50\n48.1\n\n\n3\n75\n42\n56.0\n\n\nunstageable\n48\n22\n45.8"
+    "text": "6.2 Corticosteroids within 30 days after the AKI\n\n\n\n\nTable 8: Systemic corticosteroid dispensing in the 30 days following the AKI date.\n\n\n\n\n\n\nMetric\nN\n%\n\n\n\n\nAKI-&gt;CKD patients\n450\n100.0\n\n\nwith a systemic steroid within 30d after AKI\n217\n48.2\n\n\n\n\n\n\n\n\nPatient-level medication detail — drug name, order date, days from the AKI, care setting, route, and KDIGO grade — is in aki_steroid_kdigo.xlsx (450 rows). That file contains EMPI and is kept local; it is not part of this site."
   },
   {
     "objectID": "revision.html#cohort",
