@@ -4,7 +4,7 @@
     "href": "revision.html",
     "title": "ICI → CKD — Revision",
     "section": "",
-    "text": "NoteAbout this page\n\n\n\nThis page is additive. The Analysis tab and the published dataset are untouched — nothing here overwrites a published number. Every figure that moves is shown as as-published vs corrected so the effect of each fix is visible.\nDerivation runs locally (R/revision_build*.R, which read RPDR extracts that stay on this machine) and caches aggregates to cache/revision/ (gitignored). This page renders from that cache only: aggregate results, no patient-level row, cells below 11 suppressed."
+    "text": "NoteAbout this page\n\n\n\nThis page is additive. The Analysis tab and the published dataset are untouched — nothing here overwrites a published number. Every figure that moves is shown as as-published vs corrected so the effect of each fix is visible."
   },
   {
     "objectID": "revision.html#baseline-creatinine-and-egfr",
