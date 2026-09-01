@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tianqi Ouyang">
-<meta name="dcterms.date" content="2026-08-20">
+<meta name="dcterms.date" content="2026-08-28">
 
 <title>ICI → CKD — Revision – ICI → CKD Cohort Study</title>
 <style>
@@ -180,8 +180,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#competing-risk-models-on-corrected-data" id="toc-competing-risk-models-on-corrected-data" class="nav-link" data-scroll-target="#competing-risk-models-on-corrected-data">4 Competing-risk models on corrected data</a>
   <ul class="collapse">
-  <li><a href="#finegray-subdistribution-model" id="toc-finegray-subdistribution-model" class="nav-link" data-scroll-target="#finegray-subdistribution-model">4.1 Fine–Gray subdistribution model</a></li>
-  <li><a href="#cause-specific-cox-model" id="toc-cause-specific-cox-model" class="nav-link" data-scroll-target="#cause-specific-cox-model">4.2 Cause-specific Cox model</a></li>
+  <li><a href="#fine-gray-unadjusted-published-section-8.1" id="toc-fine-gray-unadjusted-published-section-8.1" class="nav-link" data-scroll-target="#fine-gray-unadjusted-published-section-8.1">4.1 Fine-Gray, unadjusted (published section 8.1)</a></li>
+  <li><a href="#fine-gray-adjusted-published-section-8.4-with-statins" id="toc-fine-gray-adjusted-published-section-8.4-with-statins" class="nav-link" data-scroll-target="#fine-gray-adjusted-published-section-8.4-with-statins">4.2 Fine-Gray, adjusted (published section 8.4, with statins)</a></li>
+  <li><a href="#cause-specific-cox-unadjusted-published-section-9.1" id="toc-cause-specific-cox-unadjusted-published-section-9.1" class="nav-link" data-scroll-target="#cause-specific-cox-unadjusted-published-section-9.1">4.3 Cause-specific Cox, unadjusted (published section 9.1)</a></li>
+  <li><a href="#cause-specific-cox-adjusted-published-section-9.4-with-statins" id="toc-cause-specific-cox-adjusted-published-section-9.4-with-statins" class="nav-link" data-scroll-target="#cause-specific-cox-adjusted-published-section-9.4-with-statins">4.4 Cause-specific Cox, adjusted (published section 9.4, with statins)</a></li>
   </ul></li>
   <li><a href="#reviewer-request-1-a-less-strict-ckd-incidence-definition" id="toc-reviewer-request-1-a-less-strict-ckd-incidence-definition" class="nav-link" data-scroll-target="#reviewer-request-1-a-less-strict-ckd-incidence-definition">5 Reviewer request 1 — a less strict CKD incidence definition</a>
   <ul class="collapse">
@@ -192,7 +194,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#kdigo-grade" id="toc-kdigo-grade" class="nav-link" data-scroll-target="#kdigo-grade">6.1 KDIGO grade</a></li>
   <li><a href="#corticosteroids-within-30-days-after-the-aki" id="toc-corticosteroids-within-30-days-after-the-aki" class="nav-link" data-scroll-target="#corticosteroids-within-30-days-after-the-aki">6.2 Corticosteroids within 30 days after the AKI</a></li>
   </ul></li>
-  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">7 Limitations</a></li>
+  <li><a href="#reviewer-request-3-cystatin-c-in-the-five-year-survivors" id="toc-reviewer-request-3-cystatin-c-in-the-five-year-survivors" class="nav-link" data-scroll-target="#reviewer-request-3-cystatin-c-in-the-five-year-survivors">7 Reviewer request 3 — cystatin C in the five-year survivors</a>
+  <ul class="collapse">
+  <li><a href="#cohort" id="toc-cohort" class="nav-link" data-scroll-target="#cohort">7.1 Cohort</a></li>
+  <li><a href="#the-three-egfr-equations" id="toc-the-three-egfr-equations" class="nav-link" data-scroll-target="#the-three-egfr-equations">7.2 The three eGFR equations</a></li>
+  <li><a href="#distribution-of-the-difference" id="toc-distribution-of-the-difference" class="nav-link" data-scroll-target="#distribution-of-the-difference">7.3 Distribution of the difference</a></li>
+  </ul></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">8 Limitations</a></li>
   </ul>
 </nav>
 </nav>
@@ -223,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 20, 2026</p>
+      <p class="date">August 28, 2026</p>
     </div>
   </div>
   
@@ -552,23 +560,23 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <h2 class="anchored" data-anchor-id="overall-cohort">3.1 Overall cohort</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="bvdgfpuzkj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bvdgfpuzkj table {
+<div id="cwkkfgzdmk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#cwkkfgzdmk table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bvdgfpuzkj thead, #bvdgfpuzkj tbody, #bvdgfpuzkj tfoot, #bvdgfpuzkj tr, #bvdgfpuzkj td, #bvdgfpuzkj th {
+#cwkkfgzdmk thead, #cwkkfgzdmk tbody, #cwkkfgzdmk tfoot, #cwkkfgzdmk tr, #cwkkfgzdmk td, #cwkkfgzdmk th {
   border-style: none;
 }
 
-#bvdgfpuzkj p {
+#cwkkfgzdmk p {
   margin: 0;
   padding: 0;
 }
 
-#bvdgfpuzkj .gt_table {
+#cwkkfgzdmk .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -594,12 +602,12 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-left-color: #D3D3D3;
 }
 
-#bvdgfpuzkj .gt_caption {
+#cwkkfgzdmk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bvdgfpuzkj .gt_title {
+#cwkkfgzdmk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -611,7 +619,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-width: 0;
 }
 
-#bvdgfpuzkj .gt_subtitle {
+#cwkkfgzdmk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -623,7 +631,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-width: 0;
 }
 
-#bvdgfpuzkj .gt_heading {
+#cwkkfgzdmk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -635,13 +643,13 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#bvdgfpuzkj .gt_bottom_border {
+#cwkkfgzdmk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bvdgfpuzkj .gt_col_headings {
+#cwkkfgzdmk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -656,7 +664,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#bvdgfpuzkj .gt_col_heading {
+#cwkkfgzdmk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -676,7 +684,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#bvdgfpuzkj .gt_column_spanner_outer {
+#cwkkfgzdmk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -688,15 +696,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 4px;
 }
 
-#bvdgfpuzkj .gt_column_spanner_outer:first-child {
+#cwkkfgzdmk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bvdgfpuzkj .gt_column_spanner_outer:last-child {
+#cwkkfgzdmk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bvdgfpuzkj .gt_column_spanner {
+#cwkkfgzdmk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -708,11 +716,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   width: 100%;
 }
 
-#bvdgfpuzkj .gt_spanner_row {
+#cwkkfgzdmk .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bvdgfpuzkj .gt_group_heading {
+#cwkkfgzdmk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -738,7 +746,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   text-align: left;
 }
 
-#bvdgfpuzkj .gt_empty_group_heading {
+#cwkkfgzdmk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -753,15 +761,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: middle;
 }
 
-#bvdgfpuzkj .gt_from_md > :first-child {
+#cwkkfgzdmk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bvdgfpuzkj .gt_from_md > :last-child {
+#cwkkfgzdmk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bvdgfpuzkj .gt_row {
+#cwkkfgzdmk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -780,7 +788,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#bvdgfpuzkj .gt_stub {
+#cwkkfgzdmk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -793,7 +801,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#bvdgfpuzkj .gt_stub_row_group {
+#cwkkfgzdmk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -807,15 +815,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: top;
 }
 
-#bvdgfpuzkj .gt_row_group_first td {
+#cwkkfgzdmk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bvdgfpuzkj .gt_row_group_first th {
+#cwkkfgzdmk .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bvdgfpuzkj .gt_summary_row {
+#cwkkfgzdmk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -825,16 +833,16 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#bvdgfpuzkj .gt_first_summary_row {
+#cwkkfgzdmk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bvdgfpuzkj .gt_first_summary_row.thick {
+#cwkkfgzdmk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bvdgfpuzkj .gt_last_summary_row {
+#cwkkfgzdmk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -844,7 +852,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#bvdgfpuzkj .gt_grand_summary_row {
+#cwkkfgzdmk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -854,7 +862,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#bvdgfpuzkj .gt_first_grand_summary_row {
+#cwkkfgzdmk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -864,7 +872,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-color: #D3D3D3;
 }
 
-#bvdgfpuzkj .gt_last_grand_summary_row_top {
+#cwkkfgzdmk .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -874,11 +882,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#bvdgfpuzkj .gt_striped {
+#cwkkfgzdmk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bvdgfpuzkj .gt_table_body {
+#cwkkfgzdmk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -887,7 +895,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#bvdgfpuzkj .gt_footnotes {
+#cwkkfgzdmk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -901,7 +909,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#bvdgfpuzkj .gt_footnote {
+#cwkkfgzdmk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -910,7 +918,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#bvdgfpuzkj .gt_sourcenotes {
+#cwkkfgzdmk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -924,7 +932,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#bvdgfpuzkj .gt_sourcenote {
+#cwkkfgzdmk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -932,72 +940,72 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#bvdgfpuzkj .gt_left {
+#cwkkfgzdmk .gt_left {
   text-align: left;
 }
 
-#bvdgfpuzkj .gt_center {
+#cwkkfgzdmk .gt_center {
   text-align: center;
 }
 
-#bvdgfpuzkj .gt_right {
+#cwkkfgzdmk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bvdgfpuzkj .gt_font_normal {
+#cwkkfgzdmk .gt_font_normal {
   font-weight: normal;
 }
 
-#bvdgfpuzkj .gt_font_bold {
+#cwkkfgzdmk .gt_font_bold {
   font-weight: bold;
 }
 
-#bvdgfpuzkj .gt_font_italic {
+#cwkkfgzdmk .gt_font_italic {
   font-style: italic;
 }
 
-#bvdgfpuzkj .gt_super {
+#cwkkfgzdmk .gt_super {
   font-size: 65%;
 }
 
-#bvdgfpuzkj .gt_footnote_marks {
+#cwkkfgzdmk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bvdgfpuzkj .gt_asterisk {
+#cwkkfgzdmk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bvdgfpuzkj .gt_indent_1 {
+#cwkkfgzdmk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bvdgfpuzkj .gt_indent_2 {
+#cwkkfgzdmk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bvdgfpuzkj .gt_indent_3 {
+#cwkkfgzdmk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bvdgfpuzkj .gt_indent_4 {
+#cwkkfgzdmk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bvdgfpuzkj .gt_indent_5 {
+#cwkkfgzdmk .gt_indent_5 {
   text-indent: 25px;
 }
 
-#bvdgfpuzkj .katex-display {
+#cwkkfgzdmk .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#bvdgfpuzkj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#cwkkfgzdmk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1329,23 +1337,23 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <h2 class="anchored" data-anchor-id="patients-followed-at-least-5-years">3.2 Patients followed at least 5 years</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="poownrwsip" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#poownrwsip table {
+<div id="atlleuqooi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#atlleuqooi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#poownrwsip thead, #poownrwsip tbody, #poownrwsip tfoot, #poownrwsip tr, #poownrwsip td, #poownrwsip th {
+#atlleuqooi thead, #atlleuqooi tbody, #atlleuqooi tfoot, #atlleuqooi tr, #atlleuqooi td, #atlleuqooi th {
   border-style: none;
 }
 
-#poownrwsip p {
+#atlleuqooi p {
   margin: 0;
   padding: 0;
 }
 
-#poownrwsip .gt_table {
+#atlleuqooi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1371,12 +1379,12 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-left-color: #D3D3D3;
 }
 
-#poownrwsip .gt_caption {
+#atlleuqooi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#poownrwsip .gt_title {
+#atlleuqooi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1388,7 +1396,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-width: 0;
 }
 
-#poownrwsip .gt_subtitle {
+#atlleuqooi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1400,7 +1408,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-width: 0;
 }
 
-#poownrwsip .gt_heading {
+#atlleuqooi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1412,13 +1420,13 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#poownrwsip .gt_bottom_border {
+#atlleuqooi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#poownrwsip .gt_col_headings {
+#atlleuqooi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1433,7 +1441,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#poownrwsip .gt_col_heading {
+#atlleuqooi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1453,7 +1461,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#poownrwsip .gt_column_spanner_outer {
+#atlleuqooi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1465,15 +1473,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 4px;
 }
 
-#poownrwsip .gt_column_spanner_outer:first-child {
+#atlleuqooi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#poownrwsip .gt_column_spanner_outer:last-child {
+#atlleuqooi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#poownrwsip .gt_column_spanner {
+#atlleuqooi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1485,11 +1493,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   width: 100%;
 }
 
-#poownrwsip .gt_spanner_row {
+#atlleuqooi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#poownrwsip .gt_group_heading {
+#atlleuqooi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1515,7 +1523,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   text-align: left;
 }
 
-#poownrwsip .gt_empty_group_heading {
+#atlleuqooi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1530,15 +1538,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: middle;
 }
 
-#poownrwsip .gt_from_md > :first-child {
+#atlleuqooi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#poownrwsip .gt_from_md > :last-child {
+#atlleuqooi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#poownrwsip .gt_row {
+#atlleuqooi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1557,7 +1565,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#poownrwsip .gt_stub {
+#atlleuqooi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1570,7 +1578,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#poownrwsip .gt_stub_row_group {
+#atlleuqooi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1584,15 +1592,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: top;
 }
 
-#poownrwsip .gt_row_group_first td {
+#atlleuqooi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#poownrwsip .gt_row_group_first th {
+#atlleuqooi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#poownrwsip .gt_summary_row {
+#atlleuqooi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1602,16 +1610,16 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#poownrwsip .gt_first_summary_row {
+#atlleuqooi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#poownrwsip .gt_first_summary_row.thick {
+#atlleuqooi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#poownrwsip .gt_last_summary_row {
+#atlleuqooi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1621,7 +1629,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#poownrwsip .gt_grand_summary_row {
+#atlleuqooi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1631,7 +1639,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#poownrwsip .gt_first_grand_summary_row {
+#atlleuqooi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1641,7 +1649,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-color: #D3D3D3;
 }
 
-#poownrwsip .gt_last_grand_summary_row_top {
+#atlleuqooi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1651,11 +1659,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#poownrwsip .gt_striped {
+#atlleuqooi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#poownrwsip .gt_table_body {
+#atlleuqooi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1664,7 +1672,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#poownrwsip .gt_footnotes {
+#atlleuqooi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1678,7 +1686,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#poownrwsip .gt_footnote {
+#atlleuqooi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1687,7 +1695,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#poownrwsip .gt_sourcenotes {
+#atlleuqooi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1701,7 +1709,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#poownrwsip .gt_sourcenote {
+#atlleuqooi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1709,72 +1717,72 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#poownrwsip .gt_left {
+#atlleuqooi .gt_left {
   text-align: left;
 }
 
-#poownrwsip .gt_center {
+#atlleuqooi .gt_center {
   text-align: center;
 }
 
-#poownrwsip .gt_right {
+#atlleuqooi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#poownrwsip .gt_font_normal {
+#atlleuqooi .gt_font_normal {
   font-weight: normal;
 }
 
-#poownrwsip .gt_font_bold {
+#atlleuqooi .gt_font_bold {
   font-weight: bold;
 }
 
-#poownrwsip .gt_font_italic {
+#atlleuqooi .gt_font_italic {
   font-style: italic;
 }
 
-#poownrwsip .gt_super {
+#atlleuqooi .gt_super {
   font-size: 65%;
 }
 
-#poownrwsip .gt_footnote_marks {
+#atlleuqooi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#poownrwsip .gt_asterisk {
+#atlleuqooi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#poownrwsip .gt_indent_1 {
+#atlleuqooi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#poownrwsip .gt_indent_2 {
+#atlleuqooi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#poownrwsip .gt_indent_3 {
+#atlleuqooi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#poownrwsip .gt_indent_4 {
+#atlleuqooi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#poownrwsip .gt_indent_5 {
+#atlleuqooi .gt_indent_5 {
   text-indent: 25px;
 }
 
-#poownrwsip .katex-display {
+#atlleuqooi .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#poownrwsip div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#atlleuqooi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2182,28 +2190,28 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 </section>
 <section id="competing-risk-models-on-corrected-data" class="level1">
 <h1>4 Competing-risk models on corrected data</h1>
-<p>The published §8 (Fine–Gray) and §9 (cause-specific Cox) re-fitted with the corrected covariates. Model specifications are unchanged — only the ascertainment of <code>ppi</code>, <code>smoking</code> and the chemotherapy agents differs.</p>
-<section id="finegray-subdistribution-model" class="level2">
-<h2 class="anchored" data-anchor-id="finegray-subdistribution-model">4.1 Fine–Gray subdistribution model</h2>
+<p>The four models the paper reports, re-fitted on the corrected covariates. Model specifications are verbatim from the published tab — only the ascertainment of <code>ppi</code>, <code>statins</code>, <code>smoking</code> and <code>nephrotoxic_chemo</code> differs (pre-ICI rather than “ever in the record”), together with the repaired AKI definition.</p>
+<section id="fine-gray-unadjusted-published-section-8.1" class="level2">
+<h2 class="anchored" data-anchor-id="fine-gray-unadjusted-published-section-8.1">4.1 Fine-Gray, unadjusted (published section 8.1)</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="ghwnabvnov" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ghwnabvnov table {
+<div id="xfhjboogct" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xfhjboogct table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ghwnabvnov thead, #ghwnabvnov tbody, #ghwnabvnov tfoot, #ghwnabvnov tr, #ghwnabvnov td, #ghwnabvnov th {
+#xfhjboogct thead, #xfhjboogct tbody, #xfhjboogct tfoot, #xfhjboogct tr, #xfhjboogct td, #xfhjboogct th {
   border-style: none;
 }
 
-#ghwnabvnov p {
+#xfhjboogct p {
   margin: 0;
   padding: 0;
 }
 
-#ghwnabvnov .gt_table {
+#xfhjboogct .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2229,12 +2237,12 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-left-color: #D3D3D3;
 }
 
-#ghwnabvnov .gt_caption {
+#xfhjboogct .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ghwnabvnov .gt_title {
+#xfhjboogct .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2246,7 +2254,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-width: 0;
 }
 
-#ghwnabvnov .gt_subtitle {
+#xfhjboogct .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2258,7 +2266,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-width: 0;
 }
 
-#ghwnabvnov .gt_heading {
+#xfhjboogct .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2270,13 +2278,13 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#ghwnabvnov .gt_bottom_border {
+#xfhjboogct .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ghwnabvnov .gt_col_headings {
+#xfhjboogct .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2291,7 +2299,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#ghwnabvnov .gt_col_heading {
+#xfhjboogct .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2311,7 +2319,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#ghwnabvnov .gt_column_spanner_outer {
+#xfhjboogct .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2323,15 +2331,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 4px;
 }
 
-#ghwnabvnov .gt_column_spanner_outer:first-child {
+#xfhjboogct .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ghwnabvnov .gt_column_spanner_outer:last-child {
+#xfhjboogct .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ghwnabvnov .gt_column_spanner {
+#xfhjboogct .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2343,11 +2351,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   width: 100%;
 }
 
-#ghwnabvnov .gt_spanner_row {
+#xfhjboogct .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ghwnabvnov .gt_group_heading {
+#xfhjboogct .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2373,7 +2381,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   text-align: left;
 }
 
-#ghwnabvnov .gt_empty_group_heading {
+#xfhjboogct .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2388,15 +2396,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: middle;
 }
 
-#ghwnabvnov .gt_from_md > :first-child {
+#xfhjboogct .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ghwnabvnov .gt_from_md > :last-child {
+#xfhjboogct .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ghwnabvnov .gt_row {
+#xfhjboogct .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2415,7 +2423,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#ghwnabvnov .gt_stub {
+#xfhjboogct .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2428,7 +2436,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#ghwnabvnov .gt_stub_row_group {
+#xfhjboogct .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2442,15 +2450,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: top;
 }
 
-#ghwnabvnov .gt_row_group_first td {
+#xfhjboogct .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ghwnabvnov .gt_row_group_first th {
+#xfhjboogct .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ghwnabvnov .gt_summary_row {
+#xfhjboogct .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2460,16 +2468,16 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#ghwnabvnov .gt_first_summary_row {
+#xfhjboogct .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ghwnabvnov .gt_first_summary_row.thick {
+#xfhjboogct .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ghwnabvnov .gt_last_summary_row {
+#xfhjboogct .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2479,7 +2487,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#ghwnabvnov .gt_grand_summary_row {
+#xfhjboogct .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2489,7 +2497,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#ghwnabvnov .gt_first_grand_summary_row {
+#xfhjboogct .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2499,7 +2507,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-color: #D3D3D3;
 }
 
-#ghwnabvnov .gt_last_grand_summary_row_top {
+#xfhjboogct .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2509,11 +2517,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#ghwnabvnov .gt_striped {
+#xfhjboogct .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ghwnabvnov .gt_table_body {
+#xfhjboogct .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2522,7 +2530,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#ghwnabvnov .gt_footnotes {
+#xfhjboogct .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2536,7 +2544,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#ghwnabvnov .gt_footnote {
+#xfhjboogct .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2545,7 +2553,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#ghwnabvnov .gt_sourcenotes {
+#xfhjboogct .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2559,7 +2567,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#ghwnabvnov .gt_sourcenote {
+#xfhjboogct .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2567,78 +2575,78 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#ghwnabvnov .gt_left {
+#xfhjboogct .gt_left {
   text-align: left;
 }
 
-#ghwnabvnov .gt_center {
+#xfhjboogct .gt_center {
   text-align: center;
 }
 
-#ghwnabvnov .gt_right {
+#xfhjboogct .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ghwnabvnov .gt_font_normal {
+#xfhjboogct .gt_font_normal {
   font-weight: normal;
 }
 
-#ghwnabvnov .gt_font_bold {
+#xfhjboogct .gt_font_bold {
   font-weight: bold;
 }
 
-#ghwnabvnov .gt_font_italic {
+#xfhjboogct .gt_font_italic {
   font-style: italic;
 }
 
-#ghwnabvnov .gt_super {
+#xfhjboogct .gt_super {
   font-size: 65%;
 }
 
-#ghwnabvnov .gt_footnote_marks {
+#xfhjboogct .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ghwnabvnov .gt_asterisk {
+#xfhjboogct .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ghwnabvnov .gt_indent_1 {
+#xfhjboogct .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ghwnabvnov .gt_indent_2 {
+#xfhjboogct .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ghwnabvnov .gt_indent_3 {
+#xfhjboogct .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ghwnabvnov .gt_indent_4 {
+#xfhjboogct .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ghwnabvnov .gt_indent_5 {
+#xfhjboogct .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ghwnabvnov .katex-display {
+#xfhjboogct .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ghwnabvnov div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xfhjboogct div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
-<caption><strong>Fine-Gray subdistribution hazards for the CKD composite, corrected covariates.</strong></caption>
+<caption><strong>Unadjusted subdistribution hazard ratios, corrected covariates.</strong></caption>
 <colgroup>
 <col style="width: 20%">
 <col style="width: 20%">
@@ -2659,109 +2667,194 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <tr class="odd">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">year_10</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">1.20</td>
-<td class="gt_row gt_center" headers="conf.low">1.13, 1.27</td>
+<td class="gt_row gt_center" headers="estimate">1.37</td>
+<td class="gt_row gt_center" headers="conf.low">1.31, 1.43</td>
 <td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">male</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.77</td>
-<td class="gt_row gt_center" headers="conf.low">0.68, 0.87</td>
+<td class="gt_row gt_center" headers="estimate">0.87</td>
+<td class="gt_row gt_center" headers="conf.low">0.78, 0.98</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.022</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Race</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Asian</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Black</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.29</td>
+<td class="gt_row gt_center" headers="conf.low">0.77, 2.17</td>
+<td class="gt_row gt_center" headers="p.value">0.340</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Other/Unknown</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.14</td>
+<td class="gt_row gt_center" headers="conf.low">0.69, 1.88</td>
+<td class="gt_row gt_center" headers="p.value">0.600</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;White</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.41</td>
+<td class="gt_row gt_center" headers="conf.low">0.96, 2.08</td>
+<td class="gt_row gt_center" headers="p.value">0.082</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">dm</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.53</td>
+<td class="gt_row gt_center" headers="conf.low">1.32, 1.76</td>
 <td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label" style="font-weight: bold">dm</td>
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">htn</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">1.31</td>
-<td class="gt_row gt_center" headers="conf.low">1.13, 1.53</td>
+<td class="gt_row gt_center" headers="estimate">1.46</td>
+<td class="gt_row gt_center" headers="conf.low">1.28, 1.66</td>
 <td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label" style="font-weight: bold">htn</td>
-<td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">1.13</td>
-<td class="gt_row gt_center" headers="conf.low">0.98, 1.31</td>
-<td class="gt_row gt_center" headers="p.value">0.10</td>
-</tr>
-<tr class="odd">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">cad</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.97</td>
-<td class="gt_row gt_center" headers="conf.low">0.84, 1.12</td>
-<td class="gt_row gt_center" headers="p.value">0.6</td>
+<td class="gt_row gt_center" headers="estimate">1.19</td>
+<td class="gt_row gt_center" headers="conf.low">1.04, 1.36</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.010</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">cirrhosis</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.78</td>
+<td class="gt_row gt_center" headers="conf.low">0.51, 1.20</td>
+<td class="gt_row gt_center" headers="p.value">0.260</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">ace_arb</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">2.08</td>
+<td class="gt_row gt_center" headers="conf.low">1.84, 2.34</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">diu</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.84</td>
+<td class="gt_row gt_center" headers="conf.low">1.62, 2.09</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">ppi</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.89</td>
-<td class="gt_row gt_center" headers="conf.low">0.78, 1.01</td>
-<td class="gt_row gt_center" headers="p.value">0.070</td>
+<td class="gt_row gt_center" headers="estimate">0.96</td>
+<td class="gt_row gt_center" headers="conf.low">0.85, 1.08</td>
+<td class="gt_row gt_center" headers="p.value">0.510</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label" style="font-weight: bold">smoking</td>
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">steroids</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.94</td>
-<td class="gt_row gt_center" headers="conf.low">0.82, 1.07</td>
-<td class="gt_row gt_center" headers="p.value">0.4</td>
+<td class="gt_row gt_center" headers="estimate">0.84</td>
+<td class="gt_row gt_center" headers="conf.low">0.74, 0.96</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.010</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label" style="font-weight: bold">eGFR_CRE_baseline_decrease_10</td>
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">smoking</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">1.12</td>
-<td class="gt_row gt_center" headers="conf.low">1.08, 1.15</td>
+<td class="gt_row gt_center" headers="estimate">1.11</td>
+<td class="gt_row gt_center" headers="conf.low">0.98, 1.25</td>
+<td class="gt_row gt_center" headers="p.value">0.100</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">statins</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.44</td>
+<td class="gt_row gt_center" headers="conf.low">1.28, 1.62</td>
 <td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">nephrotoxic_chemo</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.85</td>
+<td class="gt_row gt_center" headers="conf.low">0.75, 0.96</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.009</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">Bevacizumab</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.91</td>
-<td class="gt_row gt_center" headers="conf.low">0.70, 1.19</td>
-<td class="gt_row gt_center" headers="p.value">0.5</td>
+<td class="gt_row gt_center" headers="estimate">0.69</td>
+<td class="gt_row gt_center" headers="conf.low">0.53, 0.90</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.005</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">Cisplatin</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">1.01</td>
-<td class="gt_row gt_center" headers="conf.low">0.83, 1.23</td>
-<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
+<td class="gt_row gt_center" headers="estimate">1.02</td>
+<td class="gt_row gt_center" headers="conf.low">0.86, 1.22</td>
+<td class="gt_row gt_center" headers="p.value">0.810</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">Carboplatin</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.93</td>
-<td class="gt_row gt_center" headers="conf.low">0.79, 1.08</td>
-<td class="gt_row gt_center" headers="p.value">0.3</td>
+<td class="gt_row gt_center" headers="estimate">1.03</td>
+<td class="gt_row gt_center" headers="conf.low">0.91, 1.17</td>
+<td class="gt_row gt_center" headers="p.value">0.590</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">Pemetrexed</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">1.86</td>
-<td class="gt_row gt_center" headers="conf.low">1.52, 2.27</td>
+<td class="gt_row gt_center" headers="estimate">1.66</td>
+<td class="gt_row gt_center" headers="conf.low">1.43, 1.92</td>
 <td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">Gemcitabine</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">1.0</td>
-<td class="gt_row gt_center" headers="conf.low">0.82, 1.21</td>
-<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
+<td class="gt_row gt_center" headers="estimate">1.09</td>
+<td class="gt_row gt_center" headers="conf.low">0.92, 1.30</td>
+<td class="gt_row gt_center" headers="p.value">0.320</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">Cetuximab</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.71</td>
-<td class="gt_row gt_center" headers="conf.low">0.39, 1.27</td>
-<td class="gt_row gt_center" headers="p.value">0.2</td>
+<td class="gt_row gt_center" headers="estimate">0.42</td>
+<td class="gt_row gt_center" headers="conf.low">0.24, 0.74</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.003</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">Trastuzumab</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">1.07</td>
-<td class="gt_row gt_center" headers="conf.low">0.70, 1.64</td>
-<td class="gt_row gt_center" headers="p.value">0.8</td>
+<td class="gt_row gt_center" headers="estimate">0.77</td>
+<td class="gt_row gt_center" headers="conf.low">0.51, 1.16</td>
+<td class="gt_row gt_center" headers="p.value">0.210</td>
 </tr>
 <tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">eGFR_CRE_baseline_decrease_10</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.20</td>
+<td class="gt_row gt_center" headers="conf.low">1.18, 1.23</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">ICI_Class</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
 <td class="gt_row gt_center" headers="estimate"><br>
@@ -2771,7 +2864,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <td class="gt_row gt_center" headers="p.value"><br>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;CTLA4</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
@@ -2780,31 +2873,31 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <td class="gt_row gt_center" headers="p.value"><br>
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Combination</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
-<td class="gt_row gt_center" headers="estimate">0.86</td>
-<td class="gt_row gt_center" headers="conf.low">0.64, 1.17</td>
-<td class="gt_row gt_center" headers="p.value">0.3</td>
+<td class="gt_row gt_center" headers="estimate">0.88</td>
+<td class="gt_row gt_center" headers="conf.low">0.65, 1.20</td>
+<td class="gt_row gt_center" headers="p.value">0.420</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;PD1</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
-<td class="gt_row gt_center" headers="estimate">0.78</td>
-<td class="gt_row gt_center" headers="conf.low">0.59, 1.02</td>
-<td class="gt_row gt_center" headers="p.value">0.065</td>
+<td class="gt_row gt_center" headers="estimate">0.82</td>
+<td class="gt_row gt_center" headers="conf.low">0.63, 1.06</td>
+<td class="gt_row gt_center" headers="p.value">0.130</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;PDL1</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
-<td class="gt_row gt_center" headers="estimate">0.83</td>
-<td class="gt_row gt_center" headers="conf.low">0.61, 1.12</td>
-<td class="gt_row gt_center" headers="p.value">0.2</td>
+<td class="gt_row gt_center" headers="estimate">0.91</td>
+<td class="gt_row gt_center" headers="conf.low">0.68, 1.22</td>
+<td class="gt_row gt_center" headers="p.value">0.520</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">cancer_group</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
 <td class="gt_row gt_center" headers="estimate"><br>
@@ -2814,7 +2907,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <td class="gt_row gt_center" headers="p.value"><br>
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;cutaneous / melanoma</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
@@ -2823,52 +2916,45 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <td class="gt_row gt_center" headers="p.value"><br>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gi</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
-<td class="gt_row gt_center" headers="estimate">0.90</td>
-<td class="gt_row gt_center" headers="conf.low">0.71, 1.14</td>
-<td class="gt_row gt_center" headers="p.value">0.4</td>
+<td class="gt_row gt_center" headers="estimate">0.79</td>
+<td class="gt_row gt_center" headers="conf.low">0.63, 0.98</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.036</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gu</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
-<td class="gt_row gt_center" headers="estimate">1.32</td>
-<td class="gt_row gt_center" headers="conf.low">1.06, 1.63</td>
-<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.013</td>
+<td class="gt_row gt_center" headers="estimate">1.55</td>
+<td class="gt_row gt_center" headers="conf.low">1.28, 1.88</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gyn</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
-<td class="gt_row gt_center" headers="estimate">0.77</td>
-<td class="gt_row gt_center" headers="conf.low">0.55, 1.08</td>
-<td class="gt_row gt_center" headers="p.value">0.13</td>
+<td class="gt_row gt_center" headers="estimate">0.81</td>
+<td class="gt_row gt_center" headers="conf.low">0.60, 1.11</td>
+<td class="gt_row gt_center" headers="p.value">0.200</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;other</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
-<td class="gt_row gt_center" headers="estimate">0.67</td>
-<td class="gt_row gt_center" headers="conf.low">0.54, 0.84</td>
+<td class="gt_row gt_center" headers="estimate">0.54</td>
+<td class="gt_row gt_center" headers="conf.low">0.44, 0.67</td>
 <td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;thoracic</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
-<td class="gt_row gt_center" headers="estimate">0.87</td>
-<td class="gt_row gt_center" headers="conf.low">0.70, 1.08</td>
-<td class="gt_row gt_center" headers="p.value">0.2</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="label" style="font-weight: bold">cirrhosis</td>
-<td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.83</td>
-<td class="gt_row gt_center" headers="conf.low">0.54, 1.28</td>
-<td class="gt_row gt_center" headers="p.value">0.4</td>
+<td class="gt_row gt_center" headers="estimate">1.12</td>
+<td class="gt_row gt_center" headers="conf.low">0.94, 1.33</td>
+<td class="gt_row gt_center" headers="p.value">0.200</td>
 </tr>
 </tbody><tfoot class="gt_footnotes">
 <tr class="odd">
@@ -2882,27 +2968,27 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 </div>
 </div>
 </section>
-<section id="cause-specific-cox-model" class="level2">
-<h2 class="anchored" data-anchor-id="cause-specific-cox-model">4.2 Cause-specific Cox model</h2>
+<section id="fine-gray-adjusted-published-section-8.4-with-statins" class="level2">
+<h2 class="anchored" data-anchor-id="fine-gray-adjusted-published-section-8.4-with-statins">4.2 Fine-Gray, adjusted (published section 8.4, with statins)</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="guvkfkybfw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#guvkfkybfw table {
+<div id="fucrpryfan" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fucrpryfan table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#guvkfkybfw thead, #guvkfkybfw tbody, #guvkfkybfw tfoot, #guvkfkybfw tr, #guvkfkybfw td, #guvkfkybfw th {
+#fucrpryfan thead, #fucrpryfan tbody, #fucrpryfan tfoot, #fucrpryfan tr, #fucrpryfan td, #fucrpryfan th {
   border-style: none;
 }
 
-#guvkfkybfw p {
+#fucrpryfan p {
   margin: 0;
   padding: 0;
 }
 
-#guvkfkybfw .gt_table {
+#fucrpryfan .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2928,12 +3014,12 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-left-color: #D3D3D3;
 }
 
-#guvkfkybfw .gt_caption {
+#fucrpryfan .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#guvkfkybfw .gt_title {
+#fucrpryfan .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2945,7 +3031,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-width: 0;
 }
 
-#guvkfkybfw .gt_subtitle {
+#fucrpryfan .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2957,7 +3043,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-width: 0;
 }
 
-#guvkfkybfw .gt_heading {
+#fucrpryfan .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2969,13 +3055,13 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#guvkfkybfw .gt_bottom_border {
+#fucrpryfan .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#guvkfkybfw .gt_col_headings {
+#fucrpryfan .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2990,7 +3076,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#guvkfkybfw .gt_col_heading {
+#fucrpryfan .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3010,7 +3096,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#guvkfkybfw .gt_column_spanner_outer {
+#fucrpryfan .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3022,15 +3108,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 4px;
 }
 
-#guvkfkybfw .gt_column_spanner_outer:first-child {
+#fucrpryfan .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#guvkfkybfw .gt_column_spanner_outer:last-child {
+#fucrpryfan .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#guvkfkybfw .gt_column_spanner {
+#fucrpryfan .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3042,11 +3128,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   width: 100%;
 }
 
-#guvkfkybfw .gt_spanner_row {
+#fucrpryfan .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#guvkfkybfw .gt_group_heading {
+#fucrpryfan .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3072,7 +3158,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   text-align: left;
 }
 
-#guvkfkybfw .gt_empty_group_heading {
+#fucrpryfan .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3087,15 +3173,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: middle;
 }
 
-#guvkfkybfw .gt_from_md > :first-child {
+#fucrpryfan .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#guvkfkybfw .gt_from_md > :last-child {
+#fucrpryfan .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#guvkfkybfw .gt_row {
+#fucrpryfan .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3114,7 +3200,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   overflow-x: hidden;
 }
 
-#guvkfkybfw .gt_stub {
+#fucrpryfan .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3127,7 +3213,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#guvkfkybfw .gt_stub_row_group {
+#fucrpryfan .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3141,15 +3227,15 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   vertical-align: top;
 }
 
-#guvkfkybfw .gt_row_group_first td {
+#fucrpryfan .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#guvkfkybfw .gt_row_group_first th {
+#fucrpryfan .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#guvkfkybfw .gt_summary_row {
+#fucrpryfan .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3159,16 +3245,16 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#guvkfkybfw .gt_first_summary_row {
+#fucrpryfan .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#guvkfkybfw .gt_first_summary_row.thick {
+#fucrpryfan .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#guvkfkybfw .gt_last_summary_row {
+#fucrpryfan .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3178,7 +3264,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#guvkfkybfw .gt_grand_summary_row {
+#fucrpryfan .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3188,7 +3274,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#guvkfkybfw .gt_first_grand_summary_row {
+#fucrpryfan .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3198,7 +3284,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-top-color: #D3D3D3;
 }
 
-#guvkfkybfw .gt_last_grand_summary_row_top {
+#fucrpryfan .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3208,11 +3294,11 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#guvkfkybfw .gt_striped {
+#fucrpryfan .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#guvkfkybfw .gt_table_body {
+#fucrpryfan .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3221,7 +3307,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-bottom-color: #D3D3D3;
 }
 
-#guvkfkybfw .gt_footnotes {
+#fucrpryfan .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3235,7 +3321,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#guvkfkybfw .gt_footnote {
+#fucrpryfan .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3244,7 +3330,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#guvkfkybfw .gt_sourcenotes {
+#fucrpryfan .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3258,7 +3344,7 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   border-right-color: #D3D3D3;
 }
 
-#guvkfkybfw .gt_sourcenote {
+#fucrpryfan .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3266,78 +3352,78 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
   padding-right: 5px;
 }
 
-#guvkfkybfw .gt_left {
+#fucrpryfan .gt_left {
   text-align: left;
 }
 
-#guvkfkybfw .gt_center {
+#fucrpryfan .gt_center {
   text-align: center;
 }
 
-#guvkfkybfw .gt_right {
+#fucrpryfan .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#guvkfkybfw .gt_font_normal {
+#fucrpryfan .gt_font_normal {
   font-weight: normal;
 }
 
-#guvkfkybfw .gt_font_bold {
+#fucrpryfan .gt_font_bold {
   font-weight: bold;
 }
 
-#guvkfkybfw .gt_font_italic {
+#fucrpryfan .gt_font_italic {
   font-style: italic;
 }
 
-#guvkfkybfw .gt_super {
+#fucrpryfan .gt_super {
   font-size: 65%;
 }
 
-#guvkfkybfw .gt_footnote_marks {
+#fucrpryfan .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#guvkfkybfw .gt_asterisk {
+#fucrpryfan .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#guvkfkybfw .gt_indent_1 {
+#fucrpryfan .gt_indent_1 {
   text-indent: 5px;
 }
 
-#guvkfkybfw .gt_indent_2 {
+#fucrpryfan .gt_indent_2 {
   text-indent: 10px;
 }
 
-#guvkfkybfw .gt_indent_3 {
+#fucrpryfan .gt_indent_3 {
   text-indent: 15px;
 }
 
-#guvkfkybfw .gt_indent_4 {
+#fucrpryfan .gt_indent_4 {
   text-indent: 20px;
 }
 
-#guvkfkybfw .gt_indent_5 {
+#fucrpryfan .gt_indent_5 {
   text-indent: 25px;
 }
 
-#guvkfkybfw .katex-display {
+#fucrpryfan .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#guvkfkybfw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#fucrpryfan div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
-<caption><strong>Cause-specific Cox model for the CKD composite, corrected covariates.</strong></caption>
+<caption><strong>Adjusted subdistribution hazard ratios, corrected covariates.</strong></caption>
 <colgroup>
 <col style="width: 20%">
 <col style="width: 20%">
@@ -3358,51 +3444,51 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <tr class="odd">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">year_10</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">1.32</td>
-<td class="gt_row gt_center" headers="conf.low">1.24, 1.41</td>
+<td class="gt_row gt_center" headers="estimate">1.18</td>
+<td class="gt_row gt_center" headers="conf.low">1.11, 1.25</td>
 <td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">male</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.77</td>
-<td class="gt_row gt_center" headers="conf.low">0.68, 0.88</td>
+<td class="gt_row gt_center" headers="estimate">0.75</td>
+<td class="gt_row gt_center" headers="conf.low">0.66, 0.85</td>
 <td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">dm</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">1.40</td>
-<td class="gt_row gt_center" headers="conf.low">1.20, 1.63</td>
-<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+<td class="gt_row gt_center" headers="estimate">1.29</td>
+<td class="gt_row gt_center" headers="conf.low">1.10, 1.51</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.001</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">htn</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">1.09</td>
-<td class="gt_row gt_center" headers="conf.low">0.95, 1.26</td>
-<td class="gt_row gt_center" headers="p.value">0.2</td>
+<td class="gt_row gt_center" headers="estimate">1.15</td>
+<td class="gt_row gt_center" headers="conf.low">0.99, 1.34</td>
+<td class="gt_row gt_center" headers="p.value">0.064</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">cad</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">1.06</td>
-<td class="gt_row gt_center" headers="conf.low">0.92, 1.23</td>
-<td class="gt_row gt_center" headers="p.value">0.4</td>
+<td class="gt_row gt_center" headers="estimate">0.95</td>
+<td class="gt_row gt_center" headers="conf.low">0.82, 1.10</td>
+<td class="gt_row gt_center" headers="p.value">0.5</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">ppi</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.97</td>
-<td class="gt_row gt_center" headers="conf.low">0.85, 1.10</td>
-<td class="gt_row gt_center" headers="p.value">0.6</td>
+<td class="gt_row gt_center" headers="estimate">0.91</td>
+<td class="gt_row gt_center" headers="conf.low">0.80, 1.04</td>
+<td class="gt_row gt_center" headers="p.value">0.2</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">smoking</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.92</td>
-<td class="gt_row gt_center" headers="conf.low">0.81, 1.06</td>
-<td class="gt_row gt_center" headers="p.value">0.2</td>
+<td class="gt_row gt_center" headers="estimate">0.97</td>
+<td class="gt_row gt_center" headers="conf.low">0.85, 1.11</td>
+<td class="gt_row gt_center" headers="p.value">0.7</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">eGFR_CRE_baseline_decrease_10</td>
@@ -3412,53 +3498,753 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label" style="font-weight: bold">Bevacizumab</td>
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">nephrotoxic_chemo</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.97</td>
-<td class="gt_row gt_center" headers="conf.low">0.73, 1.28</td>
-<td class="gt_row gt_center" headers="p.value">0.8</td>
+<td class="gt_row gt_center" headers="estimate">0.83</td>
+<td class="gt_row gt_center" headers="conf.low">0.72, 0.95</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.009</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label" style="font-weight: bold">Cisplatin</td>
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">statins</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.98</td>
-<td class="gt_row gt_center" headers="conf.low">0.80, 1.19</td>
+<td class="gt_row gt_center" headers="estimate">1.04</td>
+<td class="gt_row gt_center" headers="conf.low">0.91, 1.20</td>
+<td class="gt_row gt_center" headers="p.value">0.5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">ICI_Class</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;CTLA4</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Combination</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.85</td>
+<td class="gt_row gt_center" headers="conf.low">0.63, 1.15</td>
+<td class="gt_row gt_center" headers="p.value">0.3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;PD1</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.80</td>
+<td class="gt_row gt_center" headers="conf.low">0.61, 1.04</td>
+<td class="gt_row gt_center" headers="p.value">0.10</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;PDL1</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.83</td>
+<td class="gt_row gt_center" headers="conf.low">0.61, 1.13</td>
+<td class="gt_row gt_center" headers="p.value">0.2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">cancer_group</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;cutaneous / melanoma</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gi</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.96</td>
+<td class="gt_row gt_center" headers="conf.low">0.77, 1.22</td>
 <td class="gt_row gt_center" headers="p.value">0.8</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label" style="font-weight: bold">Carboplatin</td>
-<td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.99</td>
-<td class="gt_row gt_center" headers="conf.low">0.85, 1.17</td>
-<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gu</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.37</td>
+<td class="gt_row gt_center" headers="conf.low">1.11, 1.70</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.004</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label" style="font-weight: bold">Pemetrexed</td>
-<td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">1.62</td>
-<td class="gt_row gt_center" headers="conf.low">1.32, 1.98</td>
-<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="label" style="font-weight: bold">Gemcitabine</td>
-<td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">1.02</td>
-<td class="gt_row gt_center" headers="conf.low">0.84, 1.24</td>
-<td class="gt_row gt_center" headers="p.value">0.8</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="label" style="font-weight: bold">Cetuximab</td>
-<td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.74</td>
-<td class="gt_row gt_center" headers="conf.low">0.41, 1.33</td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gyn</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.83</td>
+<td class="gt_row gt_center" headers="conf.low">0.60, 1.16</td>
 <td class="gt_row gt_center" headers="p.value">0.3</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label" style="font-weight: bold">Trastuzumab</td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;other</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.68</td>
+<td class="gt_row gt_center" headers="conf.low">0.54, 0.84</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;thoracic</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.22</td>
+<td class="gt_row gt_center" headers="conf.low">1.00, 1.48</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.048</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">cirrhosis</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.97</td>
-<td class="gt_row gt_center" headers="conf.low">0.64, 1.48</td>
-<td class="gt_row gt_center" headers="p.value">0.9</td>
+<td class="gt_row gt_center" headers="estimate">0.80</td>
+<td class="gt_row gt_center" headers="conf.low">0.52, 1.24</td>
+<td class="gt_row gt_center" headers="p.value">0.3</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="5" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> HR = Hazard Ratio, CI = Confidence Interval</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="cause-specific-cox-unadjusted-published-section-9.1" class="level2">
+<h2 class="anchored" data-anchor-id="cause-specific-cox-unadjusted-published-section-9.1">4.3 Cause-specific Cox, unadjusted (published section 9.1)</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="swwulqwpbn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#swwulqwpbn table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#swwulqwpbn thead, #swwulqwpbn tbody, #swwulqwpbn tfoot, #swwulqwpbn tr, #swwulqwpbn td, #swwulqwpbn th {
+  border-style: none;
+}
+
+#swwulqwpbn p {
+  margin: 0;
+  padding: 0;
+}
+
+#swwulqwpbn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#swwulqwpbn .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#swwulqwpbn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#swwulqwpbn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#swwulqwpbn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#swwulqwpbn .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#swwulqwpbn .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#swwulqwpbn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#swwulqwpbn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#swwulqwpbn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#swwulqwpbn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#swwulqwpbn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#swwulqwpbn .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#swwulqwpbn .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#swwulqwpbn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#swwulqwpbn .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#swwulqwpbn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#swwulqwpbn .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#swwulqwpbn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#swwulqwpbn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#swwulqwpbn .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#swwulqwpbn .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#swwulqwpbn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#swwulqwpbn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#swwulqwpbn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#swwulqwpbn .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#swwulqwpbn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#swwulqwpbn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#swwulqwpbn .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#swwulqwpbn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#swwulqwpbn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#swwulqwpbn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#swwulqwpbn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#swwulqwpbn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#swwulqwpbn .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#swwulqwpbn .gt_left {
+  text-align: left;
+}
+
+#swwulqwpbn .gt_center {
+  text-align: center;
+}
+
+#swwulqwpbn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#swwulqwpbn .gt_font_normal {
+  font-weight: normal;
+}
+
+#swwulqwpbn .gt_font_bold {
+  font-weight: bold;
+}
+
+#swwulqwpbn .gt_font_italic {
+  font-style: italic;
+}
+
+#swwulqwpbn .gt_super {
+  font-size: 65%;
+}
+
+#swwulqwpbn .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#swwulqwpbn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#swwulqwpbn .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#swwulqwpbn .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#swwulqwpbn .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#swwulqwpbn .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#swwulqwpbn .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#swwulqwpbn .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#swwulqwpbn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<caption><strong>Unadjusted cause-specific hazard ratios, corrected covariates.</strong></caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings header">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="stat_n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>N</strong></th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>HR</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>95% CI</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">year_10</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.50</td>
+<td class="gt_row gt_center" headers="conf.low">1.42, 1.58</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">male</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.89</td>
+<td class="gt_row gt_center" headers="conf.low">0.79, 1.00</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.046</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">Race</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Asian</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Black</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.29</td>
+<td class="gt_row gt_center" headers="conf.low">0.76, 2.17</td>
+<td class="gt_row gt_center" headers="p.value">0.3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Other/Unknown</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.00</td>
+<td class="gt_row gt_center" headers="conf.low">0.61, 1.65</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;White</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.22</td>
+<td class="gt_row gt_center" headers="conf.low">0.83, 1.81</td>
+<td class="gt_row gt_center" headers="p.value">0.3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">dm</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.81</td>
+<td class="gt_row gt_center" headers="conf.low">1.57, 2.09</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">htn</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.64</td>
+<td class="gt_row gt_center" headers="conf.low">1.44, 1.86</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">cad</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.46</td>
+<td class="gt_row gt_center" headers="conf.low">1.28, 1.66</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">cirrhosis</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.11</td>
+<td class="gt_row gt_center" headers="conf.low">0.72, 1.71</td>
+<td class="gt_row gt_center" headers="p.value">0.6</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">ace_arb</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.98</td>
+<td class="gt_row gt_center" headers="conf.low">1.75, 2.23</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">diu</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">2.07</td>
+<td class="gt_row gt_center" headers="conf.low">1.82, 2.35</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">ppi</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.19</td>
+<td class="gt_row gt_center" headers="conf.low">1.06, 1.34</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.004</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">steroids</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.96</td>
+<td class="gt_row gt_center" headers="conf.low">0.84, 1.09</td>
+<td class="gt_row gt_center" headers="p.value">0.5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">smoking</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.24</td>
+<td class="gt_row gt_center" headers="conf.low">1.10, 1.39</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">statins</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.55</td>
+<td class="gt_row gt_center" headers="conf.low">1.38, 1.75</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">nephrotoxic_chemo</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.08</td>
+<td class="gt_row gt_center" headers="conf.low">0.96, 1.23</td>
+<td class="gt_row gt_center" headers="p.value">0.2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">eGFR_CRE_baseline_decrease_10</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.23</td>
+<td class="gt_row gt_center" headers="conf.low">1.20, 1.27</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">ICI_Class</td>
@@ -3483,25 +4269,25 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Combination</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
-<td class="gt_row gt_center" headers="estimate">0.88</td>
-<td class="gt_row gt_center" headers="conf.low">0.65, 1.20</td>
-<td class="gt_row gt_center" headers="p.value">0.4</td>
+<td class="gt_row gt_center" headers="estimate">0.94</td>
+<td class="gt_row gt_center" headers="conf.low">0.69, 1.28</td>
+<td class="gt_row gt_center" headers="p.value">0.7</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;PD1</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
-<td class="gt_row gt_center" headers="estimate">0.78</td>
-<td class="gt_row gt_center" headers="conf.low">0.59, 1.02</td>
-<td class="gt_row gt_center" headers="p.value">0.072</td>
+<td class="gt_row gt_center" headers="estimate">0.98</td>
+<td class="gt_row gt_center" headers="conf.low">0.75, 1.28</td>
+<td class="gt_row gt_center" headers="p.value">0.9</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;PDL1</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
-<td class="gt_row gt_center" headers="estimate">0.72</td>
-<td class="gt_row gt_center" headers="conf.low">0.53, 0.98</td>
-<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.039</td>
+<td class="gt_row gt_center" headers="estimate">1.09</td>
+<td class="gt_row gt_center" headers="conf.low">0.81, 1.47</td>
+<td class="gt_row gt_center" headers="p.value">0.6</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">cancer_group</td>
@@ -3526,48 +4312,705 @@ Table&nbsp;1: Baseline medication and comorbidity flags, N = 17,718.
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gi</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
-<td class="gt_row gt_center" headers="estimate">1.73</td>
-<td class="gt_row gt_center" headers="conf.low">1.36, 2.20</td>
+<td class="gt_row gt_center" headers="estimate">1.63</td>
+<td class="gt_row gt_center" headers="conf.low">1.30, 2.03</td>
 <td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gu</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
-<td class="gt_row gt_center" headers="estimate">1.75</td>
-<td class="gt_row gt_center" headers="conf.low">1.42, 2.17</td>
+<td class="gt_row gt_center" headers="estimate">2.08</td>
+<td class="gt_row gt_center" headers="conf.low">1.71, 2.53</td>
 <td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gyn</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
-<td class="gt_row gt_center" headers="estimate">1.12</td>
-<td class="gt_row gt_center" headers="conf.low">0.79, 1.61</td>
-<td class="gt_row gt_center" headers="p.value">0.5</td>
+<td class="gt_row gt_center" headers="estimate">1.22</td>
+<td class="gt_row gt_center" headers="conf.low">0.89, 1.67</td>
+<td class="gt_row gt_center" headers="p.value">0.2</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;other</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
-<td class="gt_row gt_center" headers="estimate">1.01</td>
-<td class="gt_row gt_center" headers="conf.low">0.81, 1.27</td>
-<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
+<td class="gt_row gt_center" headers="estimate">0.79</td>
+<td class="gt_row gt_center" headers="conf.low">0.64, 0.98</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.030</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;thoracic</td>
 <td class="gt_row gt_center" headers="stat_n"><br>
 </td>
-<td class="gt_row gt_center" headers="estimate">1.44</td>
-<td class="gt_row gt_center" headers="conf.low">1.15, 1.80</td>
-<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.001</td>
+<td class="gt_row gt_center" headers="estimate">1.86</td>
+<td class="gt_row gt_center" headers="conf.low">1.56, 2.22</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+</tbody><tfoot class="gt_footnotes">
+<tr class="odd">
+<td colspan="5" class="gt_footnote"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> HR = Hazard Ratio, CI = Confidence Interval</td>
+</tr>
+</tfoot>
+
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="cause-specific-cox-adjusted-published-section-9.4-with-statins" class="level2">
+<h2 class="anchored" data-anchor-id="cause-specific-cox-adjusted-published-section-9.4-with-statins">4.4 Cause-specific Cox, adjusted (published section 9.4, with statins)</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="atrecwbncp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#atrecwbncp table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#atrecwbncp thead, #atrecwbncp tbody, #atrecwbncp tfoot, #atrecwbncp tr, #atrecwbncp td, #atrecwbncp th {
+  border-style: none;
+}
+
+#atrecwbncp p {
+  margin: 0;
+  padding: 0;
+}
+
+#atrecwbncp .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#atrecwbncp .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#atrecwbncp .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#atrecwbncp .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#atrecwbncp .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#atrecwbncp .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#atrecwbncp .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#atrecwbncp .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#atrecwbncp .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#atrecwbncp .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#atrecwbncp .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#atrecwbncp .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#atrecwbncp .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#atrecwbncp .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#atrecwbncp .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#atrecwbncp .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#atrecwbncp .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#atrecwbncp .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#atrecwbncp .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#atrecwbncp .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#atrecwbncp .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#atrecwbncp .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#atrecwbncp .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#atrecwbncp .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#atrecwbncp .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#atrecwbncp .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#atrecwbncp .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#atrecwbncp .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#atrecwbncp .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#atrecwbncp .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#atrecwbncp .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#atrecwbncp .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#atrecwbncp .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#atrecwbncp .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#atrecwbncp .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#atrecwbncp .gt_left {
+  text-align: left;
+}
+
+#atrecwbncp .gt_center {
+  text-align: center;
+}
+
+#atrecwbncp .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#atrecwbncp .gt_font_normal {
+  font-weight: normal;
+}
+
+#atrecwbncp .gt_font_bold {
+  font-weight: bold;
+}
+
+#atrecwbncp .gt_font_italic {
+  font-style: italic;
+}
+
+#atrecwbncp .gt_super {
+  font-size: 65%;
+}
+
+#atrecwbncp .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#atrecwbncp .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#atrecwbncp .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#atrecwbncp .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#atrecwbncp .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#atrecwbncp .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#atrecwbncp .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#atrecwbncp .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#atrecwbncp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<caption><strong>Adjusted cause-specific hazard ratios, corrected covariates.</strong></caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="gt_col_headings header">
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
+<th id="stat_n" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>N</strong></th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>HR</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="conf.low" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>95% CI</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col"><strong>p-value</strong></th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">year_10</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.31</td>
+<td class="gt_row gt_center" headers="conf.low">1.23, 1.40</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
 </tr>
 <tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">male</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.77</td>
+<td class="gt_row gt_center" headers="conf.low">0.68, 0.87</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">dm</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.40</td>
+<td class="gt_row gt_center" headers="conf.low">1.20, 1.64</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">htn</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.12</td>
+<td class="gt_row gt_center" headers="conf.low">0.96, 1.29</td>
+<td class="gt_row gt_center" headers="p.value">0.14</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">cad</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.06</td>
+<td class="gt_row gt_center" headers="conf.low">0.91, 1.23</td>
+<td class="gt_row gt_center" headers="p.value">0.4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">ppi</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.98</td>
+<td class="gt_row gt_center" headers="conf.low">0.86, 1.12</td>
+<td class="gt_row gt_center" headers="p.value">0.8</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">smoking</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.95</td>
+<td class="gt_row gt_center" headers="conf.low">0.83, 1.08</td>
+<td class="gt_row gt_center" headers="p.value">0.4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">eGFR_CRE_baseline_decrease_10</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">1.11</td>
+<td class="gt_row gt_center" headers="conf.low">1.08, 1.15</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">nephrotoxic_chemo</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.92</td>
+<td class="gt_row gt_center" headers="conf.low">0.80, 1.06</td>
+<td class="gt_row gt_center" headers="p.value">0.2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">statins</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate">0.98</td>
+<td class="gt_row gt_center" headers="conf.low">0.85, 1.13</td>
+<td class="gt_row gt_center" headers="p.value">0.8</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">ICI_Class</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;CTLA4</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Combination</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.88</td>
+<td class="gt_row gt_center" headers="conf.low">0.64, 1.19</td>
+<td class="gt_row gt_center" headers="p.value">0.4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;PD1</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.80</td>
+<td class="gt_row gt_center" headers="conf.low">0.61, 1.05</td>
+<td class="gt_row gt_center" headers="p.value">0.10</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;PDL1</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">0.72</td>
+<td class="gt_row gt_center" headers="conf.low">0.53, 0.99</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">0.043</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label" style="font-weight: bold">cancer_group</td>
+<td class="gt_row gt_center" headers="stat_n">17,718</td>
+<td class="gt_row gt_center" headers="estimate"><br>
+</td>
+<td class="gt_row gt_center" headers="conf.low"><br>
+</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;cutaneous / melanoma</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">—</td>
+<td class="gt_row gt_center" headers="conf.low">—</td>
+<td class="gt_row gt_center" headers="p.value"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gi</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.80</td>
+<td class="gt_row gt_center" headers="conf.low">1.42, 2.29</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gu</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.79</td>
+<td class="gt_row gt_center" headers="conf.low">1.45, 2.21</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;gyn</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.20</td>
+<td class="gt_row gt_center" headers="conf.low">0.86, 1.69</td>
+<td class="gt_row gt_center" headers="p.value">0.3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;other</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.01</td>
+<td class="gt_row gt_center" headers="conf.low">0.81, 1.26</td>
+<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;thoracic</td>
+<td class="gt_row gt_center" headers="stat_n"><br>
+</td>
+<td class="gt_row gt_center" headers="estimate">1.89</td>
+<td class="gt_row gt_center" headers="conf.low">1.55, 2.31</td>
+<td class="gt_row gt_center" headers="p.value" style="font-weight: bold">&lt;0.001</td>
+</tr>
+<tr class="odd">
 <td class="gt_row gt_left" headers="label" style="font-weight: bold">cirrhosis</td>
 <td class="gt_row gt_center" headers="stat_n">17,718</td>
-<td class="gt_row gt_center" headers="estimate">0.99</td>
-<td class="gt_row gt_center" headers="conf.low">0.63, 1.54</td>
-<td class="gt_row gt_center" headers="p.value">&gt;0.9</td>
+<td class="gt_row gt_center" headers="estimate">0.94</td>
+<td class="gt_row gt_center" headers="conf.low">0.60, 1.47</td>
+<td class="gt_row gt_center" headers="p.value">0.8</td>
 </tr>
 </tbody><tfoot class="gt_footnotes">
 <tr class="odd">
@@ -3967,9 +5410,228 @@ Table&nbsp;6: Steroid treatment by AKI severity.
 </div>
 </section>
 </section>
+<section id="reviewer-request-3-cystatin-c-in-the-five-year-survivors" class="level1">
+<h1>7 Reviewer request 3 — cystatin C in the five-year survivors</h1>
+<p>The reviewer asked about patients with a simultaneous cystatin C and creatinine. The scope here is deliberately narrow: <strong>only</strong> the patients followed at least five years who met the primary outcome, and <strong>only</strong> labs drawn between the ICI start date (day 0) and year 5.</p>
+<p>Both analytes come from a single RPDR extract requested for this question, whose <code>Group_Id</code> takes two values — <code>CRE</code> and <code>CYSTATC</code> (LOINC 33863-2, mg/L) — so the two halves of every pair share a source and a date basis.</p>
+<section id="cohort" class="level2">
+<h2 class="anchored" data-anchor-id="cohort">7.1 Cohort</h2>
+<div class="cell">
+<div id="tbl-cys-ledger" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cys-ledger-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;7: Patients followed at least 5 years who met the primary outcome, narrowed to those with a same-day creatinine and cystatin C between day 0 and year 5.
+</figcaption>
+<div aria-describedby="tbl-cys-ledger-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Step</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: left;">% of 256</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Followed &gt;= 5 years and met the primary outcome</td>
+<td style="text-align: right;">256</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Of those, &gt;= 1 cystatin C between day 0 and year 5</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: left;">12.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Of those, &gt;= 1 same-day creatinine + cystatin C pair</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: left;">12.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Same-day pair-days contributed by those patients</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Where a patient had more than one creatinine on a given day, that day’s <strong>median</strong> is used — 824 patient-days carry more than one creatinine, and pairing without collapsing first would duplicate them. No patient-day carries more than one cystatin C. A patient contributing several pair-days is reduced to a single value by averaging across their pairs, so each of the 31 counts once.</p>
+</section>
+<section id="the-three-egfr-equations" class="level2">
+<h2 class="anchored" data-anchor-id="the-three-egfr-equations">7.2 The three eGFR equations</h2>
+<p>CKD-EPI 2021 creatinine, CKD-EPI 2021 combined creatinine–cystatin C, and cystatin C alone. All three use <code>age_ici</code>, one age per patient, as everywhere else in this project.</p>
+<div class="cell">
+<div id="tbl-cys-egfr" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cys-egfr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;8: eGFR (ml/min/1.73 m2) among the 31 patients with a same-day pair. Diff columns are paired within-person differences.
+</figcaption>
+<div aria-describedby="tbl-cys-egfr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 18%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Statistic</th>
+<th style="text-align: left;">eGFR cr</th>
+<th style="text-align: left;">eGFR cr-cys</th>
+<th style="text-align: left;">eGFR cys</th>
+<th style="text-align: left;">Diff (cr-cys - cr)</th>
+<th style="text-align: left;">Diff (cys - cr)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mean (SD)</td>
+<td style="text-align: left;">49.1 (16.6)</td>
+<td style="text-align: left;">45.2 (16.4)</td>
+<td style="text-align: left;">39.8 (17.2)</td>
+<td style="text-align: left;">-3.8 (8.3)</td>
+<td style="text-align: left;">-9.3 (13.5)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Median (IQR)</td>
+<td style="text-align: left;">51.8 (32.7, 59.3)</td>
+<td style="text-align: left;">44.3 (31.9, 58.3)</td>
+<td style="text-align: left;">37.4 (26.2, 47.8)</td>
+<td style="text-align: left;">-3.4 (-7.5, 0.5)</td>
+<td style="text-align: left;">-6.6 (-17.3, -2.2)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<div id="tbl-cys-neg" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cys-neg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9: Share of patients for whom adding cystatin C revises estimated function downward.
+</figcaption>
+<div aria-describedby="tbl-cys-neg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Contrast</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: right;">N below zero</th>
+<th style="text-align: right;">%</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">eGFR cr-cys - eGFR cr</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">71.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">eGFR cys - eGFR cr</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">83.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Adding cystatin C lowers the estimate in the large majority of these patients, and the cystatin-alone equation lowers it further still. The unit of analysis does not change that conclusion:</p>
+<div class="cell">
+<div id="tbl-cys-sens" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cys-sens-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;10: Difference between eGFR cr-cys and eGFR cr under three choices of unit of analysis. The primary row gives every patient equal weight; the pooled row lets the most heavily tested patients dominate.
+</figcaption>
+<div aria-describedby="tbl-cys-sens-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 4%">
+<col style="width: 16%">
+<col style="width: 22%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Analysis</th>
+<th style="text-align: right;">N</th>
+<th style="text-align: left;">mean (SD)</th>
+<th style="text-align: left;">median (IQR)</th>
+<th style="text-align: right;">% negative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">per-patient mean (primary)</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: left;">-3.8 (8.3)</td>
+<td style="text-align: left;">-3.4 (-7.5, 0.5)</td>
+<td style="text-align: right;">71.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">first same-day pair per patient</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: left;">-3.6 (6.8)</td>
+<td style="text-align: left;">-2.8 (-7.2, 0.5)</td>
+<td style="text-align: right;">67.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">all same-day pairs pooled</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: left;">-1.0 (10.3)</td>
+<td style="text-align: left;">-2.4 (-5.6, 1.4)</td>
+<td style="text-align: right;">61.6</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="distribution-of-the-difference" class="level2">
+<h2 class="anchored" data-anchor-id="distribution-of-the-difference">7.3 Distribution of the difference</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-cys-hist" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cys-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="revision_files/figure-html/fig-cys-hist-1.png" class="img-fluid figure-img" width="1100">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cys-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Per-patient difference between eGFR cr-cys and eGFR cr. Values left of the line are patients whose estimated function is worse once cystatin C is included.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
 <section id="limitations" class="level1">
-<h1>7 Limitations</h1>
+<h1>8 Limitations</h1>
 <ul>
+<li><strong>The cystatin C extract ends 12/31/2025.</strong> Anything drawn after that date is not captured.</li>
+<li><strong>Cystatin C is ordered selectively.</strong> These 31 patients were tested because a clinician doubted the creatinine-based estimate, so they are not a random sample of the 256 and the difference seen here should not be generalised to the rest.</li>
 <li><strong>KDIGO stage 3 by RRT is a lower bound.</strong> The current pull contains no procedure file, so RRT is ascertained from diagnosis codes only.</li>
 <li><strong>Steroid route and dose are not available.</strong> <code>Route</code>, <code>Days_Supply</code> and <code>Dose</code> do not exist as columns; only the drug name string and care setting are usable.</li>
 <li><strong>AKI ascertainment depends on creatinine sampling.</strong> Both KDIGO rules need a prior creatinine in the lookback window, so incidence is a joint function of injury and draw frequency.</li>
@@ -4054,7 +5716,7 @@ Table&nbsp;6: Steroid treatment by AKI severity.
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/Tianqi-Ouyang\.github\.io\/ICI-CKD-\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
