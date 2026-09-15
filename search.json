@@ -137,7 +137,7 @@
     "href": "revision.html#distribution-of-the-difference",
     "title": "ICI → CKD — Revision",
     "section": "7.2 Distribution of the difference",
-    "text": "7.2 Distribution of the difference\n\n\n\n\n\n\n\n\nFigure 2: Per-patient difference between eGFR cr-cys and eGFR cr. Values left of the line are patients whose estimated function is worse once cystatin C is included.\n\n\n\n\n\n\nAggregate results only; cells below 11 suppressed. Published inputs untouched."
+    "text": "7.2 Distribution of the difference\n\n\n\n\n\n\n\n\nFigure 2: Difference between eGFR cr-cys and eGFR cr at each patient’s first matched pair. Values left of the line are patients whose estimated kidney function is lower once cystatin C is included.\n\n\n\n\n\n\nAggregate results only; cells below 11 suppressed. Published inputs untouched."
   },
   {
     "objectID": "data_management.html",
@@ -831,5 +831,12 @@
     "title": "ICI → CKD — Revision",
     "section": "7.3 First same-day pair per patient",
     "text": "7.3 First same-day pair per patient\nEach patient’s earliest same-day creatinine + cystatin C after ICI start — one pair per patient, no averaging. Same three equations, same statistics.\n\n\n\n\nTable 14: When the first pair falls.\n\n\n\n\n\n\n\nValue\n\n\n\n\npatients\n31\n\n\ndays from ICI to the first pair, median (IQR)\n1347 (956, 1694)\n\n\npatients whose first pair is within year 1\n3\n\n\n\n\n\n\n\n\n\n\n\n\nTable 15: eGFR (ml/min/1.73 m2) at each patient’s first same-day pair. Diff columns are paired within-person differences.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistic\neGFR cr\neGFR cr-cys\neGFR cys\nDiff (cr-cys - cr)\nDiff (cys - cr)\n\n\n\n\nMean (SD)\n46.6 (18.1)\n43.1 (17.4)\n37.8 (16.3)\n-3.6 (6.8)\n-8.8 (10.8)\n\n\nMedian (IQR)\n49.3 (30.2, 58.0)\n43.9 (27.1, 58.9)\n36.8 (24.9, 46.0)\n-2.8 (-7.2, 0.5)\n-6.0 (-15.9, -2.2)\n\n\n\n\n\n\n\n\n\n\n\n\nTable 16: Share of patients whose estimated function is revised downward, first pair only.\n\n\n\n\n\n\nContrast\nN\nN below zero\n%\n\n\n\n\neGFR cr-cys - eGFR cr\n31\n21\n67.7\n\n\neGFR cys - eGFR cr\n31\n26\n83.9"
+  },
+  {
+    "objectID": "revision.html#cohort-and-first-matched-pair",
+    "href": "revision.html#cohort-and-first-matched-pair",
+    "title": "ICI → CKD — Revision",
+    "section": "7.1 Cohort and first matched pair",
+    "text": "7.1 Cohort and first matched pair\n\n\n\n\nTable 9: Patients followed at least 5 years who met the primary outcome, narrowed to those with a same-day creatinine and cystatin C between day 0 and year 5.\n\n\n\n\n\n\nStep\nN\n\n\n\n\nFollowed &gt;= 5 years and met the primary outcome\n256\n\n\nOf those, &gt;= 1 cystatin C between day 0 and year 5\n32\n\n\nOf those, &gt;= 1 same-day creatinine + cystatin C pair\n31\n\n\n\n\n\n\n\n\n\n\n\n\nTable 10: How the 31 patients contribute matched pairs. A matched pair is one day on which the patient had both a creatinine and a cystatin C.\n\n\n\n\n\n\n\nN\n\n\n\n\nMatched pairs in total\n99\n\n\nPatients with exactly 1 matched pair\n13\n\n\nPatients with 2 or more matched pairs\n18\n\n\n\n\n\n\n\n\nWhere a patient had more than one creatinine on the day of a cystatin C, that day’s median creatinine is used. Cystatin C was never drawn more than once on one day. Where a patient has more than one matched pair, only the first is used, so each of the 31 contributes exactly one pair and counts once.\n\n\n\n\nTable 11: eGFR (ml/min/1.73 m2) at each patient’s first matched pair, n = 31. CKD-EPI 2021 creatinine, CKD-EPI 2021 creatinine-cystatin C, and cystatin C alone; all use age at ICI start. Diff columns are the cystatin-based estimate minus the creatinine-only estimate for the same patient on the same day.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistic\neGFR cr\neGFR cr-cys\neGFR cys\nDiff (cr-cys - cr)\nDiff (cys - cr)\n\n\n\n\nMean (SD)\n46.6 (18.1)\n43.1 (17.4)\n37.8 (16.3)\n-3.6 (6.8)\n-8.8 (10.8)\n\n\nMedian (IQR)\n49.3 (30.2, 58.0)\n43.9 (27.1, 58.9)\n36.8 (24.9, 46.0)\n-2.8 (-7.2, 0.5)\n-6.0 (-15.9, -2.2)"
   }
 ]
