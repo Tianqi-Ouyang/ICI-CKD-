@@ -136,8 +136,8 @@
     "objectID": "revision.html#distribution-of-the-difference",
     "href": "revision.html#distribution-of-the-difference",
     "title": "ICI → CKD — Revision",
-    "section": "7.3 Distribution of the difference",
-    "text": "7.3 Distribution of the difference\n\n\n\n\n\n\n\n\nFigure 2: Per-patient difference between eGFR cr-cys and eGFR cr. Values left of the line are patients whose estimated function is worse once cystatin C is included.\n\n\n\n\n\n\nAggregate results only; cells below 11 suppressed. Published inputs untouched."
+    "section": "7.4 Distribution of the difference",
+    "text": "7.4 Distribution of the difference\n\n\n\n\n\n\n\n\nFigure 2: Per-patient difference between eGFR cr-cys and eGFR cr. Values left of the line are patients whose estimated function is worse once cystatin C is included.\n\n\n\n\n\n\nAggregate results only; cells below 11 suppressed. Published inputs untouched."
   },
   {
     "objectID": "data_management.html",
@@ -824,5 +824,12 @@
     "title": "Kavita ICI CKD — Analysis",
     "section": "12.2 Cohort exclusion ledger",
     "text": "12.2 Cohort exclusion ledger\n\n\nShow code\nknitr::kable(\n  data.frame(\n    Step = c(\n      \"Raw ICI starts\",\n      \"After demographics merge\",\n      \"Remove no baseline creatinine\",\n      \"Remove pre-existing ESRD/KT or eGFR &lt; 10\",\n      \"Remove last_cre_date &lt; ICI date\",\n      \"Remove placebo arms\",\n      \"Remove pre-ICI death (RPDR error)\"),\n    `N remaining` = c(25397, 20383, 18319, 18157, 17937, 17721, 17718),\n    `N excluded at this step` = c(NA, 25397 - 20383, 20383 - 18319,\n                                  18319 - 18157, 18157 - 17937,\n                                  17937 - 17721, 17721 - 17718),\n    check.names = FALSE\n  ),\n  caption = \"Cohort exclusion ledger.\"\n)\n\n\n\nCohort exclusion ledger.\n\n\n\n\n\n\n\nStep\nN remaining\nN excluded at this step\n\n\n\n\nRaw ICI starts\n25397\nNA\n\n\nAfter demographics merge\n20383\n5014\n\n\nRemove no baseline creatinine\n18319\n2064\n\n\nRemove pre-existing ESRD/KT or eGFR &lt; 10\n18157\n162\n\n\nRemove last_cre_date &lt; ICI date\n17937\n220\n\n\nRemove placebo arms\n17721\n216\n\n\nRemove pre-ICI death (RPDR error)\n17718\n3"
+  },
+  {
+    "objectID": "revision.html#first-same-day-pair-per-patient",
+    "href": "revision.html#first-same-day-pair-per-patient",
+    "title": "ICI → CKD — Revision",
+    "section": "7.3 First same-day pair per patient",
+    "text": "7.3 First same-day pair per patient\nEach patient’s earliest same-day creatinine + cystatin C after ICI start — one pair per patient, no averaging. Same three equations, same statistics.\n\n\n\n\nTable 13: When the first pair falls.\n\n\n\n\n\n\n\nValue\n\n\n\n\npatients\n31\n\n\ndays from ICI to the first pair, median (IQR)\n1347 (956, 1694)\n\n\npatients whose first pair is within year 1\n3\n\n\n\n\n\n\n\n\n\n\n\n\nTable 14: eGFR (ml/min/1.73 m2) at each patient’s first same-day pair. Diff columns are paired within-person differences.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStatistic\neGFR cr\neGFR cr-cys\neGFR cys\nDiff (cr-cys - cr)\nDiff (cys - cr)\n\n\n\n\nMean (SD)\n46.6 (18.1)\n43.1 (17.4)\n37.8 (16.3)\n-3.6 (6.8)\n-8.8 (10.8)\n\n\nMedian (IQR)\n49.3 (30.2, 58.0)\n43.9 (27.1, 58.9)\n36.8 (24.9, 46.0)\n-2.8 (-7.2, 0.5)\n-6.0 (-15.9, -2.2)\n\n\n\n\n\n\n\n\n\n\n\n\nTable 15: Share of patients whose estimated function is revised downward, first pair only.\n\n\n\n\n\n\nContrast\nN\nN below zero\n%\n\n\n\n\neGFR cr-cys - eGFR cr\n31\n21\n67.7\n\n\neGFR cys - eGFR cr\n31\n26\n83.9"
   }
 ]
